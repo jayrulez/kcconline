@@ -1,34 +1,13 @@
+<?php
 
+// change the following paths if necessary
+$yii=dirname(__FILE__).'/../lib/yii/framework/yii.php';
+$config=dirname(__FILE__).'/protected/config/main.php';
 
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
-<html xmlns="http://www.w3.org/1999/xhtml">
-<head>
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-<style type="text/css">@import"css/master.css";</style>
-<style type="text/css">@import"css/menu.css";</style>
+// remove the following lines when in production mode
+defined('YII_DEBUG') or define('YII_DEBUG',true);
+// specify how many levels of call stack should be shown in each log message
+defined('YII_TRACE_LEVEL') or define('YII_TRACE_LEVEL',3);
 
-<title>Untitled Document</title>
-</head>
-
-<body id="BG_styles">
-<div id="main">
-
-	<div id="header">
-    </div>
-    
-    <div id="main_Content">
-    		<a href="student section.php"> Students </a>
-            <a href="teachers section.php"> Teachers </a>
-    
-        	<div id="login_Content">        
-        		
-                <p> CREATE LOGIN/ REGISTRATION FORM </p>
-                
-    		</div>
-    </div>
-    
-
-
-</div>
-</body>
-</html>
+require_once($yii);
+Yii::createWebApplication($config)->run();
