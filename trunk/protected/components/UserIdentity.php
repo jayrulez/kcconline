@@ -21,7 +21,7 @@ class UserIdentity extends CUserIdentity
 		{
 			$this->errorCode = self::ERROR_EMAIL_INVALID;
 		}else{
-			if($user->password != md5($this->password))
+			if($user->password !== UserHelper::encryptPassword($this->password))
 			{
 				$this->errorCode = self::ERROR_PASSWORD_INVALID;
 			}else{

@@ -3,11 +3,10 @@
 class WebUser extends CWebUser
 {
 	public $allowAutologin = true;
-	public $loginUrl = array();
-	public $logoutUrl = array();
-	public $registerUrl = array();
+	public $loginUrl = array('/site/login');
+	public $logoutUrl = array('/site/logout');
 	public $_model = null;
-	public $identityClass = "UserIdentity";
+	public $identityClass = 'UserIdentity';
 	
 	public function init()
 	{
@@ -18,7 +17,7 @@ class WebUser extends CWebUser
 	{
 		if(empty($this->identityClass))
 		{
-			throw new CException("Property WebUser.identityClass not specified.");
+			throw new CException('Property WebUser.identityClass not specified.');
 		}
 		
 		$className = Yii::import($this->identityClass);
@@ -30,8 +29,8 @@ class WebUser extends CWebUser
 	{
 		if($this->_model === null)
 		{
-			$this->_model = User::model()->find("uid=:id", array(
-				':id'=>$this->getId(),
+			$this->_model = User::model()->find('uid=:id', array(
+				':id' => $this->getId(),
 			));
 		}
 		
