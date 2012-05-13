@@ -2,11 +2,11 @@
 
 class WebUser extends CWebUser
 {
-	public $allowAutologin = true;
-	public $loginUrl = array('/site/login');
-	public $logoutUrl = array('/site/logout');
-	public $_model = null;
-	public $identityClass = 'UserIdentity';
+	public $allowAutoLogin = true;
+	public $loginUrl       = array('/site/login');
+	public $logoutUrl      = array('/site/logout');
+	public $_model         = null;
+	public $identityClass  = 'UserIdentity';
 	
 	public function init()
 	{

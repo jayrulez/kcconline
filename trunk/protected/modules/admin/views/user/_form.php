@@ -1,3 +1,4 @@
+			<div class="form-container">	
 				<?php echo CHtml::beginForm('','post',array('class'=>'wf')); ?>
 					<div class="header">
 						<div class="title">
@@ -55,3 +56,4 @@
 						<?php echo CHtml::submitButton($model->isNewRecord ? 'Create' : 'Save'); ?>
 					</fieldset>
 				<?php echo CHtml::endForm(); ?>
+			</div>

@@ -2,6 +2,7 @@
 
 class UserController extends Controller
 {
+	public $layout = 'application.modules.admin.views.layouts.main';
 	/**
 	 * Displays a particular model.
 	 * @param integer $id the ID of the model to be displayed
@@ -83,9 +84,18 @@ class UserController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('User');
+		Layout::addBlock('sidebar.left', array(
+			'id'=>'user_menu',
+			'content'=>$this->renderPartial('_admin_user', array(), true),
+		));
+		
+		$model=new User('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['User']))
+			$model->attributes=$_GET['User'];
+
 		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
+			'model'=>$model,
 		));
 	}
 
@@ -94,14 +104,7 @@ class UserController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new User('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['User']))
-			$model->attributes=$_GET['User'];
 
-		$this->render('admin',array(
-			'model'=>$model,
-		));
 	}
 
 	/**
