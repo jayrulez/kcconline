@@ -1,6 +1,7 @@
 -- user(uid,user_id,first_name,middle_name,last_name,dob,email,phone1,phone2,active,deleted,datetime_created,last_action,last_modified,image_url)
 -- enrollment(uid,enroll_startdatetime,enroll_enddatetime)
 -- user_course_enrollment(course_code,user_id_enrollment_id)
+-- course_instructor(course_code,user_id)
 -- role(uid,name,description)
 -- user_role(user_id,role_id)
 -- privilege(uid,name,description)
@@ -33,8 +34,8 @@
 -- submission_resource(submission_id,resource_id)
 -- course(course_code,name,category_id,description,datetime_created,last_modified,key_required,enrollment_key)
 -- category(uid,name,description)
--- resource(uid,name,type,date_uploaded,url)
-
+-- resource(uid,name,type,date_uploaded,url,description)
+-- resource_type(uid,name,description)
 
 
 
@@ -50,7 +51,7 @@ create table if not exists `user`
 `first_name` varchar(75) not null,
 `middle_name` varchar(75) default null,
 `last_name` varchar(75) not null,
-`dob` datetime,
+`dob` date,
 `email_address` varchar(252) not null,
 `password` varchar(32) not null,
 `phone1` varchar(20),
@@ -127,7 +128,7 @@ create table if not exists `user_course_enrollment`
 `enrollment_id` bigint not null,
 `user_id` bigint not null,
 `course_code` varchar(16) not null,
-constraint pk_user_enrollment primary key(`user_id`,`course_id`)
+constraint pk_user_course_en primary key(`user_id`,`course_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- course(course_code,name,category_id,description,datetime_created,last_modified,key_required,enrollment_key)
@@ -142,6 +143,14 @@ create table if not exists `course`
 `key_required` tinyint(1) default 0,
 `enrollment_key` varchar(128),
 constraint pk_course primary key(course_code)	
+)ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+-- course_instructor(course_code,user_id)
+create table if not exists `course_instructor`
+(
+`course_code` bigint not null,
+`user_id` bigint not null,
+constraint pk_course_instructor primary key(`user_id`,`course_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- category(uid,name,description)
@@ -394,7 +403,7 @@ create table if not exists `submission_resource`
 constraint pk_choice_question primary key(`resource_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
--- resource(uid,name,type,date_uploaded,url)
+-- resource(uid,name,type,date_uploaded,url,description)
 create table if not exists `resource`
 (
 `uid` bigint not null,
@@ -402,6 +411,7 @@ create table if not exists `resource`
 `type` int not null,
 `date_uploaded` datetime not null,
 `url` varchar(255),
+`description` varchar(255),
 constraint pk_resource primary key(`uid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
@@ -430,6 +440,10 @@ ALTER TABLE `user_course_enrollment`
 	ADD CONSTRAINT `fk_user_course_en_user` FOREIGN KEY (`privilege_id`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
 	ADD CONSTRAINT `fk_user_course_en_en` FOREIGN KEY (`enrollment_id`) REFERENCES `enrollment` (`uid`) ON UPDATE CASCADE ON DELETE CASCADE,
 	ADD CONSTRAINT `fk_user_course_en_course` FOREIGN KEY (`course_code`) REFERENCES `course` (`course_code`) ON UPDATE CASCADE ON DELETE CASCADE;
+	
+ALTER TABLE `course_instructor`
+	ADD CONSTRAINT `fk_course_instructor_course` FOREIGN KEY (`course_id`) REFERENCES `course` (`couse_code`) ON UPDATE CASCADE  ON DELETE CASCADE,
+	ADD CONSTRAINT `fk_course_instructor_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 	
 ALTER TABLE `message`
 	ADD CONSTRAINT `fk_message_sender` FOREIGN KEY (`sender_id`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
