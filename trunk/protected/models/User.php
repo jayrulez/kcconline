@@ -49,7 +49,7 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, first_name, last_name, email_address, password, datetime_created', 'required'),
+			array('user_id, first_name, last_name, email_address, password', 'required'),
 			array('active, deleted', 'numerical', 'integerOnly'=>true),
 			array('user_id, password', 'length', 'max'=>32),
 			array('first_name, middle_name, last_name', 'length', 'max'=>75),
@@ -81,7 +81,7 @@ class User extends CActiveRecord
 	{
 		return array(
 			'uid' => 'Uid',
-			'user_id' => 'User',
+			'user_id' => 'User Id',
 			'first_name' => 'First Name',
 			'middle_name' => 'Middle Name',
 			'last_name' => 'Last Name',
@@ -99,6 +99,31 @@ class User extends CActiveRecord
 		);
 	}
 
+	public function beforeSave()
+	{
+		if(parent::beforeSave())
+		{
+			$this->email_address = strtolower($this->email_address);
+
+			if($this->getIsNewRecord())
+			{
+				$this->password = UserHelper::encryptPassword($this->password);
+				$this->deleted = 0;
+				$this->datetime_created = new CDbExpression('now()');
+			}else{
+				$this->last_modified = new CDbExpression('now()');
+			}
+
+			return true;
+		}
+		return false;
+	}
+
+	public function afterSave()
+	{
+		parent::afterSave();
+	}
+	
 	/**
 	 * Retrieves a list of models based on the current search/filter conditions.
 	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.

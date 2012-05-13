@@ -14,3 +14,150 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/KCCOnline/index.php?r=admin/user/create
 ---
+2012/05/13 19:36:27 [error] [exception.CException] exception 'CException' with message 'Property "UserController.breadcrumbs" is not defined.' in C:\wamp\www\lib\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php(2): CComponent->__set('breadcrumbs', Array)
+#1 C:\wamp\www\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#2 C:\wamp\www\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#3 C:\wamp\www\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#4 C:\wamp\www\lib\yii\framework\web\CController.php(783): CController->renderPartial('index', Array, true)
+#5 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(133): CController->render('index', Array)
+#6 C:\wamp\www\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#7 C:\wamp\www\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\wamp\www\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\wamp\www\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(276): CController->run('')
+#16 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user')
+#17 C:\wamp\www\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#19 {main}
+REQUEST_URI=/kcconline/index.php?r=admin/user
+---
+2012/05/13 19:37:54 [error] [exception.CException] exception 'CException' with message 'Property "UserController.breadcrumbs" is not defined.' in C:\wamp\www\lib\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\kcconline\protected\modules\admin\views\user\create.php(2): CComponent->__set('breadcrumbs', Array)
+#1 C:\wamp\www\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#2 C:\wamp\www\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#3 C:\wamp\www\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#4 C:\wamp\www\lib\yii\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#5 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(36): CController->render('create', Array)
+#6 C:\wamp\www\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionCreate()
+#7 C:\wamp\www\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\wamp\www\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\wamp\www\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(276): CController->run('create')
+#16 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/crea...')
+#17 C:\wamp\www\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#19 {main}
+REQUEST_URI=/kcconline/index.php?r=admin/user/create
+---
+2012/05/13 19:38:31 [error] [exception.CException] exception 'CException' with message 'Property "UserController.breadcrumbs" is not defined.' in C:\wamp\www\lib\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\kcconline\protected\modules\admin\views\user\create.php(2): CComponent->__set('breadcrumbs', Array)
+#1 C:\wamp\www\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#2 C:\wamp\www\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#3 C:\wamp\www\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#4 C:\wamp\www\lib\yii\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#5 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(36): CController->render('create', Array)
+#6 C:\wamp\www\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionCreate()
+#7 C:\wamp\www\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\wamp\www\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\wamp\www\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(276): CController->run('create')
+#16 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/crea...')
+#17 C:\wamp\www\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#19 {main}
+REQUEST_URI=/kcconline/index.php?r=admin/user/create
+---
+2012/05/13 19:38:34 [error] [exception.CException] exception 'CException' with message 'Property "UserController.breadcrumbs" is not defined.' in C:\wamp\www\lib\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\kcconline\protected\modules\admin\views\user\create.php(2): CComponent->__set('breadcrumbs', Array)
+#1 C:\wamp\www\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#2 C:\wamp\www\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#3 C:\wamp\www\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#4 C:\wamp\www\lib\yii\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#5 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(36): CController->render('create', Array)
+#6 C:\wamp\www\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionCreate()
+#7 C:\wamp\www\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\wamp\www\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\wamp\www\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(276): CController->run('create')
+#16 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/crea...')
+#17 C:\wamp\www\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#19 {main}
+REQUEST_URI=/kcconline/index.php?r=admin/user/create
+---
+2012/05/13 19:38:54 [error] [exception.CException] exception 'CException' with message 'Property "UserController.menu" is not defined.' in C:\wamp\www\lib\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\kcconline\protected\modules\admin\views\user\create.php(3): CComponent->__set('menu', Array)
+#1 C:\wamp\www\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#2 C:\wamp\www\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#3 C:\wamp\www\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#4 C:\wamp\www\lib\yii\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#5 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(36): CController->render('create', Array)
+#6 C:\wamp\www\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionCreate()
+#7 C:\wamp\www\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 C:\wamp\www\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 C:\wamp\www\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 C:\wamp\www\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(276): CController->run('create')
+#16 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/crea...')
+#17 C:\wamp\www\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#19 {main}
+REQUEST_URI=/kcconline/index.php?r=admin/user/create
+---
+2012/05/13 20:18:07 [error] [exception.CException] exception 'CException' with message 'Property "UserController.menu" is not defined.' in C:\wamp\www\lib\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\kcconline\protected\modules\admin\views\user\view.php(2): CComponent->__set('menu', Array)
+#1 C:\wamp\www\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#2 C:\wamp\www\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#3 C:\wamp\www\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#4 C:\wamp\www\lib\yii\framework\web\CController.php(783): CController->renderPartial('view', Array, true)
+#5 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(13): CController->render('view', Array)
+#6 [internal function]: UserController->actionView('1')
+#7 C:\wamp\www\lib\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(UserController), Array)
+#8 C:\wamp\www\lib\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(UserController), Object(ReflectionMethod), Array)
+#9 C:\wamp\www\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 C:\wamp\www\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#16 C:\wamp\www\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(276): CController->run('view')
+#18 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/view')
+#19 C:\wamp\www\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#21 {main}
+REQUEST_URI=/kcconline/index.php?r=admin/user/view&id=1
+HTTP_REFERER=http://localhost/kcconline/index.php?r=admin/user/create
+---
