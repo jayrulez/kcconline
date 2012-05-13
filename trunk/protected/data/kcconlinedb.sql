@@ -273,14 +273,13 @@ constraint pk_graded_work_comment primary key(`comment_id`)
 -- quiz(uid,course_code,open_datetime,close_datetime,passkey,grade,overview,duration)
 create table if not exists `quiz`
 (
-`uid` bigint not null,
-`course_code` varchar(16) not null,
+`graded_work_id` bigint not null
 `open_datetime` datetime not null,
 `close_datetime` datetime not null,
 `passkey` varchar(128) not null,
 `overview` TEXT,
 `duration` int,
-constraint pk_quiz primary key(`uid`)
+constraint pk_quiz primary key(`graded_work_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- quiz_attempt(uid,user_id,attempt,attempt_datetime,grade,start_time,end_time)
@@ -360,9 +359,9 @@ constraint pk_letter_grade primary key(`uid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 --assignment(uid,type,name,overview,due_datetime,grade,grade_letter,posted_date,last_modified,submission_type,submissions_allow,allow_late)
-create table if not exists `assigmnet`
+create table if not exists `assignment`
 (
-`uid` bigint not null,
+`graded_work_id` bigint not null,
 `type` tinyint not null,
 `overview` TEXT,
 `due_datetime` datetime,
@@ -372,7 +371,7 @@ create table if not exists `assigmnet`
 `submission_type` tinyint,
 `submissions_allow` int,
 `allow_late` tinyint(1),
-constraint pk_assignment primary key(`uid`)
+constraint pk_assignment primary key(`graded_work_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 create table if not exists `assignment_type`
@@ -474,15 +473,16 @@ ALTER TABLE `grade_work_comment`
 	ADD CONSTRAINT `fk_grade_work_comment_work` FOREIGN KEY (`graded_work_id`) REFERENCES `graded_work` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 	
 ALTER TABLE `quiz`
-	ADD CONSTRAINT `fk_quiz_course` FOREIGN KEY (`course_code`) REFERENCES `course` (`course_code`) ON UPDATE CASCADE  ON DELETE NO ACTION;
+	ADD CONSTRAINT `fk_quiz_id` FOREIGN KEY (`graded_work_id`) REFERENCES `graded_work` (`uid`) ON UPDATE CASCADE 
+	ON DELETE CASCADE
 	
 ALTER TABLE `quiz_attempt`
 	ADD CONSTRAINT `fk_quiz_attempt_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
-	ADD CONSTRAINT `fk_quiz_attempt_quiz` FOREIGN KEY (`quiz_id`) REFERENCES `quiz` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
+	ADD CONSTRAINT `fk_quiz_attempt_quiz` FOREIGN KEY (`quiz_id`) REFERENCES `quiz` (`graded_work_id`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 	
 ALTER TABLE `quiz_question`
 	ADD CONSTRAINT `fk_quiz_question_question` FOREIGN KEY (`question_id`) REFERENCES `question` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
-	ADD CONSTRAINT `fk_quiz_question_quiz` FOREIGN KEY (`quiz_id`) REFERENCES `quiz` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
+	ADD CONSTRAINT `fk_quiz_question_quiz` FOREIGN KEY (`quiz_id`) REFERENCES `quiz` (`graded_work_id`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 	
 ALTER TABLE `choice_question`
 	ADD CONSTRAINT `fk_choice_question_question` FOREIGN KEY (`question_id`) REFERENCES `question` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
@@ -495,8 +495,12 @@ ALTER TABLE `question_choice`
 	ADD CONSTRAINT `fk_question_choice_question` FOREIGN KEY (`question_id`) REFERENCES `question` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
 	ADD CONSTRAINT `fk_question_choice_choice` FOREIGN KEY (`choice_id`) REFERENCES `choice` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 	
+ALTER TABLE `assignment`
+	ADD CONSTRAINT `fk_assignment_id` FOREIGN KEY (`graded_work_id`) REFERENCES `graded_work` (`uid`) ON UPDATE CASCADE 
+	ON DELETE CASCADE;
+	
 ALTER TABLE `assignment_submission`
-	ADD CONSTRAINT `fk_assignment_submission_ass` FOREIGN KEY (`assignment_id`) REFERENCES `assignment` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
+	ADD CONSTRAINT `fk_assignment_submission_ass` FOREIGN KEY (`assignment_id`) REFERENCES `assignment` (`graded_work_id`) ON UPDATE CASCADE  ON DELETE NO ACTION,
 	ADD CONSTRAINT `fk_assignment_submission_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 	
 ALTER TABLE `submission_resource`
