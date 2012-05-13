@@ -1,0 +1,138 @@
+#BG_styles
+{
+	background-color: #E7EBF2;
+	
+
+}
+
+
+#main
+{
+	margin-right: auto;
+	margin-left: auto;	
+	width: 1000px;
+}
+
+
+#header
+{
+	margin-right: auto;
+	margin-left: auto;
+	width: 1000px;
+	height: 110px;
+	background-color: #0E5D7B;
+	background-image: url(../images/logo.jpg);
+	background-repeat: no-repeat;
+	border: thin solid #A6B5CE;
+	
+}
+
+#main_Content
+{
+	width: 1000px;
+	margin-top: 20px;
+	margin-right: auto;
+	margin-left: auto;
+	
+}
+
+#login_Content
+{
+	height: 650px;
+	width: 550px;
+	background-color: #FFF;
+	border: thin solid #A6B5CE;
+	margin-right: auto;
+	margin-left: auto;
+	background-image: url(../images/bg.png);
+	background-repeat: repeat-x;
+}
+
+
+#side1
+{
+	float: left;
+	width: 230px;
+	position: fixed;
+	
+}
+
+#side2
+{
+	float: right;
+}
+
+#userName
+{
+	height: 40px;
+	width: 230px;
+	background-color: #064668;
+	border: thin solid #A6B5CE;
+}
+#profile
+{
+	height:150px;
+	width: 170px;
+	margin-right: auto;
+	margin-left: auto;
+	background-color: #FFF;
+	border-top-width: thin;
+	border-right-width: thin;
+	border-bottom-width: thin;
+	border-left-width: thin;
+	border-top-style: none;
+	border-right-style: solid;
+	border-bottom-style: solid;
+	border-left-style: solid;
+	border-top-color: #A6B5CE;
+	border-right-color: #A6B5CE;
+	border-bottom-color: #A6B5CE;
+	border-left-color: #A6B5CE;
+}
+
+#contentFrame
+{
+	width: 745px;
+	margin-right: auto;
+	margin-left: auto;
+	border-top-style: none;
+	border-right-style: none;
+	border-bottom-style: none;
+	border-left-style: none;
+	height: 800px;
+}
+
+#proPic
+{
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#userOptions
+{
+	height: 400px;
+	width: 230px;
+	margin-top: 20px;
+	background-color: #FFF;
+	border: thin solid #A6B5CE;
+}
+
+
+#user_Content
+{
+	height: 650px;
+	width: 750px;
+	background-color: #FFF;
+	border: thin solid #A6B5CE;
+	margin-right: auto;
+	margin-left: auto;
+	background-image: url(../images/bg.png);
+	background-repeat: repeat-x;
+}
+#mainHeadings
+{
+	height: 80px;
+	width: 750px;
+	background-color: #064668;
+	border: thin solid #A6B5CE;
+}
