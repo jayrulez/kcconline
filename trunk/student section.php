@@ -18,12 +18,12 @@
     
     <div id="main_Content">
 <div id="side1">
-        	<div id="userName">
-                	
-            </div>
+        	
         	<div id="profile">
-            	<img id ="proPic" src = "images/male.png" width = "150" height="150">
-   		</div>
+            	<img  src = "images/male.png" width = "150" height="150">
+   			</div>
+            <div  id="userName">Audley Gordon</div>
+           
   
   
   <div id="menuS" class="menu">
@@ -38,7 +38,7 @@
       </div>
         <div id="side2">
         	<div id="user_Content">        
-        		<iframe id="contentFrame" src="http://www.google.com" name = "frameContent"></iframe>
+        		<iframe id="contentFrame" src="" name = "frameContent"></iframe>
     		</div>
         </div>
     </div>

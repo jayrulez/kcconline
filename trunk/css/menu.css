@@ -16,8 +16,6 @@
 	border: thin solid #A6B5CE;
 }	
 #mainmenu{
-	
-	
 	margin-top: 20px;
 	margin-right: auto;
 	margin-bottom: 0;
@@ -25,10 +23,11 @@
 	height:auto;
 	list-style:none;
 	padding:0;
-	width: 230px;
+	width: 185px;
 	}
 	.menu li{
 	display: block;
+	height: 44px;
 	
 	
 		}
@@ -39,16 +38,11 @@
 	line-height:40px;
 	text-align:center;
 	text-decoration:none;
-	padding-top: 0px;
-	padding-right: 25px;
-	padding-bottom: 0px;
-	padding-left: 25px;
 	font-size: 18px;
 	margin-top: 8px;
-	margin-right: 8px;
-	margin-left: 8px;
 	background-color: #FFF;
-	border: thin solid #A6B5CE;	
+	border: thin solid #A6B5CE;
+	width: 185px;
 		}
 		.menu li a:hover{
 	color:#FFF;

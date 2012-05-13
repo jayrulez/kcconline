@@ -9,8 +9,8 @@
 #main
 {
 	margin-right: auto;
-	margin-left: auto;	
-	width: 1000px;
+	margin-left: auto;
+	width: 1170px;
 }
 
 
@@ -18,7 +18,6 @@
 {
 	margin-right: auto;
 	margin-left: auto;
-	width: 1000px;
 	height: 110px;
 	background-color: #0E5D7B;
 	background-image: url(../images/logo.jpg);
@@ -29,7 +28,6 @@
 
 #main_Content
 {
-	width: 1000px;
 	margin-top: 20px;
 	margin-right: auto;
 	margin-left: auto;
@@ -52,7 +50,7 @@
 #side1
 {
 	float: left;
-	width: 230px;
+	width: 185px;
 	position: fixed;
 	
 }
@@ -64,48 +62,49 @@
 
 #userName
 {
+	font-family: Verdana, Geneva, sans-serif;
+	color: #0B485D;
 	height: 40px;
-	width: 230px;
-	background-color: #064668;
-	border: thin solid #A6B5CE;
+	width: 180px;
+	font-size: 19px;
+	font-weight: bolder;
+	margin-right: auto;
+	margin-left: auto;
+	text-align: center;
+	padding-left: 20px;
 }
 #profile
 {
-	height:150px;
-	width: 170px;
 	margin-right: auto;
 	margin-left: auto;
 	background-color: #FFF;
-	border-top-width: thin;
-	border-right-width: thin;
-	border-bottom-width: thin;
-	border-left-width: thin;
-	border-top-style: none;
+	border-top-width: 7px;
+	border-right-width: 7px;
+	border-bottom-width: 7px;
+	border-left-width: 7px;
+	border-top-style: solid;
 	border-right-style: solid;
 	border-bottom-style: solid;
 	border-left-style: solid;
-	border-top-color: #A6B5CE;
-	border-right-color: #A6B5CE;
-	border-bottom-color: #A6B5CE;
-	border-left-color: #A6B5CE;
+	border-top-color: #FFF;
+	border-right-color: #FFF;
+	border-bottom-color: #FFF;
+	border-left-color: #FFF;
+	height: 150px;
+	width: 150px;
 }
 
 #contentFrame
 {
-	width: 745px;
+	width: 965px;
 	margin-right: auto;
 	margin-left: auto;
 	border-top-style: none;
 	border-right-style: none;
 	border-bottom-style: none;
 	border-left-style: none;
-	height: 800px;
-}
-
-#proPic
-{
-	margin-right: auto;
-	margin-left: auto;
+	height: 1100px;
+	
 }
 
 #userOptions
@@ -120,10 +119,7 @@
 
 #user_Content
 {
-	height: 650px;
-	width: 750px;
-	background-color: #FFF;
-	border: thin solid #A6B5CE;
+	width: 970px;
 	margin-right: auto;
 	margin-left: auto;
 	background-image: url(../images/bg.png);
