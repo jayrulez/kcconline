@@ -216,9 +216,11 @@ form.wf .footer
 
 #header-container #header
 {
+	padding-top: 110px;
 	margin: 0 auto;
 	text-align: left;
 	width: 960px;
+	background: url('../images/header_bg.png') top left no-repeat;
 }
 
 #header-container #header #header-content
