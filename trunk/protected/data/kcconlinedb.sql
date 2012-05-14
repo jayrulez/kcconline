@@ -23,6 +23,7 @@
 -- quiz_attempt(uid,quiz_id,user_id,attempt,attempt_datetime,grade,start_time,end_time)
 -- question(uid,number,type,question_text)
 -- quiz_question(quiz_id,question_id)
+-- attempt_choice_answer(attempt_id,question_id,choice_answer_id)
 -- choice(uid,choice_text)
 -- choice_question(question_id,choice_answer_id)
 -- short_question(question_id,response_answer)
@@ -323,6 +324,16 @@ create table if not exists `choice_question`
 constraint pk_choice_question primary key(`question_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
+-- attempt_choice_answer(attempt_id,question_id,choice_answer_id)
+create table if not exists `attempt_choice_answer`
+(
+`attempt_id` bigint not null,
+`question_id` bigint not null,
+`choice_answer_id` bigint not null,
+constraint pk_choice_answer primary key(`question_id`,`attempt_id`)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+
 -- short_question(question_id,response_answer)
 create table if not exists `short_question`
 (
@@ -487,7 +498,13 @@ ALTER TABLE `quiz_question`
 ALTER TABLE `choice_question`
 	ADD CONSTRAINT `fk_choice_question_question` FOREIGN KEY (`question_id`) REFERENCES `question` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
 	ADD CONSTRAINT `fk_choice_question_answer` FOREIGN KEY (`choice_answer_id`) REFERENCES `choice` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
-	
+
+-- attempt_choice_answer(attempt_id,question_id,choice_answer_id)
+ALTER TABLE `attempt_choice_answer`
+	ADD CONSTRAINT `fk_choice_answer_attempt` FOREIGN KEY (`attempt_id`) REFERENCES `quiz_attempt` (`uid`) ON UPDATE CASCADE  ON DELETE CASCADE,
+	ADD CONSTRAINT `fk_choice_answer_question` FOREIGN KEY (`question_id`) REFERENCES `question` (`uid`) ON UPDATE CASCADE  ON DELETE CASCADE,
+	ADD CONSTRAINT `fk_choice_answer_answer` FOREIGN KEY (`choice_answer_id`) REFERENCES `choice` (`uid`) ON UPDATE CASCADE  ON DELETE CASCADE;
+
 ALTER TABLE `short_question`
 	ADD CONSTRAINT `fk_short_question_question` FOREIGN KEY (`question_id`) REFERENCES `question` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 	
