@@ -159,4 +159,18 @@ class User extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+	
+	public function getFullname()
+	{
+		$ret = $this->first_name;
+		
+		if(!empty($this->middle_name))
+		{
+			$ret .= ' '.$this->middle_name;
+		}
+		
+		$ret .= ' '.$this->last_name;
+		
+		return $ret;
+	}
 }
