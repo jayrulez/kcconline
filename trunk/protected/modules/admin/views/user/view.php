@@ -13,7 +13,6 @@ $this->pageTitle=Yii::t('application', 'View User');
 					'last_name',
 					'dob',
 					'email_address',
-					'password',
 					'phone1',
 					'phone2',
 					'active',

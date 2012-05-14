@@ -24,17 +24,33 @@
 						</div>
 						<div class="row clearfix">
 							<?php echo CHtml::activeLabel($model,'dob'); ?>
-							<?php echo CHtml::activeTextField($model,'dob'); ?>
+							<?php $this->widget('zii.widgets.jui.CJuiDatePicker', array(
+								'model'=>$model,
+								'attribute'=>'dob',
+								'options'=>array(
+									'showAnim'=>'fold',
+									'changeYear'=>true,
+									'changeMonth'=>true,
+									'dateFormat'=>'yy-mm-dd',
+									'yearRange'=>'1950:2000',
+								),
+								'htmlOptions'=>array(
+									'style'=>'height:20px;'
+								),
+							));
+							?>
 						</div>
 						<div class="row clearfix">
 							<?php echo CHtml::activeLabel($model,'email_address'); ?>
 							<?php echo CHtml::activeTextField($model,'email_address'); ?>
 						</div>
+						<?php if($model->getIsNewRecord()): ?>
 						<div class="row clearfix">
 							<?php echo CHtml::activeLabel($model,'password'); ?>
 							<?php echo CHtml::activePasswordField($model,'password'); ?>
 						</div>
-							<div class="row clearfix">
+						<?php endif; ?>
+						<div class="row clearfix">
 							<?php echo CHtml::activeLabel($model,'phone1'); ?>
 							<?php echo CHtml::activeTextField($model,'phone1'); ?>
 						</div>
