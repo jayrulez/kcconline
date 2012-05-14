@@ -248,6 +248,7 @@ form.wf .footer
 
 #header-container #header #header-content .logo a
 {
+	margin-left: 10px;
 	display:block;
 	background: url('../images/logo.png') center left no-repeat;
 }

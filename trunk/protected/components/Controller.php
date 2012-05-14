@@ -19,13 +19,6 @@ class Controller extends CController
 	public function init()
 	{
 		parent::init();
-		
-		if(($model=Yii::app()->getUser()->getModel()) !== null)
-		{
-			$model->saveAttributes(array(
-				'last_action' => new CDbExpression('now()'),
-			));
-		}
 	}
 	
 	public function setPageTitle($pageName)

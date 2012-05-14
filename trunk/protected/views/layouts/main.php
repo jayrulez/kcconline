@@ -17,13 +17,13 @@
 				<div id="header">
 					<div id="header-content" class="clearfix">
 						<div class="logo">
-							<?php echo CHtml::link(Yii::t('application', '&nbsp;'), Yii::app()->homeUrl); ?>
+							<?php echo CHtml::link(Yii::t('application', 'Home'), Yii::app()->homeUrl); ?>
 						</div>
 						<div class="global-utils clearfix">
 							<?php if(($user = Yii::app()->getUser()->getModel()) !== null): ?>
 							<div class="global-nav">
 								<ul>
-									<li><?php echo CHtml::link(Yii::t('application', 'Home'), Yii::app()->homeUrl); ?></li>
+									<!--<li><?php echo CHtml::link(Yii::t('application', 'Home'), Yii::app()->homeUrl); ?></li>-->
 									<li>
 										<a><?php echo Yii::t('application', 'Account'); ?></a>
 										<ul>

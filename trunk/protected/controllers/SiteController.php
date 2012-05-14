@@ -4,6 +4,10 @@ class SiteController extends Controller
 {
 	public function actionIndex()
 	{
+		if(Yii::app()->getUser()->getIsGuest())
+		{
+			$this->redirect(Yii::app()->getUser()->loginUrl);
+		}
 		$this->render('index');
 	}
 	
