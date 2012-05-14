@@ -1,10 +1,9 @@
 			<div class="form-container">	
 				<?php echo CHtml::beginForm('','post',array('class'=>'wf')); ?>
-					<div class="header">
+					<!--<div class="header">
 						<div class="title">
-							<?php echo 'Create User'; ?>
 						</div>
-					</div>
+					</div>-->
 					<?php echo CHtml::errorSummary($model); ?>
 					<fieldset class="top">
 						<div class="row top clearfix">

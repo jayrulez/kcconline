@@ -1,12 +1,16 @@
 <?php
 
-class UserController extends Controller
+class UserController extends AdminController
 {
-	public $layout = 'application.modules.admin.views.layouts.main';
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
+	public function init()
+	{
+		parent::init();
+		Layout::addBlock('sidebar.left', array(
+			'id'=>'user_menu',
+			'content'=>$this->renderPartial('_admin_user', array(), true),
+		));
+	}
+	
 	public function actionView($id)
 	{
 		$this->render('view',array(
@@ -84,11 +88,6 @@ class UserController extends Controller
 	 */
 	public function actionIndex()
 	{
-		Layout::addBlock('sidebar.left', array(
-			'id'=>'user_menu',
-			'content'=>$this->renderPartial('_admin_user', array(), true),
-		));
-		
 		$model=new User('search');
 		$model->unsetAttributes();  // clear any default values
 		if(isset($_GET['User']))
