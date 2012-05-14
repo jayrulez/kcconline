@@ -31,7 +31,7 @@ class UserController extends AdminController
 		{
 			$model->attributes=$_POST['User'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->uid));
+				$this->redirect(array('index'));
 		}
 
 		$this->render('create',array(
