@@ -591,3 +591,164 @@ Stack trace:
 REQUEST_URI=/kcconline/index.php?r=admin/course/create
 HTTP_REFERER=http://localhost/kcconline/index.php?r=admin/course/create
 ---
+2012/05/14 11:04:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "settings".' in /var/www/lib/yii/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('settings')
+#1 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /var/www/kcconline/index.php(7): CApplication->run()
+#3 {main}
+REQUEST_URI=/kcconline/index.php?r=settings
+HTTP_REFERER=http://localhost/kcconline/
+---
+2012/05/14 11:14:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "settings".' in /var/www/lib/yii/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('settings')
+#1 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /var/www/kcconline/index.php(7): CApplication->run()
+#3 {main}
+REQUEST_URI=/kcconline/index.php?r=settings
+HTTP_REFERER=http://localhost/kcconline/index.php
+---
+2012/05/14 11:15:06 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "/var/www/kcconline/assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in /var/www/lib/yii/framework/web/CAssetManager.php:116
+Stack trace:
+#0 /var/www/lib/yii/framework/web/CAssetManager.php(101): CAssetManager->setBasePath('/var/www/kcconl...')
+#1 /var/www/lib/yii/framework/web/CAssetManager.php(219): CAssetManager->getBasePath()
+#2 /var/www/lib/yii/framework/web/CClientScript.php(449): CAssetManager->publish('/var/www/lib/yi...')
+#3 /var/www/lib/yii/framework/web/CClientScript.php(486): CClientScript->getCoreScriptUrl()
+#4 /var/www/lib/yii/framework/web/CClientScript.php(302): CClientScript->getPackageBaseUrl('jquery')
+#5 /var/www/lib/yii/framework/web/CClientScript.php(195): CClientScript->renderCoreScripts()
+#6 /var/www/lib/yii/framework/web/CController.php(352): CClientScript->render('<!DOCTYPE HTML>...')
+#7 /var/www/lib/yii/framework/web/CController.php(789): CController->processOutput('<!DOCTYPE HTML>...')
+#8 /var/www/kcconline/protected/controllers/SettingsController.php(7): CController->render('index')
+#9 /var/www/lib/yii/framework/web/actions/CInlineAction.php(50): SettingsController->actionIndex()
+#10 /var/www/lib/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /var/www/lib/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /var/www/lib/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /var/www/lib/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /var/www/lib/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/lib/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/lib/yii/framework/web/CController.php(292): CFilterChain->run()
+#17 /var/www/lib/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/lib/yii/framework/web/CWebApplication.php(276): CController->run('')
+#19 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('settings')
+#20 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /var/www/kcconline/index.php(7): CApplication->run()
+#22 {main}
+REQUEST_URI=/kcconline/index.php?r=settings
+HTTP_REFERER=http://localhost/kcconline/index.php
+---
+2012/05/14 11:15:22 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "/var/www/kcconline/assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in /var/www/lib/yii/framework/web/CAssetManager.php:116
+Stack trace:
+#0 /var/www/lib/yii/framework/web/CAssetManager.php(101): CAssetManager->setBasePath('/var/www/kcconl...')
+#1 /var/www/lib/yii/framework/web/CAssetManager.php(219): CAssetManager->getBasePath()
+#2 /var/www/lib/yii/framework/web/CClientScript.php(449): CAssetManager->publish('/var/www/lib/yi...')
+#3 /var/www/lib/yii/framework/web/CClientScript.php(486): CClientScript->getCoreScriptUrl()
+#4 /var/www/lib/yii/framework/web/CClientScript.php(302): CClientScript->getPackageBaseUrl('jquery')
+#5 /var/www/lib/yii/framework/web/CClientScript.php(195): CClientScript->renderCoreScripts()
+#6 /var/www/lib/yii/framework/web/CController.php(352): CClientScript->render('<!DOCTYPE HTML>...')
+#7 /var/www/lib/yii/framework/web/CController.php(789): CController->processOutput('<!DOCTYPE HTML>...')
+#8 /var/www/kcconline/protected/controllers/SettingsController.php(7): CController->render('index')
+#9 /var/www/lib/yii/framework/web/actions/CInlineAction.php(50): SettingsController->actionIndex()
+#10 /var/www/lib/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /var/www/lib/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /var/www/lib/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /var/www/lib/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /var/www/lib/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/lib/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/lib/yii/framework/web/CController.php(292): CFilterChain->run()
+#17 /var/www/lib/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/lib/yii/framework/web/CWebApplication.php(276): CController->run('')
+#19 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('settings')
+#20 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /var/www/kcconline/index.php(7): CApplication->run()
+#22 {main}
+REQUEST_URI=/kcconline/index.php?r=settings
+HTTP_REFERER=http://localhost/kcconline/index.php
+---
+2012/05/14 11:15:24 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "/var/www/kcconline/assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in /var/www/lib/yii/framework/web/CAssetManager.php:116
+Stack trace:
+#0 /var/www/lib/yii/framework/web/CAssetManager.php(101): CAssetManager->setBasePath('/var/www/kcconl...')
+#1 /var/www/lib/yii/framework/web/CAssetManager.php(219): CAssetManager->getBasePath()
+#2 /var/www/lib/yii/framework/web/CClientScript.php(449): CAssetManager->publish('/var/www/lib/yi...')
+#3 /var/www/lib/yii/framework/web/CClientScript.php(486): CClientScript->getCoreScriptUrl()
+#4 /var/www/lib/yii/framework/web/CClientScript.php(302): CClientScript->getPackageBaseUrl('jquery')
+#5 /var/www/lib/yii/framework/web/CClientScript.php(195): CClientScript->renderCoreScripts()
+#6 /var/www/lib/yii/framework/web/CController.php(352): CClientScript->render('<!DOCTYPE HTML>...')
+#7 /var/www/lib/yii/framework/web/CController.php(789): CController->processOutput('<!DOCTYPE HTML>...')
+#8 /var/www/kcconline/protected/controllers/SettingsController.php(7): CController->render('index')
+#9 /var/www/lib/yii/framework/web/actions/CInlineAction.php(50): SettingsController->actionIndex()
+#10 /var/www/lib/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /var/www/lib/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /var/www/lib/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /var/www/lib/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /var/www/lib/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/lib/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/lib/yii/framework/web/CController.php(292): CFilterChain->run()
+#17 /var/www/lib/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/lib/yii/framework/web/CWebApplication.php(276): CController->run('')
+#19 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('settings')
+#20 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /var/www/kcconline/index.php(7): CApplication->run()
+#22 {main}
+REQUEST_URI=/kcconline/index.php?r=settings
+HTTP_REFERER=http://localhost/kcconline/index.php
+---
+2012/05/14 11:15:43 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "changeEmailAddress".' in /var/www/lib/yii/framework/web/CController.php:484
+Stack trace:
+#0 /var/www/lib/yii/framework/web/CController.php(271): CController->missingAction('changeEmailAddr...')
+#1 /var/www/lib/yii/framework/web/CWebApplication.php(276): CController->run('changeEmailAddr...')
+#2 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('settings/change...')
+#3 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /var/www/kcconline/index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php?r=settings/changeEmailAddress&_=1337012143065
+HTTP_REFERER=http://localhost/kcconline/index.php?r=settings
+---
+2012/05/14 11:15:46 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "changePassword".' in /var/www/lib/yii/framework/web/CController.php:484
+Stack trace:
+#0 /var/www/lib/yii/framework/web/CController.php(271): CController->missingAction('changePassword')
+#1 /var/www/lib/yii/framework/web/CWebApplication.php(276): CController->run('changePassword')
+#2 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('settings/change...')
+#3 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /var/www/kcconline/index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php?r=settings/changePassword&_=1337012146402
+HTTP_REFERER=http://localhost/kcconline/index.php?r=settings
+---
+2012/05/14 11:16:13 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "changeEmailAddress".' in /var/www/lib/yii/framework/web/CController.php:484
+Stack trace:
+#0 /var/www/lib/yii/framework/web/CController.php(271): CController->missingAction('changeEmailAddr...')
+#1 /var/www/lib/yii/framework/web/CWebApplication.php(276): CController->run('changeEmailAddr...')
+#2 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('settings/change...')
+#3 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /var/www/kcconline/index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php?r=settings/changeEmailAddress
+---
+2012/05/14 11:16:30 [warning] [application] Failed to set unsafe attribute "emailAddress" of "ChangeEmailAddressForm".
+in /var/www/kcconline/protected/controllers/SettingsController.php (43)
+in /var/www/kcconline/index.php (7)
+2012/05/14 11:16:30 [error] [exception.CException] exception 'CException' with message 'Property "ChangeEmailAddressForm.email_address" is not defined.' in /var/www/lib/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/lib/yii/framework/validators/CRequiredValidator.php(52): CComponent->__get('email_address')
+#1 /var/www/lib/yii/framework/validators/CValidator.php(197): CRequiredValidator->validateAttribute(Object(ChangeEmailAddressForm), 'email_address')
+#2 /var/www/lib/yii/framework/base/CModel.php(158): CValidator->validate(Object(ChangeEmailAddressForm), NULL)
+#3 /var/www/kcconline/protected/models/ChangeEmailAddressForm.php(28): CModel->validate()
+#4 /var/www/kcconline/protected/controllers/SettingsController.php(45): ChangeEmailAddressForm->process()
+#5 /var/www/lib/yii/framework/web/actions/CInlineAction.php(50): SettingsController->actionChangeEmailAddress()
+#6 /var/www/lib/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#7 /var/www/lib/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#8 /var/www/lib/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#9 /var/www/lib/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#10 /var/www/lib/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#11 /var/www/lib/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#12 /var/www/lib/yii/framework/web/CController.php(292): CFilterChain->run()
+#13 /var/www/lib/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 /var/www/lib/yii/framework/web/CWebApplication.php(276): CController->run('changeEmailAddr...')
+#15 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('settings/change...')
+#16 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#17 /var/www/kcconline/index.php(7): CApplication->run()
+#18 {main}
+REQUEST_URI=/kcconline/index.php?r=settings/changeEmailAddress
+HTTP_REFERER=http://localhost/kcconline/index.php?r=settings/changeEmailAddress
+---

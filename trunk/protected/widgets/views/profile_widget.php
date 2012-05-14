@@ -16,7 +16,7 @@
 	<h3>Mailbox</h3>
 	<ul>
 		<li><?php echo CHtml::link('Compose', array()); ?></li>
-		<li><?php echo CHtml::link('Inbox', array()); ?></li>
+		<li><?php echo CHtml::link('Inbox(0)', array()); ?></li>
 		<li><?php echo CHtml::link('Sent', array()); ?></li>
 	</ul>
 </div>
