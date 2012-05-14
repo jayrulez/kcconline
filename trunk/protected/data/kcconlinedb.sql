@@ -137,7 +137,7 @@ create table if not exists `course`
 (
 `course_code` varchar(16) not null,
 `name` varchar(100) not null,
-`category_id` bigint not null,
+`category_id` bigint default null,
 `description` varchar(255),
 `datetime_created` datetime not null,
 `last_modified` datetime,
@@ -159,9 +159,10 @@ create table if not exists `categeory`
 (
 `uid` bigint not null AUTO_INCREMENT,
 `name` varchar(100) not null,
-`description` varchar(255),
+`description` varchar(255), 
 constraint pk_category primary key(`uid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
 
 -- activity(uid,overview,date_created,last_modified)
 create table if not exists `activity`
@@ -437,6 +438,9 @@ constraint pk_resource_type primary key(`uid`)
 ALTER TABLE `user_role`
 	ADD CONSTRAINT `fk_user_role_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
 	ADD CONSTRAINT `fk_user_role_role` FOREIGN KEY (`role_id`) REFERENCES `role` (`uid`) ON UPDATE CASCADE  ON DELETE ACTION;
+	
+ALTER TABLE `course`
+	ADD CONSTRAINT `fk_course_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`uid`) ON UPDATE CASCADE  ON DELETE SET NULL;
 
 ALTER TABLE `role_privilege`
 	ADD CONSTRAINT `fk_role_privilege_privilege` FOREIGN KEY (`privilege_id`) REFERENCES `privilege` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
