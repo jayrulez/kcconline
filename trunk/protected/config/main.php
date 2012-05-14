@@ -32,6 +32,9 @@ return array(
 		),
 		'authManager' => array(
 			'class'=>'CDbAuthManager',
+			'itemTable'=>'authitem',
+			'itemChildTable'=>'authitemchild',
+			'assignmentTable'=>'authassignment',
 		),
 		// uncomment the following to enable URLs in path-format
 		/*

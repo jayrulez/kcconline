@@ -6,8 +6,8 @@ class UserController extends AdminController
 	{
 		parent::init();
 		Layout::addBlock('sidebar.left', array(
-			'id'=>'admin_course',
-			'content'=>$this->renderPartial('_admin_course', array(), true),
+			'id'=>'admin_user',
+			'content'=>$this->renderPartial('_admin_user', array(), true),
 		));
 	}
 	

@@ -23,6 +23,7 @@
  */
 class User extends CActiveRecord
 {
+	public $id;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -160,6 +161,12 @@ class User extends CActiveRecord
 		));
 	}
 	
+	
+	public function afterFind()
+	{
+		parent::afterFind();
+		$this->id = $this->uid;
+	}
 	public function getFullname()
 	{
 		$ret = $this->first_name;

@@ -775,3 +775,130 @@ REQUEST_URI=/kcconline/index.php
 in /var/www/kcconline/protected/widgets/views/profile_widget.php (8)
 in /var/www/kcconline/protected/widgets/ProfileWidget.php (14)
 in /var/www/kcconline/protected/controllers/SiteController.php (9)
+2012/05/14 11:49:37 [error] [exception.CException] exception 'CException' with message 'WebUser and its behaviors do not have a method or closure named "hasRole".' in /var/www/lib/yii/framework/base/CComponent.php:266
+Stack trace:
+#0 /var/www/kcconline/protected/views/layouts/main.php(26): CComponent->__call('hasRole', Array)
+#1 /var/www/kcconline/protected/views/layouts/main.php(26): WebUser->hasRole('admin')
+#2 /var/www/lib/yii/framework/web/CBaseController.php(127): require('/var/www/kcconl...')
+#3 /var/www/lib/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/kcconl...', Array, true)
+#4 /var/www/lib/yii/framework/web/CController.php(785): CBaseController->renderFile('/var/www/kcconl...', Array, true)
+#5 /var/www/kcconline/protected/controllers/SiteController.php(15): CController->render('index')
+#6 /var/www/lib/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#7 /var/www/lib/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#8 /var/www/lib/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 /var/www/lib/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#10 /var/www/lib/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 /var/www/lib/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 /var/www/lib/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 /var/www/lib/yii/framework/web/CController.php(292): CFilterChain->run()
+#14 /var/www/lib/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 /var/www/lib/yii/framework/web/CWebApplication.php(276): CController->run('')
+#16 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('')
+#17 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#18 /var/www/kcconline/index.php(7): CApplication->run()
+#19 {main}
+REQUEST_URI=/kcconline/
+---
+2012/05/14 11:56:03 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kcconline.AuthItem' doesn't exist. The SQL statement executed was: SELECT `name`, `type`, `description`, `t1`.`bizrule`, `t1`.`data`
+FROM `AuthItem` `t1`, `AuthAssignment` `t2`
+WHERE name=itemname AND type=:type AND userid=:userid.
+in /var/www/kcconline/protected/views/layouts/main.php (26)
+in /var/www/kcconline/protected/controllers/SiteController.php (15)
+in /var/www/kcconline/index.php (7)
+2012/05/14 11:56:03 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'kcconline.AuthItem' doesn't exist. The SQL statement executed was: SELECT `name`, `type`, `description`, `t1`.`bizrule`, `t1`.`data`
+FROM `AuthItem` `t1`, `AuthAssignment` `t2`
+WHERE name=itemname AND type=:type AND userid=:userid' in /var/www/lib/yii/framework/db/CDbCommand.php:528
+Stack trace:
+#0 /var/www/lib/yii/framework/db/CDbCommand.php(390): CDbCommand->queryInternal('fetchAll', Array, Array)
+#1 /var/www/lib/yii/framework/web/auth/CDbAuthManager.php(408): CDbCommand->queryAll()
+#2 /var/www/lib/yii/framework/web/auth/CAuthManager.php(113): CDbAuthManager->getAuthItems(2, '1')
+#3 /var/www/kcconline/protected/views/layouts/main.php(26): CAuthManager->getRoles('1')
+#4 /var/www/lib/yii/framework/web/CBaseController.php(127): require('/var/www/kcconl...')
+#5 /var/www/lib/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/kcconl...', Array, true)
+#6 /var/www/lib/yii/framework/web/CController.php(785): CBaseController->renderFile('/var/www/kcconl...', Array, true)
+#7 /var/www/kcconline/protected/controllers/SiteController.php(15): CController->render('index')
+#8 /var/www/lib/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#9 /var/www/lib/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#10 /var/www/lib/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 /var/www/lib/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#12 /var/www/lib/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 /var/www/lib/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 /var/www/lib/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 /var/www/lib/yii/framework/web/CController.php(292): CFilterChain->run()
+#16 /var/www/lib/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 /var/www/lib/yii/framework/web/CWebApplication.php(276): CController->run('')
+#18 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('')
+#19 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#20 /var/www/kcconline/index.php(7): CApplication->run()
+#21 {main}
+REQUEST_URI=/kcconline/
+---
+2012/05/14 11:59:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "rbac".' in /var/www/lib/yii/framework/web/CWebApplication.php:280
+Stack trace:
+#0 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('rbac')
+#1 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /var/www/kcconline/index.php(7): CApplication->run()
+#3 {main}
+REQUEST_URI=/kcconline/?r=rbac
+---
+2012/05/14 12:00:04 [error] [php] file_get_contents(/var/www/kcconline/protected/controllers/Settings~Controller.php): failed to open stream: No such file or directory (/var/www/kcconline/protected/modules/rbam/components/RbamAnalyser.php:108)
+Stack trace:
+#0 /var/www/kcconline/protected/modules/rbam/components/RbamAnalyser.php(52): RbamAnalyser->getControllers()
+#1 /var/www/kcconline/protected/modules/rbam/components/RbamAnalyser.php(41): RbamAnalyser->analyseModule()
+#2 /var/www/kcconline/protected/modules/rbam/controllers/AuthItemsController.php(405): RbamAnalyser->run()
+#3 /var/www/lib/yii/framework/web/actions/CInlineAction.php(50): AuthItemsController->actionGenerate()
+#4 /var/www/lib/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#5 /var/www/lib/yii/framework/web/filters/CFilterChain.php(134): AuthItemsController->runAction()
+#6 /var/www/lib/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#7 /var/www/lib/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#8 /var/www/lib/yii/framework/web/filters/CInlineFilter.php(59): AuthItemsController->filterAccessControl()
+#9 /var/www/lib/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#10 /var/www/lib/yii/framework/web/CController.php(292): CFilterChain->run()
+#11 /var/www/lib/yii/framework/web/CController.php(266): AuthItemsController->runActionWithFilters()
+#12 /var/www/lib/yii/framework/web/CWebApplication.php(276): AuthItemsController->run()
+#13 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#14 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#15 /var/www/kcconline/index.php(7): CWebApplication->run()
+REQUEST_URI=/kcconline/index.php?r=rbam/authItems/generate
+in /var/www/kcconline/protected/modules/rbam/components/RbamAnalyser.php (108)
+in /var/www/kcconline/protected/modules/rbam/components/RbamAnalyser.php (89)
+in /var/www/kcconline/protected/modules/rbam/components/RbamAnalyser.php (52)
+2012/05/14 12:03:21 [error] [exception.CException] exception 'CException' with message 'Property "User.id" is not defined.' in /var/www/lib/yii/framework/base/CComponent.php:131
+Stack trace:
+#0 /var/www/lib/yii/framework/db/ar/CActiveRecord.php(144): CComponent->__get('id')
+#1 /var/www/kcconline/protected/modules/rbam/views/authAssignments/assign.php(111): CActiveRecord->__get('id')
+#2 /var/www/lib/yii/framework/web/CBaseController.php(127): require('/var/www/kcconl...')
+#3 /var/www/lib/yii/framework/web/CBaseController.php(96): CBaseController->renderInternal('/var/www/kcconl...', Array, true)
+#4 /var/www/lib/yii/framework/web/CController.php(870): CBaseController->renderFile('/var/www/kcconl...', Array, true)
+#5 /var/www/lib/yii/framework/web/CController.php(783): CController->renderPartial('assign', Array, true)
+#6 /var/www/kcconline/protected/modules/rbam/controllers/AuthAssignmentsController.php(175): CController->render('assign', Array)
+#7 [internal function]: AuthAssignmentsController->actionAssign('1')
+#8 /var/www/lib/yii/framework/web/actions/CAction.php(107): ReflectionMethod->invokeArgs(Object(AuthAssignmentsController), Array)
+#9 /var/www/lib/yii/framework/web/actions/CInlineAction.php(48): CAction->runWithParamsInternal(Object(AuthAssignmentsController), Object(ReflectionMethod), Array)
+#10 /var/www/lib/yii/framework/web/CController.php(309): CInlineAction->runWithParams(Array)
+#11 /var/www/lib/yii/framework/web/filters/CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 /var/www/lib/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#13 /var/www/lib/yii/framework/web/CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 /var/www/lib/yii/framework/web/filters/CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 /var/www/lib/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 /var/www/lib/yii/framework/web/CController.php(292): CFilterChain->run()
+#17 /var/www/lib/yii/framework/web/CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 /var/www/lib/yii/framework/web/CWebApplication.php(276): CController->run('assign')
+#19 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('rbam/authAssign...')
+#20 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#21 /var/www/kcconline/index.php(7): CApplication->run()
+#22 {main}
+REQUEST_URI=/kcconline/index.php?r=rbam/authAssignments/assign&uid=1
+HTTP_REFERER=http://localhost/kcconline/index.php?r=rbam/authAssignments/index
+---
+2012/05/14 12:19:18 [error] [exception.CException] exception 'CException' with message 'UserController cannot find the requested view "_admin_course".' in /var/www/lib/yii/framework/web/CController.php:879
+Stack trace:
+#0 /var/www/kcconline/protected/modules/admin/controllers/UserController.php(10): CController->renderPartial('_admin_course', Array, true)
+#1 /var/www/lib/yii/framework/web/CWebApplication.php(275): UserController->init()
+#2 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController('admin/user/inde...')
+#3 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#4 /var/www/kcconline/index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php?r=admin/user/index
+HTTP_REFERER=http://localhost/kcconline/index.php?r=admin
+---

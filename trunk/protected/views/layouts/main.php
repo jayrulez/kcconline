@@ -23,7 +23,10 @@
 							<?php if(($user = Yii::app()->getUser()->getModel()) !== null): ?>
 							<div class="global-nav">
 								<ul>
-									<!--<li><?php echo CHtml::link(Yii::t('application', 'Home'), Yii::app()->homeUrl); ?></li>-->
+									<?php //echo ;exit; ?>
+									<?php if(array_key_exists('admin', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))): ?>
+									<li><?php echo CHtml::link(Yii::t('application', 'Admin'), array('/admin')); ?></li>
+									<?php endif; ?>
 									<li>
 										<a><?php echo Yii::t('application', 'Account'); ?></a>
 										<ul>
