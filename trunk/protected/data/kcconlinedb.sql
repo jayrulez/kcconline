@@ -111,7 +111,7 @@ create table if not exists `role_privelge_action`
 `privilege_id` bigint not null,
 `role_id` bigint not null,
 `action` tinyint(1) default 0,
-constraint pk_role_privelge_action primary key(`privilege_id`,`role_id`,`action`),
+constraint pk_role_privilege_action primary key(`privilege_id`,`role_id`,`action`),
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- enrollment(uid,enroll_startdatetime,enroll_enddatetime)
