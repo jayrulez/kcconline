@@ -752,3 +752,26 @@ Stack trace:
 REQUEST_URI=/kcconline/index.php?r=settings/changeEmailAddress
 HTTP_REFERER=http://localhost/kcconline/index.php?r=settings/changeEmailAddress
 ---
+2012/05/14 11:33:09 [error] [php] Trying to get property of non-object (/var/www/kcconline/protected/widgets/views/profile_widget.php:8)
+Stack trace:
+#0 /var/www/lib/yii/framework/web/widgets/CWidget.php(244): ProfileWidget->renderFile()
+#1 /var/www/kcconline/protected/widgets/ProfileWidget.php(14): ProfileWidget->render()
+#2 /var/www/lib/yii/framework/web/CBaseController.php(168): ProfileWidget->run()
+#3 /var/www/kcconline/protected/controllers/SiteController.php(9): SiteController->widget()
+#4 /var/www/lib/yii/framework/web/actions/CInlineAction.php(50): SiteController->actionIndex()
+#5 /var/www/lib/yii/framework/web/CController.php(309): CInlineAction->runWithParams()
+#6 /var/www/lib/yii/framework/web/filters/CFilterChain.php(134): SiteController->runAction()
+#7 /var/www/lib/yii/framework/web/filters/CFilter.php(41): CFilterChain->run()
+#8 /var/www/lib/yii/framework/web/CController.php(1146): CAccessControlFilter->filter()
+#9 /var/www/lib/yii/framework/web/filters/CInlineFilter.php(59): SiteController->filterAccessControl()
+#10 /var/www/lib/yii/framework/web/filters/CFilterChain.php(131): CInlineFilter->filter()
+#11 /var/www/lib/yii/framework/web/CController.php(292): CFilterChain->run()
+#12 /var/www/lib/yii/framework/web/CController.php(266): SiteController->runActionWithFilters()
+#13 /var/www/lib/yii/framework/web/CWebApplication.php(276): SiteController->run()
+#14 /var/www/lib/yii/framework/web/CWebApplication.php(135): CWebApplication->runController()
+#15 /var/www/lib/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#16 /var/www/kcconline/index.php(7): CWebApplication->run()
+REQUEST_URI=/kcconline/index.php
+in /var/www/kcconline/protected/widgets/views/profile_widget.php (8)
+in /var/www/kcconline/protected/widgets/ProfileWidget.php (14)
+in /var/www/kcconline/protected/controllers/SiteController.php (9)

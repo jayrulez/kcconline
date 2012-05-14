@@ -4,16 +4,16 @@ class SiteController extends Controller
 {
 	public function actionIndex()
 	{
-		Layout::addBlock('sidebar.left', array(
-			'id'=>'profile_sidebar',
-			'content'=>$this->widget('ProfileWidget', array('userModel'=>Yii::app()->getUser()->getModel()), true),
-		));
-		
 		if(Yii::app()->getUser()->getIsGuest())
 		{
 			$this->redirect(Yii::app()->getUser()->loginUrl);
+		}else{
+			Layout::addBlock('sidebar.left', array(
+				'id'=>'profile_sidebar',
+				'content'=>$this->widget('ProfileWidget', array('userModel'=>Yii::app()->getUser()->getModel()), true),
+			));
+			$this->render('index');
 		}
-		$this->render('index');
 	}
 	
 	public function actionLogin()
