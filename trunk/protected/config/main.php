@@ -8,6 +8,9 @@
 return array(
 	'basePath'=>dirname(__FILE__).DIRECTORY_SEPARATOR.'..',
 	'name'=>'KCC Online',
+	'id'=>'KCC Online',
+	'sourceLanguage'=>'en_gb',
+	'language'=>'en_gb',
 
 	// preloading 'log' component
 	'preload'=>array('log'),
@@ -26,6 +29,9 @@ return array(
 	'components'=>array(
 		'user'=>array(
 			'class'=>'WebUser',
+		),
+		'authManager' => array(
+			'class'=>'CDbAuthManager',
 		),
 		// uncomment the following to enable URLs in path-format
 		/*

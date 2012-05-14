@@ -1,5 +1,5 @@
 <?php
-$this->pageTitle=Yii::t('application', 'Manage Users');
+$this->pageTitle=Yii::t('application', 'Manage Courses');
 
 /*Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
@@ -15,31 +15,18 @@ $('.search-form form').submit(function(){
 ");*/
 ?>
 
-<div class="action" id="admin-user-index">
+<div class="action" id="admin-course-index">
 	<div class="section">
 		<div class="section-content">
 			<?php $this->widget('zii.widgets.grid.CGridView', array(
-				'id'=>'user-grid',
+				'id'=>'course-grid',
 				'dataProvider'=>$model->search(),
 				'filter'=>$model,
 				'columns'=>array(
-					'user_id',
-					'first_name',
-					'middle_name',
-					'last_name',
-					'dob',
-					/*
-					'email_address',
-					'password',
-					'phone1',
-					'phone2',
-					'active',
-					'deleted',
-					'datetime_created',
-					'last_action',
-					'last_modified',
-					'image_url',
-					*/
+					'course_code',
+					'name',
+					'description',
+					'enrollment_key',
 					array(
 						'class'=>'CButtonColumn',
 					),

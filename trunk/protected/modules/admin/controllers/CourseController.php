@@ -1,12 +1,12 @@
 <?php
 
-class UserController extends AdminController
+class CourseController extends AdminController
 {
 	public function init()
 	{
 		parent::init();
 		Layout::addBlock('sidebar.left', array(
-			'id'=>'admin_course',
+			'id'=>'course_menu',
 			'content'=>$this->renderPartial('_admin_course', array(), true),
 		));
 	}
@@ -24,12 +24,12 @@ class UserController extends AdminController
 	 */
 	public function actionCreate()
 	{
-		$model=new User;
+		$model=new Course;
 		$model->scenario = 'create';
 
-		if(isset($_POST['User']))
+		if(isset($_POST['Course']))
 		{
-			$model->attributes=$_POST['User'];
+			$model->attributes=$_POST['Course'];
 			if($model->save())
 				$this->redirect(array('index'));
 		}
@@ -52,11 +52,11 @@ class UserController extends AdminController
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['User']))
+		if(isset($_POST['Course']))
 		{			
-			$model->attributes=$_POST['User'];
+			$model->attributes=$_POST['Course'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->uid));
+				$this->redirect(array('view','id'=>$model->course_code));
 		}
 
 		$this->render('update',array(
@@ -89,10 +89,10 @@ class UserController extends AdminController
 	 */
 	public function actionIndex()
 	{
-		$model=new User('search');
+		$model=new Course('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['User']))
-			$model->attributes=$_GET['User'];
+		if(isset($_GET['Course']))
+			$model->attributes=$_GET['Course'];
 
 		$this->render('index',array(
 			'model'=>$model,
@@ -106,7 +106,7 @@ class UserController extends AdminController
 	 */
 	public function loadModel($id)
 	{
-		$model=User::model()->findByPk($id);
+		$model=Course::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;

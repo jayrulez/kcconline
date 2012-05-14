@@ -22,7 +22,12 @@
 						<div class="global-utils clearfix">
 							<div class="global-nav">
 								<ul>
-									<li><?php echo CHtml::link(Yii::t('application', 'Courses'), array('')); ?></li>
+									<li>
+										<a><?php echo Yii::t('application', 'Courses'); ?></a>
+										<ul>
+											<li><?php echo CHtml::link(Yii::t('application', 'Manage Courses'), array('/admin/course')); ?></li>
+										</ul>
+									</li>
 									<li>
 										<a><?php echo Yii::t('application', 'Users'); ?></a>
 										<ul>
