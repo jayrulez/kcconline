@@ -27,6 +27,7 @@
 									<li>
 										<a><?php echo Yii::t('application', 'Account'); ?></a>
 										<ul>
+											<li><?php echo CHtml::link(Yii::t('application', 'Settings'), array('/settings')); ?></li>
 											<li><?php echo CHtml::link(Yii::t('application', 'Logout'), Yii::app()->getUser()->logoutUrl); ?></li>
 										</ul>
 									</li>
