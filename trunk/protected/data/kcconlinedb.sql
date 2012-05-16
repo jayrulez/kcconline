@@ -8,6 +8,7 @@
 -- role_privilege(priviledge_id,role_id,assigned_datetime)
 -- role_privilege_action(priviledge_id,role_id,action)
 -- activity(uid,overview,date_created,last_modified)
+-- course_activity(course_code,activity_id,date_assigned)
 -- message(uid,sender_id,receiver_id,subject,body,sent_datetime)
 -- group(uid,name,description,users)
 -- user_group(user_id,group_id,date_joined)
@@ -21,12 +22,12 @@
 
 -- quiz(uid,course_code,open_datetime,close_datetime,passkey,grade,overview,duration)
 -- quiz_attempt(uid,quiz_id,user_id,attempt,attempt_datetime,grade,start_time,end_time)
--- question(uid,number,type,question_text)
+-- question(uid,number,type,question_text,score)
 -- quiz_question(quiz_id,question_id)
--- attempt_choice_answer(attempt_id,question_id,choice_answer_id)
+-- attempt_choice_answer(attempt_id,question_id,choice_answer_id,awarded_score)
 -- choice(uid,choice_text)
 -- choice_question(question_id,choice_answer_id)
--- short_question(question_id,response_answer)
+-- short_question_response(question_id,response_answer,awarded_score)
 -- question_choice(question_id,choice_id)
 -- grade_letter(uid,letter,upper_grade,lower_grade,description)
 
@@ -155,7 +156,7 @@ constraint pk_course_instructor primary key(`user_id`,`course_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- category(uid,name,description)
-create table if not exists `categeory`
+create table if not exists `category`
 (
 `uid` bigint not null AUTO_INCREMENT,
 `name` varchar(100) not null,
@@ -229,6 +230,15 @@ create table if not exists `activity_comment`
 `comment_id` bigint not null,
 `posted_datetime` datetime not null,
 constraint pk_activity_comment primary key(`comment_id`)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+-- course_activity(course_code,activity_id,date_assigned)
+create table if not exists `course_activity`
+(
+`activity_id` bigint not null,
+`course_code` varchar(16) not null,
+`date_assigned` datetime not null,
+constraint pk_course_activity primary key(`activity`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- graded_work(uid,title,type,description,maximum_grade,minimum_grade,percent_grade,datetime_created,created_by)
@@ -325,21 +335,23 @@ create table if not exists `choice_question`
 constraint pk_choice_question primary key(`question_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
--- attempt_choice_answer(attempt_id,question_id,choice_answer_id)
+-- attempt_choice_answer(attempt_id,question_id,choice_answer_id,awarded_score)
 create table if not exists `attempt_choice_answer`
 (
 `attempt_id` bigint not null,
 `question_id` bigint not null,
 `choice_answer_id` bigint not null,
+`awarded_score` decimal(10,5) default 0,
 constraint pk_choice_answer primary key(`question_id`,`attempt_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 
--- short_question(question_id,response_answer)
-create table if not exists `short_question`
+-- short_question_response(question_id,response_answer,awarded_score)
+create table if not exists `short_question_response`
 (
 `question_id` bigint not null,
 `response_answer` TEXT,
+`awarded_score` decimal(10,5) default 0,
 constraint pk_short_question primary key(`question_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
@@ -474,6 +486,11 @@ ALTER TABLE `user_comment`
 ALTER TABLE `activity_comment`
 	ADD CONSTRAINT `fk_activity_comment_comment` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
 	ADD CONSTRAINT `fk_activity_comment_activity` FOREIGN KEY (`activity_id`) REFERENCES `activity` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
+
+-- course_activity(course_code,activity_id,date_assigned)	
+ALTER TABLE `course_activity`
+	ADD CONSTRAINT `fk_course_act_course` FOREIGN KEY (`course_code`) REFERENCES `course` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
+	ADD CONSTRAINT `fk_course_act_act` FOREIGN KEY (`activity_id`) REFERENCES `activity` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 	
 ALTER TABLE `grade_work_letter_grade`
 	ADD CONSTRAINT `fk_grade_work_letter_grade_grade` FOREIGN KEY (`letter_grade_id`) REFERENCES `grade_letter` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
@@ -509,7 +526,7 @@ ALTER TABLE `attempt_choice_answer`
 	ADD CONSTRAINT `fk_choice_answer_question` FOREIGN KEY (`question_id`) REFERENCES `question` (`uid`) ON UPDATE CASCADE  ON DELETE CASCADE,
 	ADD CONSTRAINT `fk_choice_answer_answer` FOREIGN KEY (`choice_answer_id`) REFERENCES `choice` (`uid`) ON UPDATE CASCADE  ON DELETE CASCADE;
 
-ALTER TABLE `short_question`
+ALTER TABLE `short_question_response`
 	ADD CONSTRAINT `fk_short_question_question` FOREIGN KEY (`question_id`) REFERENCES `question` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 	
 ALTER TABLE `question_choice`
