@@ -1,3 +1,3 @@
 </head>
 <body>
-	<div id="page">
+	<div id="container">
