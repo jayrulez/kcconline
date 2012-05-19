@@ -45,6 +45,10 @@ delimiter $$
 create database if not exists `kcconline` $$
 delimiter ;
 
+delimiter $$
+use `kcconline` $$
+delimiter ;
+
 --user(`uid`,user_id,first_name,middle_name,last_name,dob,email,phone1,phone2,active,deleted,datetime_created,last_action,last_modified,image_url)
 create table if not exists `user`
 (
@@ -58,7 +62,10 @@ create table if not exists `user`
 `password` varchar(32) not null,
 `phone1` varchar(20),
 `phone2` varchar(20),
-`active` tinyint(1) default 0,
+`street` varchar(100),
+`parish` varchar(48),
+`country_code` varchar(2),
+`active` tinyint() default 0,
 `deleted` tinyint(1) default 0,
 `datetime_created` datetime not null,
 `last_action` datetime,
@@ -67,6 +74,13 @@ create table if not exists `user`
 constraint pk_user primary key(uid),
 constraint unq_user_id unique(user_id),
 constraint unq_user_email unique(email_address)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+create table if not exists `country`
+(
+	`code` int(11) not null AUTO_INCREMENT,
+	`name` varchar(75) not null,
+	constraint pk_country primary key(`code`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- role(id,name,description)
@@ -446,6 +460,9 @@ create table if not exists `resource_type`
 `description` varchar(255),
 constraint pk_resource_type primary key(`uid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+
+ALTER TABLE `user`
+	ADD CONSTRAINT `fk_user_country` FOREIGN KEY (`country_code`) REFERENCES `country` (`code`) ON UPDATE CASCADE  ON DELETE NO ACTION,
 
 ALTER TABLE `user_role`
 	ADD CONSTRAINT `fk_user_role_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
