@@ -16,16 +16,17 @@
 		public static $controller = "/controller/";
 		public static $resources = "/resources/";
 		public static $images = "/images/";
-		public static $script = "/js/";
+		public static $script = "js/";
+		public static $style= "css/";
 		
 		public static function linkJScript($filePath)
 		{
-			return '<script type="text/javascript" src="'.$script.$filePath.'"'.'></script>';
+			return '<script type="text/javascript" src="'.Application::$script.$filePath.'"></script>';
 		}
 		
 		public static function linkCss($filePath)
 		{
-			return '<link rel="stylesheet" type="text/css" href="'.$script.$filePath.'"'.'/>';
+			return '<link rel="stylesheet" type="text/css" href="'.Application::$style.$filePath.'"/>';
 		}
 	}
 

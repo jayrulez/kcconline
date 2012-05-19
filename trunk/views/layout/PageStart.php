@@ -1,4 +1,4 @@
 <!DOCTYPE HTML>
 <html>
 	<head>
-		<title><?php App::$pageTitle.'-'.App::$appName?></title>
+		<title><?php echo Application::$pageTitle.' - '.Application::$appName;?></title>
