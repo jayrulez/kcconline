@@ -1,17 +1,11 @@
 <?php
-	/*Application Description*/
-	$appName = "KCC Online";
-	$pageTitle = "KCCOnline";
-	$description = "";
+	include_once "Application.php";
 	
-	/*application resource paths*/
-	$model = "/model/";
-	$view = "/views/";
-	$pages = "/views/pages/";
-	$layout = "/views/layout/";
-	$sections = "/views/sections/";
-	$controller = "/controller/";
-	$resources = "/resources/";
-	$images = "/images/";
-	$script = "/js/";
+	$App = new Application;
+	
+	function __autoload($className)
+	{
+		include_once ($App::model.$className.'.php');
+	}					
+?>
 	
