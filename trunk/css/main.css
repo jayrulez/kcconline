@@ -1,14 +1,17 @@
 #container
 {
 	margin: 0 auto;
-	width: 900px;
+	width: 960px;
 	background: #fff;
 }
 
 #header
 {
-	background: #ccc url(../images/);
-	padding: 20px;
+	
+	width: 960px;
+	background: #507391 url('../images/header_bg.png') top left;
+	height: 110px;
+	margin: 0 0 8px 0;
 }
 
 #header h1 { margin: 0; }
@@ -16,8 +19,8 @@
 #navigation
 {
 	float: left;
-	width: 900px;
-	background: #333;
+	width: 960px;
+	background: #507391;
 }
 
 #navigation ul
@@ -47,18 +50,18 @@
 #content-container
 {
 	float: right;
-	width: 900px;
+	width: 960px;
 	background: #fff url(/wp-content/uploads/layout-two-fixed-background.gif) repeat-y 100% 0;
 }
 #content-container-container
 {
 	float: right;
-	width: 900px;
+	width: 960px;
 }
 #content
 {
 	float: left;
-	width: 560px;
+	width: 620px;
 	padding: 20px 0;
 	margin: 0 0 0 10px;
 	display: inline;
