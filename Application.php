@@ -35,7 +35,7 @@
 			return '<link rel="stylesheet" type="text/css" href="'.Application::$style.$filePath.'"/>';
 		}
 		
-		public static dbConnect()
+		public static function dbConnect()
 		{
 			Application::$dbLink = mysqli_connect(Application::$dbHost,Application::$dbUser,Application::$dbPassword, Application::$dbName);
 			if(!Application::$dbLink)
