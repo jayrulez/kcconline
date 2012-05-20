@@ -1,8 +1,10 @@
 <?php
-	class Category
+
+	class Quiz
 	{
 		public function __construct()
 		{
 		}
 	}
+
 ?>

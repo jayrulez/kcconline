@@ -1,8 +1,10 @@
 <?php
-	class Category
+
+	class GradedWork
 	{
 		public function __construct()
 		{
 		}
 	}
+
 ?>

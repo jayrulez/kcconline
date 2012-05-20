@@ -1,8 +1,10 @@
 <?php
-	class Category
+
+	class AssignmentSubmission
 	{
 		public function __construct()
 		{
 		}
 	}
+
 ?>
