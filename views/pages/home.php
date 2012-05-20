@@ -1,20 +1,16 @@
 <?php
 	Application::$pageTitle = "Home";
-?>
-<?php
+
 	include_once Application::$layout.'PageStart.php';
-?>
-<?php
+
 	echo Application::linkJScript("main");
 	echo Application::linkCss("main.css");
 	echo Application::linkCss("common.css");
 	echo Application::linkCss("ie.css");
-?>
-<?php	
+	
 	include_once Application::$layout.'BodyStart.php';
 	include_once Application::$layout.'Header.php';
-?>
-<?php
+
 	include_once Application::$sections.'MainNavBar.php';
 ?>
 	<div id="content-container">
