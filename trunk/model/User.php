@@ -37,6 +37,12 @@
 			{
 				if($resultPointer>0)
 				{
+					$_SESSION['emailAddress'] = $this->emailAddress;
+					$_SESSION['isLoggedIn'] = true;
+					
+					$this->loggedIn =  true;
+					$_SESSION['lastActiveTime'] = time();
+					
 					return true;
 				}
 			}
@@ -64,5 +70,68 @@
 		{
 		}
 		
+		public function isTimedOut()
+		{
+			//$currentTime = time();
+			if(isset($_SESSION['lastActiveTime']))
+			{
+				$idleTime = time() - $_SESSION['lastActiveTime'] ;
+				
+				if(($idleTime/60)>5)
+				{	
+					return true;
+				}
+				else
+				{
+					$_SESSION['lastActiveTime'] = time();
+					return false;
+				}
+			}
+			else
+			{
+				return true;
+			}
+		}
+		public function timeoutUser()
+		{
+			if(isset($_SESSION['lastActiveTime']))
+			{
+				$idleTime = time() - $_SESSION['lastActiveTime'] ;
+				
+				if(($idleTime/60)>5)
+				{	
+					$this->logoutUser();
+					return true;
+				}
+				else
+				{
+					$_SESSION['lastActiveTime'] = time();
+					return false;
+				}
+			}
+			else
+			{
+				return true;
+			}
+		}
+		
+		public function logoutUser()
+		{
+			setcookie('emailAddress',$this->emailAddress,time()*60*24);
+			if(isset($_SESSION['emailAddress']))
+			{
+				unset($_SESSION['emailAddress']);
+			}
+			if(isset($_SESSION['isLoggedIn']))
+			{
+				unset($_SESSION['isLoggedIn']);
+			}
+			if(isset($_SESSION['lastActiveTime']))
+			{
+				unset($_SESSION['lastActiveTime']);
+			}
+			$this->loggedIn = false;
+			return true;
+		}
 	}
 ?>
