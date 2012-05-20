@@ -18,7 +18,7 @@
 	include_once Application::$sections.'MainNavBar.php';
 ?>
 	<div id="content-container">
-		<?php include_once Application::$layout.'ProfileBlock.php'; ?>
+		<?php include_once Application::$layout.'LeftPanel.php'; ?>
 		<div id="content">
 			<h2>
 				Page heading
