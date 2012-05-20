@@ -64,6 +64,7 @@ create table if not exists `user`
 `phone2` varchar(20),
 `street` varchar(100),
 `parish` varchar(48),
+`gender` varchar(2),
 `country_code` varchar(2),
 `active` tinyint() default 0,
 `deleted` tinyint(1) default 0,
