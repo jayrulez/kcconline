@@ -30,9 +30,9 @@
 	
 		}
 		
-		public function authenticate($password)
+		public function authenticate()
 		{
-			$resultPointer = mysqli_query(Application::$dbLink,"select * from `User` where email_address = '".mysqli_real_escape_stringmd5(Application::$dbLink,$email_address)."' and password = '".mysqli_real_escape_string(Application::$dbLink,md5($password))."')");
+			$resultPointer = mysqli_query(Application::$dbLink,"select * from `User` where email_address = '".mysqli_real_escape_stringmd5(Application::$dbLink,$email_address)."' and password = '".mysqli_real_escape_string(Application::$dbLink,md5($this->password))."')");
 			if($resultPointer)
 			{
 				if($resultPointer>0)
@@ -115,9 +115,21 @@
 			}
 		}
 		
+		public function isLoggedIn()
+		{
+			if(isset($_SESSION['isLoggedIn']))
+			{	
+				if($_SESSION['']===true)
+				{
+					return true;
+				}
+			}
+			return false;
+		}
+		
 		public function logoutUser()
 		{
-			setcookie('emailAddress',$this->emailAddress,time()*60*24);
+			//setcookie('emailAddress',$this->emailAddress,time()*60*24);
 			if(isset($_SESSION['emailAddress']))
 			{
 				unset($_SESSION['emailAddress']);
@@ -130,7 +142,6 @@
 			{
 				unset($_SESSION['lastActiveTime']);
 			}
-			$this->loggedIn = false;
 			return true;
 		}
 	}

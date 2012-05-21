@@ -12,27 +12,39 @@
 	include_once Application::$layout.'Header.php';
 
 	include_once Application::$sections.'MainNavBar.php';
+	
+	if(isset($_SESSION['login-form']))
+	{
+		
+	}
 ?>
 	<div id="content-container">
 		
 		<div id="content">
 		<!-- login form -->
-		<form id="login-form" class="forms">
+	<?php
+		if(isset($_SESSION['loginFormValidator']))
+		{
+			$loginFormValidator = unserialize($_SESSION['loginFormValidator']);
+			$loginFormValidator->displayErrors();
+		}
+	?>
+		<form id="login-form" class="forms" method="post" action="index.php?r=login&action=login">
         <table align ="center">
             <tr>
-            	<td>Username: </td>
-                <td><input type="text" name="username"/></td>
+            	<td>Email Address: </td>
+                <td><input type="text" name="emailaddress"/></td>
             </tr>
             <tr>
             	<td>Password:</td>
-                <td><input type="passwordd" name="password"/></td>
+                <td><input type="password" name="password"/></td>
             </tr>	
               <tr>
               <td>Remember Me</td>
                 <td><input type="checkbox" name="rememberme"/></td>
             </tr>
             <tr>
-            	<td align="center" colspan="2"><button  type="button">Login</button></td>
+            	<td align="center" colspan="2"><button  name="login" type="submit">Login</button></td>
             </tr>
         </table>
         </form>
