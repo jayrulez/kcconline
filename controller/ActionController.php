@@ -65,16 +65,22 @@
 			$addUserForm ->emailAddress = $_POST['emailaddress'];
 			$addUserForm ->dob = $_POST['dob'];
 			$addUserForm ->mobilePhone = $_POST['mobilePhone'];
-			$addUserForm ->homePhone = $_POST['homePhone'];
-			$addUserForm >password = $_POST['password'];
+			$addUserForm ->otherPhone = $_POST['otherPhone'];
 			
 			
 			$addUserFormValidator = new FormValidator(); 
 			
-			$addUserValidator->setRule('emailaddress','Email Address','required|valid_email');
-			$addUserValidator->setRule('password','Password','required');
+			$addUserFormValidator->setRule('emailaddress','Email Address','required|valid_email|max_lenght[252]');
+			$addUserFormValidator->setRule('firstName','First Name','required|max_lenght[75]');
+			$addUserFormValidator->setRule('midleName','Middle Name','max_lenght[75]');
+			$addUserFormValidator->setRule('lastName','Last Name','required|max_lenght[75]');
+			$addUserFormValidator->setRule('idNumber','Id Number','required|max_lenght[32]');
+			$addUserFormValidator->setRule('country','Country','required');
+			$addUserFormValidator->setRule('mobilePhone','Mobile Number','max_lenght[20]');
+			$addUserFormValidator->setRule('otherPhone','Other Number','max_lenght[20]');
+			$addUserFormValidator->setRule('street','Street','max_lenght[100]');
 			
-			$addUserValidator->runValidation();
+			$addUserFormValidator->runValidation();
 			
 			if(isset($_SESSION['addUserFormValidator']))
 			{
@@ -84,9 +90,9 @@
 			{
 				unset($_SESSION['addUserForm']);
 			}
-			if(!$addUserValidator->formSuccess())
+			if(!$addUserFormValidator->formSuccess())
 			{
-				$addUserValidator->displayErrors();
+				$addUserFormValidator->displayErrors();
 				$_SESSION['addUserFormValidator'] = serialize($addUserFormValidator);
 				$_SESSION['addUserForm'] = serialize($addUserForm);
 				

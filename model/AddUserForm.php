@@ -8,7 +8,7 @@ class AddUserForm
 	public $dob;
 	public $emailAddress;
 	public $mobilePhone;
-	public $homePhone;
+	public $otherPhone;
 	public $street;
 	public $parish;
 	public $country;

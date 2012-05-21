@@ -1,23 +1,39 @@
+<?php
+	$addUserForm = new AddUserForm;
+	if(isset($_SESSION['asddUserForm']))
+	{
+		$addUserForm = unserialize($_SESSION['addUserForm']);
+	}
+?>
 
 	<div id="content">
-	<!-- login form -->
-	<form id="login-form" method="post" action="index.php?r=user&action=addUser">
+	<?php
+		if(isset($_SESSION['addUserFormValidator']))
+		{
+			$addUserFormValidator = unserialize($_SESSION['addUserFormValidator']);
+			
+			//$loginFormValidator->runValidation();
+			
+			$addUserFormValidator->displayErrors(20);
+		}
+	?>
+	<form id="login-form" method="post" enctype="multipart/form-data" action="index.php?r=user&action=addUser">
 	<table align ="center">
 		<tr>
 			<td>First Name: </td>
-			<td align="center"><input type="text" name="firstName"/></td>
+			<td align="center"><input type="text" name="firstName" value="<?php echo $addUserForm->firstName; ?>"/></td>
 		</tr>
 		   <tr>
 			<td>Middle Name: </td>
-			<td align="center"><input type="text" name="middleName"/></td>
+			<td align="center"><input type="text" name="middleName" value="<?php echo $addUserForm->middleName; ?>"/></td>
 		</tr>
 		<tr>
 			<td>Last Name:</td>
-			<td align="center"><input type="passwordd" name="lastName"/></td>
+			<td align="center"><input type="passwordd" name="lastName" value="<?php echo $addUserForm->lastName; ?>"/></td>
 		</tr>
 		  <tr>
 			<td>Street: </td>
-			<td align="center"><input type="text" name="street"/></td>
+			<td align="center"><input type="text" name="street" value="<?php echo $addUserForm->street; ?>"/></td>
 		</tr>
 		  <tr>
 			<td>Country: </td>
@@ -29,7 +45,17 @@
 					
 					foreach($countries as $country)
 					{
-						echo '<option value="'.$country['code'].'">'.$country['country'].'</option>';
+						$selected = "";
+	
+						if(strcmp($country['code'],"JM")==0)
+						{
+							$selected = "selected";
+						}
+						if(strcmp($country['code'],$addUserForm->country)==0)
+						{
+							$selected = "selected";
+						}
+						echo '<option value="'.$country['code'].'" '.$selected.'>'.$country['country'].'</option>';
 					}
 				?>
 				</select>
@@ -37,11 +63,11 @@
 		</tr>
 		  <tr>
 			<td>ID Number: </td>
-			<td align="center"><input type="text" name="idNumber"/></td>
+			<td align="center"><input type="text" name="idNumber" value="<?php echo $addUserForm->idNumber; ?>"/></td>
 		</tr>
 		  <tr>
 			<td>Email: </td>
-			<td align="center"><input type="text" name="emailAddress"/></td>
+			<td align="center"><input type="text" name="emailAddress" value="<?php echo $addUserForm->emailAddress; ?>"/></td>
 		</tr>
 		 <tr>
 			<td>Date Of Birth: </td>
@@ -70,16 +96,29 @@
 		
 		 <tr>
 			<td>Mobile Phone: </td>
-			<td align="center"><input type="text" name="mobilePhone"/></td>
+			<td align="center"><input type="text" name="mobilePhone" value="<?php echo $addUserForm->mobilePhone; ?>"/></td>
 		</tr>
 		 <tr>
-			<td>Home Phone: </td>
-			<td align="center"><input type="text" name="homePhone"/></td>
+			<td>Other Phone: </td>
+			<td align="center"><input type="text" name="otherPhone"  value="<?php echo $addUserForm->otherPhone; ?>"/></td>
 		</tr>
-		
 		<tr>
-			<td align="center" colspan="2"><button  type="button">Save</button></td>
+			<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
+			<td>Profile Image:</td><td><input type="file" name="profilePhoto"/></td>
+		</tr>
+		<tr>
+			<td align="center" colspan="2"><button  type="submit" name="addUser">Save</button></td>
 		</tr>
 	</table>
 	</form>
 	</div>	
+<?php
+	if(isset($_SESSION['addUserForm']))
+	{
+		unset($_SESSION['addUserForm']);
+	}
+	if(isset($_SESSION['addUserFormValidator']))
+	{
+		unset($_SESSION['addUserFormValidator']);
+	}
+?>
