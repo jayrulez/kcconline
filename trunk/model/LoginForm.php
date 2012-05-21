@@ -4,7 +4,5 @@
 		public $emailAddress;
 		public $password;
 		public $rememberMe = false;
-		
-		
 	}
 ?>
