@@ -26,6 +26,9 @@
 		if(isset($_SESSION['loginFormValidator']))
 		{
 			$loginFormValidator = unserialize($_SESSION['loginFormValidator']);
+			
+			//$loginFormValidator->runValidation();
+			
 			$loginFormValidator->displayErrors();
 		}
 	?>
