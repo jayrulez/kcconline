@@ -19,8 +19,7 @@
  * GNU General Public License for more details.
  **/
  
-class FormValidator 
-{
+class FormValidator {
 
     protected $_formSuccess  = false;
     protected $_errorPhrases = array(

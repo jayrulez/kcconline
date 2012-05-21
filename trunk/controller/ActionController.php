@@ -20,10 +20,10 @@
 			{
 				unset($_SESSION['loginFormValidator']);
 			}
-			if(!$loginFormValidator->formSuccess)
+			if(!$loginFormValidator->formSuccess())
 			{
 				$_SESSION['loginFormValidator'] = serialize($loginFormValidator);
-
+				
 			}
 			else
 			{
