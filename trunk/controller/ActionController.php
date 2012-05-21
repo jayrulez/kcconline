@@ -9,7 +9,8 @@
 			$loginForm->emailAddress = $_POST['emailaddress'];
 			$loginForm->password = $_POST['password'];
 			
-			$loginFormValidator = new FormValidator; 
+			
+			$loginFormValidator = new FormValidator(); 
 			
 			$loginFormValidator->setRule('emailaddress','Email Address','required|valid_email');
 			$loginFormValidator->setRule('password','Password','required');
@@ -20,13 +21,22 @@
 			{
 				unset($_SESSION['loginFormValidator']);
 			}
+			if(isset($_SESSION['loginForm']))
+			{
+				unset($_SESSION['loginForm']);
+			}
 			if(!$loginFormValidator->formSuccess())
 			{
+				$loginFormValidator->displayErrors();
 				$_SESSION['loginFormValidator'] = serialize($loginFormValidator);
+				$_SESSION['loginForm'] = serialize($loginForm);
 				
 			}
 			else
 			{
+				$unknownUser = new User;
+				$unknownUser->emailAddress = $_POST['emailaddress'];
+				$unknownUser->password = $_POST['password'];
 				if($unknownUser->authenticate())
 				{
 					header('Location: index.php?r=home');

@@ -54,6 +54,7 @@ create table if not exists `user`
 (
 `uid` bigint not null AUTO_INCREMENT,
 `user_id` varchar(32) not null,
+`username` varchar(32) not null,
 `first_name` varchar(75) not null,
 `middle_name` varchar(75) default null,
 `last_name` varchar(75) not null,
@@ -74,6 +75,7 @@ create table if not exists `user`
 `image_url` varchar(255),
 constraint pk_user primary key(uid),
 constraint unq_user_id unique(user_id),
+constraint unq_user_username unique(username),
 constraint unq_user_email unique(email_address)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
