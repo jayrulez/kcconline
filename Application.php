@@ -21,6 +21,7 @@
 		public static $siteController = "/controller/SiteController.php";
 		public static $resources = "/resources/";
 		public static $images = "/images/";
+		public static $profileImages = "/images/profile/";
 		public static $script = "js/";
 		public static $style= "css/";
 		
