@@ -9,6 +9,10 @@
 			case 'login':
 				actionLogin();
 			break;
+			
+			case 'addUser':
+				actionAddUser();
+			break;
 		}
 	}
 
