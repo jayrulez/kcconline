@@ -3,6 +3,7 @@
 	class Application
 	{
 		/*Application Description*/
+		public static $appRootName = "kcconline";
 		public static $appName = "KCC Online";
 		public static $pageTitle = "KCCOnline";
 		public static $description = "";
@@ -14,6 +15,7 @@
 		public static $layout = "/views/layout/";
 		public static $sections = "/views/sections/";
 		public static $controller = "/controller/";
+		public static $siteController = "/controller/SiteController.php";
 		public static $resources = "/resources/";
 		public static $images = "/images/";
 		public static $script = "js/";
@@ -56,6 +58,11 @@
 				}
 				*/
 			}
+		}
+		
+		public static function getApplicationRootPath()
+		{
+			return $_SERVER['DOCUMENT_ROOT'].'/'.Application::$appRootName;
 		}
 	}
 
