@@ -1,6 +1,6 @@
 <?php
 	$addUserForm = new AddUserForm;
-	if(isset($_SESSION['asddUserForm']))
+	if(isset($_SESSION['addUserForm']))
 	{
 		$addUserForm = unserialize($_SESSION['addUserForm']);
 	}
@@ -103,7 +103,6 @@
 			<td align="center"><input type="text" name="otherPhone"  value="<?php echo $addUserForm->otherPhone; ?>"/></td>
 		</tr>
 		<tr>
-			<input type="hidden" name="MAX_FILE_SIZE" value="100000" />
 			<td>Profile Image:</td><td><input type="file" name="profilePhoto"/></td>
 		</tr>
 		<tr>

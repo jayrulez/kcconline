@@ -54,7 +54,6 @@ create table if not exists `user`
 (
 `uid` bigint not null AUTO_INCREMENT,
 `user_id` varchar(32) not null,
-`username` varchar(32) not null,
 `first_name` varchar(75) not null,
 `middle_name` varchar(75) default null,
 `last_name` varchar(75) not null,
@@ -464,7 +463,7 @@ constraint pk_resource_type primary key(`uid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 ALTER TABLE `user`
-	ADD CONSTRAINT `fk_user_country` FOREIGN KEY (`country_code`) REFERENCES `country` (`code`) ON UPDATE CASCADE  ON DELETE NO ACTION,
+	ADD CONSTRAINT `fk_user_country` FOREIGN KEY (`country_code`) REFERENCES `country` (`code`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 
 ALTER TABLE `user_role`
 	ADD CONSTRAINT `fk_user_role_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,

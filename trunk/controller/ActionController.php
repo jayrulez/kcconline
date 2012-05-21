@@ -62,8 +62,8 @@
 			$addUserForm ->street = $_POST['street'];
 			$addUserForm ->country = $_POST['country'];
 			$addUserForm ->idNumber = $_POST['idNumber'];
-			$addUserForm ->emailAddress = $_POST['emailaddress'];
-			$addUserForm ->dob = $_POST['dob'];
+			$addUserForm ->emailAddress = $_POST['emailAddress'];
+			//$addUserForm ->dob = $_POST['dob'];
 			$addUserForm ->mobilePhone = $_POST['mobilePhone'];
 			$addUserForm ->otherPhone = $_POST['otherPhone'];
 			
@@ -80,6 +80,43 @@
 			$addUserFormValidator->setRule('otherPhone','Other Number','max_lenght[20]');
 			$addUserFormValidator->setRule('street','Street','max_lenght[100]');
 			
+			  // Configuration - Your Options
+			$allowed_filetypes = array('.jpg','.gif','.bmp','.png'); // These will be the types of file that will pass the validation.
+			$max_filesize = 524288; // Maximum filesize in BYTES (currently 0.5MB).
+			$upload_path = Application::getApplicationRootPath().Application::$profileImages;// The place the files will be uploaded to (currently a 'files' directory).
+			
+			$filename = $_FILES['profilePhoto']['name']; // Get the name of the file (including file extension).
+			$ext = substr($filename, strpos($filename,'.'), strlen($filename)-1); // Get the extension from the filename.
+		 
+				// Check if the filetype is allowed, if not DIE and inform the user.
+			if(!in_array($ext,$allowed_filetypes))
+			{
+				$addUserFormValidator->setCustomError('firstName','The file you attempted to upload is not allowed.');
+			}
+			// Now check the filesize, if it is too large then DIE and inform the user.
+			if(filesize($_FILES['profilePhoto']['tmp_name']) > $max_filesize)
+			{
+				$addUserFormValidator->setCustomError('firstName','The file you attempted to upload is too large.');
+			}
+			// Check if we can upload to the specified path, if not DIE and inform the user.
+			if(!is_writable($upload_path))
+			{
+				echo $upload_path;
+				die('You cannot upload to the specified directory, please CHMOD it to 777.');
+			}
+			// Upload the file to your specified path.
+			if(move_uploaded_file($_FILES['profilePhoto']['tmp_name'],$upload_path.$_FILES['profilePhoto']['name']))
+			{
+				$addUserForm->imageUrl = $_FILES['profilePhoto']['name'];
+				
+			}
+			
+			else
+			{
+				 echo 'There was an error during the file upload.  Please try again.'; // It failed :(.
+			}
+			echo $_FILES['profilePhoto']['tmp_name'];
+			
 			$addUserFormValidator->runValidation();
 			
 			if(isset($_SESSION['addUserFormValidator']))
@@ -92,7 +129,7 @@
 			}
 			if(!$addUserFormValidator->formSuccess())
 			{
-				$addUserFormValidator->displayErrors();
+				$addUserFormValidator->displayErrors(10);
 				$_SESSION['addUserFormValidator'] = serialize($addUserFormValidator);
 				$_SESSION['addUserForm'] = serialize($addUserForm);
 				
@@ -101,7 +138,7 @@
 			{
 				$unknownUser = new User;
 				$unknownUser->setAddUserForm($addUserForm);
-				
+				var_dump($unknownUser);
 				if($unknownUser->save())
 				{
 					header('Location: index.php?r=home');
@@ -111,7 +148,7 @@
 					
 				}
 			}
-			header('Location: index.php?r=user&module=AddUser');			
+			//header('Location: index.php?r=user&module=AddUser');			
 		}
 	}
 	
