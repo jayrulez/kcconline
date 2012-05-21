@@ -4,22 +4,22 @@
 	{
 		public $uid;
 		public $user_id;
-		public $first_name;
-		public $middle_name;
-		public $last_name;
+		public $firstName;
+		public $middleName;
+		public $lastName;
 		public $dob;
-		public $email_address;
-		public $phone1;
-		public $phone2;
+		public $emailAddress;
+		public $mobilePhone;
+		public $homePhone;
 		public $street;
 		public $parish;
 		public $country;
 		public $active = 0;
 		public $deleted = 0;
-		public $datetime_created;
-		public $last_action;
-		public $last_modified;
-		public $image_url;
+		public $datetimeCreated;
+		public $lastAction;
+		public $lastModified;
+		public $imageUrl;
 		
 		public $role;
 		
@@ -143,6 +143,11 @@
 				unset($_SESSION['lastActiveTime']);
 			}
 			return true;
+		}
+		
+		public function setAddUserForm($addUserForm)
+		{
+			
 		}
 	}
 ?>

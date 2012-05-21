@@ -17,7 +17,7 @@
 		<?php include_once Application::$layout.'LeftPanel.php'; ?>
 		<div id="content">
 		<?php
-			include_once Application::$userSection.'MenuTab.php'; 
+			include_once Application::$userSections.'MenuTab.php'; 
 			if(Application::hasModuleRequest())
 			{
 				Application::loadModule();

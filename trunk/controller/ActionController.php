@@ -43,11 +43,71 @@
 				}
 				else
 				{
-					//$formResult = array("username"=>array("pass"=>false,"msg"=>""),"password"=>array("pass"=>false,"msg"=>""),"form-status"=>$formStatus);
+					
 				}
 			}
 			header('Location: index.php?r=login');
 		}
 	}
+	
+	function actionAddUser()
+	{
+		if(isset($_POST['addUser']))
+		{
+			$addUserForm = new AddUserForm;
+			
+			$addUserForm ->firstName = $_POST['firstName'];
+			$addUserForm ->middleName = $_POST['middleName'];
+			$addUserForm ->lastName = $_POST['lastName'];
+			$addUserForm ->street = $_POST['street'];
+			$addUserForm ->country = $_POST['country'];
+			$addUserForm ->idNumber = $_POST['idNumber'];
+			$addUserForm ->emailAddress = $_POST['emailaddress'];
+			$addUserForm ->dob = $_POST['dob'];
+			$addUserForm ->mobilePhone = $_POST['mobilePhone'];
+			$addUserForm ->homePhone = $_POST['homePhone'];
+			$addUserForm >password = $_POST['password'];
+			
+			
+			$addUserFormValidator = new FormValidator(); 
+			
+			$addUserValidator->setRule('emailaddress','Email Address','required|valid_email');
+			$addUserValidator->setRule('password','Password','required');
+			
+			$addUserValidator->runValidation();
+			
+			if(isset($_SESSION['addUserFormValidator']))
+			{
+				unset($_SESSION['addUserFormValidator']);
+			}
+			if(isset($_SESSION['addUserForm']))
+			{
+				unset($_SESSION['addUserForm']);
+			}
+			if(!$addUserValidator->formSuccess())
+			{
+				$addUserValidator->displayErrors();
+				$_SESSION['addUserFormValidator'] = serialize($addUserFormValidator);
+				$_SESSION['addUserForm'] = serialize($addUserForm);
+				
+			}
+			else
+			{
+				$unknownUser = new User;
+				$unknownUser->setAddUserForm($addUserForm);
+				
+				if($unknownUser->save())
+				{
+					header('Location: index.php?r=home');
+				}
+				else
+				{
+					
+				}
+			}
+			header('Location: index.php?r=user&module=AddUser');			
+		}
+	}
+	
 	
 ?>
