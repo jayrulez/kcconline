@@ -26,13 +26,13 @@
 		public function __construct()
 		{
 
-			Appilcation::dbConnect();	
+			Application::dbConnect();	
 	
 		}
 		
 		public function authenticate()
 		{
-			$resultPointer = mysqli_query(Application::$dbLink,"select * from `User` where email_address = '".mysqli_real_escape_stringmd5(Application::$dbLink,$email_address)."' and password = '".mysqli_real_escape_string(Application::$dbLink,md5($this->password))."')");
+			$resultPointer = mysqli_query(Application::$dbLink,"select * from `User` where email_address = '".mysqli_real_escape_string(Application::$dbLink,$email_address)."' and password = '".md5($this->password)."')");
 			if($resultPointer)
 			{
 				if($resultPointer>0)

@@ -13,9 +13,10 @@
 
 	include_once Application::$sections.'MainNavBar.php';
 	
-	if(isset($_SESSION['login-form']))
+	$loginForm = new LoginForm;
+	if(isset($_SESSION['loginForm']))
 	{
-		
+		$loginForm = unserialize($_SESSION['loginForm']);
 	}
 ?>
 	<div id="content-container">
@@ -29,18 +30,18 @@
 			
 			//$loginFormValidator->runValidation();
 			
-			$loginFormValidator->displayErrors();
+			$loginFormValidator->displayErrors(20);
 		}
 	?>
 		<form id="login-form" class="forms" method="post" action="index.php?r=login&action=login">
         <table align ="center">
             <tr>
             	<td>Email Address: </td>
-                <td><input type="text" name="emailaddress"/></td>
+                <td><input type="text" name="emailaddress" value="<?php echo $loginForm->emailAddress;?>"/></td>
             </tr>
             <tr>
             	<td>Password:</td>
-                <td><input type="password" name="password"/></td>
+                <td><input type="password" name="password" value="<?php echo $loginForm->password;?>"/></td>
             </tr>	
               <tr>
               <td>Remember Me</td>

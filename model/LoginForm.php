@@ -1,8 +1,8 @@
 <?php
 	class LoginForm
 	{
-		public $userName;
-		public $passwprd;
+		public $emailAddress;
+		public $password;
 		public $rememberMe = false;
 		
 		
