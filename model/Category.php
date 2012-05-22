@@ -35,10 +35,10 @@
 		
 		public function exists()
 		{
-			$resultPointer = mysqli_query(Application::$dbLink,"select * from `category` where uid = ".mysqli_real_escape_string(Application::$dbLink,$this->uid).")");
+			$resultPointer = Application::$dbConnection->query("select * from `category` where uid = ".Application::$dbConnection->real_escape_string($this->uid).")");
 			if($resultPointer)
 			{
-				if($resultPointer)
+				if($resultPointer->num_rows > 0)
 				{
 					return true;
 				}
@@ -49,13 +49,13 @@
 		public function getAll()
 		{
 			$queryString = "select * from `category`"; 
-			$resultPointer = mysqli_query(Application::$dbLink,$queryString);
+			$resultPointer = Application::$dbConnection->query($queryString);
 			$result = array();
 			if($resultPointer)
 			{
-				if(mysqli_num_rows($resultPointer)>0)
+				if($resultPointer->num_rows>0)
 				{
-					while($resultRow = mysqli_fetch_array($resultPointer))
+					while($resultRow->fetch_assoc())
 					{
 						array_push($result,$resultRow);
 						/*
@@ -80,17 +80,17 @@
 		
 			$null  = 'null';
 			$queryString = "insert into `category`(uid,name,description) values(".
-			"'".mysqli_real_escape_string(Application::$dbLink,$this->uid)."'".",". 
-			"'".mysqli_real_escape_string(Application::$dbLink,$this->name)."'".",";
+			"'".Application::$dbConnection->real_escape_string($this->uid)."'".",". 
+			"'".Application::$dbConnection->real_escape_string($this->name)."'".",";
 			
 			if(empty($this->description))
 				$queryString .= ""."default"."".")";
 			else
-				$queryString .= "'".mysqli_real_escape_string(Application::$dbLink,$this->description)."'".")";
+				$queryString .= "'".Application::$dbConnection->real_escape_string($this->description)."'".")";
 
 			echo $queryString;
 			//die();
-			$resultPointer = Application::$dbConnection->cquery($queryString);
+			$resultPointer = Application::$dbConnection->query($queryString);
 			Application::$dbConnection->commit();
 			if($resultPointer)
 			{

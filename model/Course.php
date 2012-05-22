@@ -55,9 +55,10 @@
 		
 		public function getAll()
 		{
-			$queryString = "select * from `course`"; 
+			$queryString = "select course.*, category.uid as categoryId,category.name as categoryName, category.description as categoryDescription from `course` left join category on course.category_id = category.uid"; 
 			$resultPointer = Application::$dbConnection->query($queryString);
 			$result = array();
+
 			if($resultPointer)
 			{
 				if($resultPointer->num_rows>0)

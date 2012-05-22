@@ -227,6 +227,11 @@
 			header('Location: index.php?r=course&module=AddCourse');			
 		}
 	}
+	function actionSearchCourse()
+	{
+		
+		//header('Location: index.php?r=course&module=Courses');	
+	}
 	
 	
 ?>
