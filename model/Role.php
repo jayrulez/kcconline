@@ -12,15 +12,15 @@
 		
 		public function get()
 		{
-			$queryString = "select * from `role` where uid = ".mysqli_real_escape_string(Application::$dbLink,$this->uid).""; 
-			$resultPointer = mysqli_query(Application::$dbLink,$queryString);
+			$queryString = "select * from `role` where uid = ".Application::$dbConnection->real_escape_string($this->uid).""; 
+			$resultPointer = Application::$dbConnection->query($queryString);
 			
 	
 			if($resultPointer)
 			{
-				if(mysqli_num_rows($resultPointer)==1)
+				if($resultPointer->num_rows==1)
 				{
-					while($resultRow = mysqli_fetch_array($resultPointer))
+					while($resultRow = $resultPointer->fetch_assoc())
 					{
 						$this->uid = $resultRow['uid'];
 						$this->name = $resultRow['name'];
@@ -35,10 +35,10 @@
 		
 		public function exists()
 		{
-			$resultPointer = mysqli_query(Application::$dbLink,"select * from `role` where uid = ".mysqli_real_escape_string(Application::$dbLink,$this->uid).")");
+			$resultPointer = Application::$dbConnection->query("select * from `role` where uid = ".Application::$dbConnection->real_escape_string($this->uid).")");
 			if($resultPointer)
 			{
-				if($resultPointer)
+				if($resultPointer->num_rows>0)
 				{
 					return true;
 				}
@@ -49,13 +49,13 @@
 		public function getAll()
 		{
 			$queryString = "select * from `role`"; 
-			$resultPointer = mysqli_query(Application::$dbLink,$queryString);
+			$resultPointer = Application::$dbConnection->query($queryString);
 			$result = array();
 			if($resultPointer)
 			{
-				if(mysqli_num_rows($resultPointer)==1)
+				if($resultPointer->num_rows > 1)
 				{
-					while($resultRow = mysqli_fetch_array($resultPointer))
+					while($resultRow = $resultPointer->fetch_assoc())
 					{
 						array_push($result,$resultRow);
 						/*
@@ -69,7 +69,7 @@
 			return $result;
 		}
 		
-		public function setCategoryForm($roleForm)
+		public function setRoleForm($roleForm)
 		{
 			$this->name = $roleForm->name;
 			$this->description = $roleForm->description;;
@@ -80,17 +80,17 @@
 		
 			$null  = 'null';
 			$queryString = "insert into `role`(uid,name,description) values(".
-			"'".mysqli_real_escape_string(Application::$dbLink,$this->uid)."'".",". 
-			"'".mysqli_real_escape_string(Application::$dbLink,$this->name)."'".",";
+			"'".Application::$dbConnection->real_escape_string($this->uid)."'".",". 
+			"'".Application::$dbConnection->real_escape_string($this->name)."'".",";
 			
 			if(empty($this->description))
 				$queryString .= ""."default"."".")";
 			else
-				$queryString .= "'".mysqli_real_escape_string(Application::$dbLink,$this->description)."'".")";
+				$queryString .= "'".Application::$dbConnection->real_escape_string($this->description)."'".")";
 
 			echo $queryString;
 			//die();
-			$resultPointer = mysqli_query(Application::$dbLink,$queryString);
+			$resultPointer = Application::$dbConnection->query($queryString);
 			
 			if($resultPointer)
 			{

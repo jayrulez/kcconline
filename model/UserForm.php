@@ -1,5 +1,5 @@
 <?php
-class AddUserForm
+class UserForm
 {
 	public $idNumber = null;
 	public $firstName = null;
@@ -12,7 +12,9 @@ class AddUserForm
 	public $street = null;
 	public $parish = null;
 	public $country = null;
-	public $active = false;
+	public $active = 0;
 	public $imageUrl = null;
+	public $role=null;
+	public $gender=null;
 }
 ?>

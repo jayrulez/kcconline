@@ -1,5 +1,9 @@
 <?php
 	
+	function actionLogout()
+	{
+		
+	}
 	function actionLogin()
 	{
 		if(isset($_POST['login']))
@@ -56,7 +60,7 @@
 	{
 		if(isset($_POST['addUser']))
 		{
-			$addUserForm = new AddUserForm;
+			$addUserForm = new UserForm;
 			
 			$addUserForm ->firstName = $_POST['firstName'];
 			$addUserForm ->middleName = $_POST['middleName'];
@@ -68,7 +72,12 @@
 			//$addUserForm ->dob = $_POST['dob'];
 			$addUserForm ->mobilePhone = $_POST['mobilePhone'];
 			$addUserForm ->otherPhone = $_POST['otherPhone'];
-			
+			$addUserForm ->role = $_POST['role'];
+			$addUserForm ->gender = $_POST['gender'];
+			if(isset($_POST['activate']))
+			{
+				$addUserForm->active = $_POST['activate'];
+			}
 			
 			$addUserFormValidator = new FormValidator(); 
 			
@@ -84,7 +93,7 @@
 			
 			  // Configuration - Your Options
 			$allowed_filetypes = array('.jpg','.gif','.bmp','.png'); // These will be the types of file that will pass the validation.
-			$max_filesize = 524288; // Maximum filesize in BYTES (currently 0.5MB).
+			$max_filesize = 1048576; // Maximum filesize in BYTES (currently 1MB).
 			$upload_path = Application::getApplicationRootPath().Application::$profileImages;// The place the files will be uploaded to (currently a 'files' directory).
 			
 			$filename = $_FILES['profilePhoto']['name']; // Get the name of the file (including file extension).
@@ -131,6 +140,9 @@
 			}
 			if(!$addUserFormValidator->formSuccess())
 			{
+				//var_dump($addUserForm);
+				//$addUserFormValidator->displayErrors(20);
+				//die();
 				$_SESSION['addUserFormValidator'] = serialize($addUserFormValidator);
 				$_SESSION['addUserForm'] = serialize($addUserForm);
 				
@@ -138,8 +150,8 @@
 			else
 			{
 				$unknownUser = new User;
-				$unknownUser->setAddUserForm($addUserForm);
-				var_dump($unknownUser);
+				$unknownUser->setUserForm($addUserForm);
+				//var_dump($unknownUser);
 				if($unknownUser->save())
 				{
 					header('Location: index.php?r=home');
@@ -149,7 +161,7 @@
 					
 				}
 			}
-			//header('Location: index.php?r=user&module=AddUser');			
+			header('Location: index.php?r=user&module=AddUser');			
 		}
 	}
 		

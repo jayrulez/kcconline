@@ -30,7 +30,7 @@
 		public static $dbUser = "root";
 		public static $dbPassword = "";
 		public static $dbName = "kcconline";
-		public static $dbLink;
+		public static $dbConnection;
 		
 		public static function linkJScript($filePath)
 		{
@@ -44,13 +44,14 @@
 		
 		public static function dbConnect()
 		{
-			Application::$dbLink = mysqli_connect(Application::$dbHost,Application::$dbUser,Application::$dbPassword, Application::$dbName);
-			if(!Application::$dbLink)
+			Application::$dbConnection = new mysqli(Application::$dbHost,Application::$dbUser,Application::$dbPassword, Application::$dbName);
+			if (Application::$dbConnection->connect_errno) 
 			{
 				throw new Exception('Data service is currently unavailable.');
 			}
 			else
 			{
+				Application::$dbConnection->autocommit(false);
 				return true;
 				/*
 				if(mysqli_select_db($dbLink,$dbName))
