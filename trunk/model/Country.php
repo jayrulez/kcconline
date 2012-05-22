@@ -11,11 +11,11 @@ class Country
 	
 	public function getAll()
 	{
-		$resultPointer = mysqli_query(Application::$dbLink,'select * from country');
+		$resultPointer = Application::$dbConnection->query('select * from country');
 		$result = array();
 		if($resultPointer)
 		{
-			while($resultRow = mysqli_fetch_array($resultPointer))
+			while($resultRow = $resultPointer->fetch_assoc())
 			{
 				array_push($result,$resultRow);
 			}		

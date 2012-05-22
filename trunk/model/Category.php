@@ -53,7 +53,7 @@
 			$result = array();
 			if($resultPointer)
 			{
-				if(mysqli_num_rows($resultPointer)==1)
+				if(mysqli_num_rows($resultPointer)>0)
 				{
 					while($resultRow = mysqli_fetch_array($resultPointer))
 					{
@@ -90,8 +90,8 @@
 
 			echo $queryString;
 			//die();
-			$resultPointer = mysqli_query(Application::$dbLink,$queryString);
-			
+			$resultPointer = Application::$dbConnection->cquery($queryString);
+			Application::$dbConnection->commit();
 			if($resultPointer)
 			{
 				return true;

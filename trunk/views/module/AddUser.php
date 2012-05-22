@@ -1,5 +1,5 @@
 <?php
-	$addUserForm = new AddUserForm;
+	$addUserForm = new UserForm;
 	if(isset($_SESSION['addUserForm']))
 	{
 		$addUserForm = unserialize($_SESSION['addUserForm']);
@@ -111,26 +111,27 @@
 		</tr>
 		
 		<tr>
-			<td>Country: </td>
+			<td>Role: </td>
 			<td align="center">
-				<select name="country">
+				<select name="role">
+					<option value="">None</option>
 				<?php 
-					$countryObj = new Country;
-					$countries = $countryObj->getAll();
+					$roleObj = new Role;
+					$roles = $roleObj->getAll();
 					
-					foreach($countries as $country)
+					foreach($roles as $role)
 					{
 						$selected = "";
 	
-						if(strcmp($country['code'],"JM")==0)
+						if(strcmp($role['name'],"Authenticated User")==0)
 						{
 							$selected = "selected";
 						}
-						if(strcmp($country['code'],$addUserForm->country)==0)
+						if(strcmp($role['uid'],$addUserForm->role)==0)
 						{
 							$selected = "selected";
 						}
-						echo '<option value="'.$country['code'].'" '.$selected.'>'.$country['country'].'</option>';
+						echo '<option value="'.$role['uid'].'" '.$selected.'>'.$role['name'].'</option>';
 					}
 				?>
 				</select>
@@ -138,7 +139,7 @@
 		</tr>
 	
 		<tr>
-			<td align="center" colspan="2"><input  type="checkbox" name="activate" value="1"/>Active Account</td>
+			<td align="center" colspan="2"><input  type="checkbox" name="activate" value="1"/>Activate Account</td>
 		</tr>
 		<tr>
 			<td align="center" colspan="2"><button  type="submit" name="addUser">Save</button></td>

@@ -22,8 +22,7 @@
 		public $lastModified = null;
 		public $imageUrl = null;
 		public $gender = null;
-		
-		public $role;
+		public $role = null;
 		
 		public function __construct()
 		{
@@ -35,14 +34,14 @@
 		
 		public function authenticate()
 		{
-			$queryString = "select * from `user` where email_address = '".mysqli_real_escape_string(Application::$dbLink,$this->emailAddress)."' and password = '".md5($this->password)."'";
-			$resultPointer = mysqli_query(Application::$dbLink,$queryString);
+			$queryString = "select * from `user` where email_address = '".Application::$dbConnection->real_escape_string($this->emailAddress)."' and password = '".md5($this->password)."'";
+			
+			$resultPointer = Application::$dbConnection->query($queryString);
 			echo $queryString;
 
 			if($resultPointer)
-			{
-				
-				if(mysqli_num_rows($resultPointer)==1)
+			{	
+				if($resultPointer->num_rows == 1)
 				{
 					$_SESSION['emailAddress'] = $this->emailAddress;
 					$_SESSION['isLoggedIn'] = true;
@@ -58,15 +57,14 @@
 		
 		public function getUser()
 		{
-			$queryString = "select * from `user` where email_address = '".mysqli_real_escape_string(Application::$dbLink,$this->emailAddress)."'"; 
-			$resultPointer = mysqli_query(Application::$dbLink,$queryString);
+			$queryString = "select * from `user` where email_address = '".Application::$dbConnection->real_escape_string($this->emailAddress)."'"; 
+			$resultPointer = Application::$dbConnection->query($queryString);
 			
-	
 			if($resultPointer)
 			{
-				if(mysqli_num_rows($resultPointer)==1)
+				if($resultPointer->num_rows==1)
 				{
-					while($resultRow = mysqli_fetch_array($resultPointer))
+					while($resultRow = $resultPointer->fetch_assoc())
 					{
 						$this->uid = $resultRow['uid'];
 						$this->firstName = $resultRow['first_name'];
@@ -81,12 +79,12 @@
 			return false;
 		}
 		
-		public function userExists()
+		public function exists()
 		{
-			$resultPointer = mysqli_query(Application::$dbLink,"select * from `User` where email_address = '".mysqli_real_escape_stringmd5(Application::$dbLink,$email_address)."')");
+			$resultPointer = Application::$dbConnection->query("select * from `User` where email_address = '".Application::$dbConnection->real_escape_string($email_address)."')");
 			if($resultPointer)
 			{
-				if($resultPointer)
+				if($resultPointer->num_rows>0)
 				{
 					return true;
 				}
@@ -177,7 +175,7 @@
 			return true;
 		}
 		
-		public function setAddUserForm($addUserForm)
+		public function setUserForm($addUserForm)
 		{
 			$this->idNumber = (empty($addUserForm->idNumber))?null:$addUserForm->idNumber;
 			$this->firstName=$addUserForm->firstName;
@@ -189,45 +187,86 @@
 			$this->otherPhone=(empty($addUserForm->otherPhone))?null:$addUserForm->otherPhone;
 			$this->street =(empty($addUserForm->street))?null:$addUserForm->street;
 			$this->country =$addUserForm->country;
-			$this->active =$addUserForm->active = (empty($addUserForm->active))?1:0;
+			$this->active =$addUserForm->active = $addUserForm->active;
 			$this->imageUrl = $addUserForm->imageUrl;
+			$this->gender = $addUserForm->gender;
 		}
 		
 		public function save()
 		{
-		
+			//var_dump($this);
+			
 			if(empty($this->uid))
 			{
 				$null  = 'null';
 				$queryString = "insert into `user`(uid,user_id,first_name,middle_name,last_name,dob,email_address,password,phone1,phone2,street,parish,gender,country_code,active,deleted,datetime_created,last_action,last_modified,`image_url`) values(" . 
 				"default,".
-				"'".mysqli_real_escape_string(Application::$dbLink,$this->idNumber)."'".",". 
-				"'".mysqli_real_escape_string(Application::$dbLink,$this->firstName)."'".",". 
-				"'".mysqli_real_escape_string(Application::$dbLink,$this->middleName)."'".",". 
-				"'".mysqli_real_escape_string(Application::$dbLink,$this->lastName)."'".",". 
-				"'".mysqli_real_escape_string(Application::$dbLink,$this->dob)."'".",". 
-				"'".mysqli_real_escape_string(Application::$dbLink,$this->emailAddress)."'".",". 
-				"'".$this->password."'".",". 
-				"'".mysqli_real_escape_string(Application::$dbLink,$this->mobilePhone)."'".",". 
-				"'".mysqli_real_escape_string(Application::$dbLink,$this->otherPhone)."'".",". 
-				"'".mysqli_real_escape_string(Application::$dbLink,$this->street)."'".",". 
-				"'".mysqli_real_escape_string(Application::$dbLink,$this->parish)."'".",". 
-				"'".mysqli_real_escape_string(Application::$dbLink,$this->gender)."'".",". 
-				"'".mysqli_real_escape_string(Application::$dbLink,$this->country)."'".",". 
-				""."1"."".",". 
-				"".$this->deleted."".",". 
-				""."NOW()"."".",". 
-				"".$null."".",".
-				"".$null."".",".
-				"'".$this->imageUrl."'" .
+				"'".Application::$dbConnection->real_escape_string($this->idNumber)."'".",". 
+				"'".Application::$dbConnection->real_escape_string($this->firstName)."'".","; 
+				
+				if(empty($this->middleName))
+					$queryString .= ""."default"."".",";
+				else
+					$queryString .= "'".Application::$dbConnection->real_escape_string($this->middleName)."'".",";			
+					
+				$queryString .= "'".Application::$dbConnection->real_escape_string($this->lastName)."'".",";
+				$queryString .= "'".Application::$dbConnection->real_escape_string($this->dob)."'".",";
+				$queryString .= "'".Application::$dbConnection->real_escape_string($this->emailAddress)."'".",";
+				
+				$queryString .= "'".$this->password."'".",";
+				
+				if(empty($this->mobilePhone))
+					$queryString .= ""."default"."".",";
+				else				
+					$queryString .= "'".Application::$dbConnection->real_escape_string($this->mobilePhone)."'".",";
+					
+				if(empty($this->otherPhone))
+					$queryString .= ""."default"."".",";
+				else
+					$queryString .= "'".Application::$dbConnection->real_escape_string($this->otherPhone)."'".",";
+					
+				if(empty($this->street))
+					$queryString .= ""."default"."".",";
+				else
+					$queryString .= "'".Application::$dbConnection->real_escape_string($this->street)."'".","; 
+				
+				if(empty($this->parish))
+					$queryString .= ""."default"."".",";
+				else				
+					$queryString .= "'".Application::$dbConnection->real_escape_string($this->parish)."'".",";
+				
+				$queryString .= "'".Application::$dbConnection->real_escape_string($this->gender)."'".",";
+				$queryString .= "'".Application::$dbConnection->real_escape_string($this->country)."'".",";
+				
+				$queryString .= "".$this->active."".",". 
+				$queryString .= "".$this->deleted."".",". 
+				$queryString .= ""."NOW()"."".",";
+				$queryString .= ""."default"."".",";
+				$queryString .= ""."default"."".",";
+				
+				if(empty($this->imageUrl))
+					$queryString .= ""."default"."".",";
+				else
+				$queryString .= "'".$this->imageUrl."'";		
 				")";
 				echo $queryString;
-				$resultPointer = mysqli_query(Application::$dbLink,$queryString);
-				if($resultPointer)
+				try
 				{
+					Application::$dbConnection->query($queryString);
+				
+					if(!empty($this->role))
+					{
+						$queryString = "insert into `user_role`(role_id,user_id) values(".$this->role.",".$this->uid.")";
+						Application::$dbConnection->query($queryString);
+					}
+					Application::$dbConnection->commit();
 					return true;
 				}
-				return false;	
+				catch(Exception $ex)
+				{
+					Application::$dbConnection->rollback();
+				}
+				return false;
 			}
 			else
 			{
