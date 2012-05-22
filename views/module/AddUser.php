@@ -31,11 +31,15 @@
 			<td>Last Name:</td>
 			<td align="center"><input type="passwordd" name="lastName" value="<?php echo $addUserForm->lastName; ?>"/></td>
 		</tr>
+		<tr>
+			<td>Gender:</td>
+			<td align="center"> <input type="radio" name="gender" value="M" /> Male <input type="radio" name="gender" value="F" /> Female</td>
+		</tr>
 		  <tr>
 			<td>Street: </td>
 			<td align="center"><input type="text" name="street" value="<?php echo $addUserForm->street; ?>"/></td>
 		</tr>
-		  <tr>
+		<tr>
 			<td>Country: </td>
 			<td align="center">
 				<select name="country">
@@ -59,7 +63,7 @@
 					}
 				?>
 				</select>
-			  </td>
+			</td>
 		</tr>
 		  <tr>
 			<td>ID Number: </td>
@@ -105,9 +109,41 @@
 		<tr>
 			<td>Profile Image:</td><td><input type="file" name="profilePhoto"/></td>
 		</tr>
+		
+		<tr>
+			<td>Country: </td>
+			<td align="center">
+				<select name="country">
+				<?php 
+					$countryObj = new Country;
+					$countries = $countryObj->getAll();
+					
+					foreach($countries as $country)
+					{
+						$selected = "";
+	
+						if(strcmp($country['code'],"JM")==0)
+						{
+							$selected = "selected";
+						}
+						if(strcmp($country['code'],$addUserForm->country)==0)
+						{
+							$selected = "selected";
+						}
+						echo '<option value="'.$country['code'].'" '.$selected.'>'.$country['country'].'</option>';
+					}
+				?>
+				</select>
+			</td>
+		</tr>
+	
+		<tr>
+			<td align="center" colspan="2"><input  type="checkbox" name="activate" value="1"/>Active Account</td>
+		</tr>
 		<tr>
 			<td align="center" colspan="2"><button  type="submit" name="addUser">Save</button></td>
 		</tr>
+		
 	</table>
 	</form>
 	</div>	
