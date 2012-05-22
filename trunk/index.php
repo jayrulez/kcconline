@@ -20,14 +20,13 @@ if(isset($_REQUEST['r']))
 				break;
 				
 				default: 
-					if(isset($_REQUEST['action']))
-					{
-						
-						include_once Application::$siteController;
-					}
-					else
+					if(isset($_REQUEST['module']))
 					{
 						include Application::$pages.$_REQUEST['r'].'.php';
+					}
+					if(isset($_REQUEST['action']))
+					{					
+						include_once Application::$siteController;
 					}
 			}
 		}
@@ -37,13 +36,13 @@ if(isset($_REQUEST['r']))
 			{
 				case 'login':
 				case 'home':
-					if(isset($_REQUEST['action']))
-					{	
-						include_once Application::$siteController;
-					}
-					else
+					if(isset($_REQUEST['module']))
 					{
 						include Application::$pages.$_REQUEST['r'].'.php';
+					}
+					if(isset($_REQUEST['action']))
+					{					
+						include_once Application::$siteController;
 					}
 				break;
 			}

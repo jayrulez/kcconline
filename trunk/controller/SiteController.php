@@ -17,6 +17,10 @@
 			case 'addCourse':
 				actionAddCourse();
 			break;
+			
+			case 'searchCourse':
+				actionSearchCourse();
+			break;
 		}
 	}
 
