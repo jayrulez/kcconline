@@ -255,24 +255,25 @@
 
 				try
 				{
-					Application::$dbConnection->query($queryString);
-					
-				
-					if(!empty($this->role))
-					{
-						$queryString = "insert into `user_role`(role_id,user_id) values(".$this->role.",".$this->uid.")";
-						
-						if(Application::$dbConnection->query($queryString))
+					if(Application::$dbConnection->query($queryString))
+					{	
+						$this->uid = Application::$dbConnection->insert_id;
+						if(!empty($this->role))
 						{
-							Application::$dbConnection->commit();
+							$queryString = "insert into `user_role`(role_id,user_id) values(".$this->role.",".$this->uid.")";
+							
+							if(Application::$dbConnection->query($queryString))
+							{
+								Application::$dbConnection->commit();
+							}
+							else
+							{
+								Application::$dbConnection->rollback();
+							}
 						}
-						else
-						{
-							Application::$dbConnection->rollback();
-						}
+						Application::$dbConnection->commit();
+						return true;
 					}
-					Application::$dbConnection->commit();
-					return true;
 				}
 				catch(Exception $ex)
 				{
