@@ -1,4 +1,5 @@
 <?php
+	
 	Application::$pageTitle = "Home";
 
 	include_once Application::$layout.'PageStart.php';
@@ -14,7 +15,12 @@
 	include_once Application::$sections.'MainNavBar.php';
 ?>
 	<div id="content-container">
-		<?php include_once Application::$layout.'LeftPanel.php'; ?>
+		<?php 
+			if($currentUser->isLoggedIn())
+			{
+				include_once Application::$layout.'LeftPanel.php'; 
+			}
+		?>
 		<div id="content">
 
 		</div>

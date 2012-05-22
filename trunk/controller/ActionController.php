@@ -27,6 +27,7 @@
 			}
 			if(!$loginFormValidator->formSuccess())
 			{
+			
 				$loginFormValidator->displayErrors();
 				$_SESSION['loginFormValidator'] = serialize($loginFormValidator);
 				$_SESSION['loginForm'] = serialize($loginForm);
@@ -35,10 +36,11 @@
 			else
 			{
 				$unknownUser = new User;
-				$unknownUser->emailAddress = $_POST['emailaddress'];
-				$unknownUser->password = $_POST['password'];
+				$unknownUser->emailAddress = $loginForm->emailAddress;
+				$unknownUser->password = $loginForm->password;;
 				if($unknownUser->authenticate())
 				{
+					
 					header('Location: index.php?r=home');
 				}
 				else
@@ -129,7 +131,6 @@
 			}
 			if(!$addUserFormValidator->formSuccess())
 			{
-				$addUserFormValidator->displayErrors(10);
 				$_SESSION['addUserFormValidator'] = serialize($addUserFormValidator);
 				$_SESSION['addUserForm'] = serialize($addUserForm);
 				
@@ -149,6 +150,69 @@
 				}
 			}
 			//header('Location: index.php?r=user&module=AddUser');			
+		}
+	}
+		
+	function actionAddCourse()
+	{
+		if(isset($_POST['addCourse']))
+		{
+			$addCourseForm = new AddUserForm;
+
+			$addCourseForm ->courseCode = trim($_POST['courseCode']);
+			$addCourseForm ->courseCode = (empty($addCourseForm ->courseCode)) ? null : $addCourseForm ->courseCode;
+			
+			$addCourseForm ->courseName = trim($_POST['courseName']);
+			$addCourseForm ->courseName = (empty($addCourseForm ->courseName)) ? null : $addCourseForm ->courseName;
+			
+			$addCourseForm ->description = trim($_POST['description']);
+			$addCourseForm ->description = (empty($addCourseForm ->description)) ? null : $addCourseForm ->description;
+			
+			$addCourseForm ->category = trim($_POST['category']);
+			$addCourseForm ->category = (empty($addCourseForm ->category)) ? null : $addCourseForm ->category;
+			
+			$addCourseForm ->enrollmentKey = trim($_POST['enrollmentKey']);
+			$addCourseForm ->enrollmentKey = (empty($addCourseForm ->enrollmentKey)) ? null : $addCourseForm ->enrollmentKey;
+			
+			$addCourseFormValidator = new FormValidator(); 
+			
+			$addCourseFormValidator->setRule('courseCode','Course Code','required|max_lenght[252]');
+			$addCourseFormValidator->setRule('courseName','Course Name','required|max_lenght[100]');
+			$addCourseFormValidator->setRule('description','Description','max_lenght[255]');
+			$addCourseFormValidator->setRule('enrollmentKey','Enrollment Key','min_lenght[8]|max_lenght[128]');
+			
+			
+			$addCourseFormValidator->runValidation();
+			
+			if(isset($_SESSION['addCourseFormValidator']))
+			{
+				unset($_SESSION['addCourseFormValidator']);
+			}
+			if(isset($_SESSION['addCourseForm']))
+			{
+				unset($_SESSION['addCourseForm']);
+			}
+			if(!$addCourseFormValidator->formSuccess())
+			{
+				$_SESSION['addCourseFormValidator'] = serialize($addCourseFormValidator);
+				$_SESSION['addCourseForm'] = serialize($addCourseForm);
+				
+			}
+			else
+			{
+				$courseObj = new Course;
+				$courseObj->setCourseForm($addCourseForm);
+				
+				if($courseObj->save())
+				{
+					header('Location: index.php?r=home');
+				}
+				else
+				{
+					
+				}
+			}
+			header('Location: index.php?r=course&module=AddCourse');			
 		}
 	}
 	

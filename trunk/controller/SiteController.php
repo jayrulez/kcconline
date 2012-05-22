@@ -13,6 +13,10 @@
 			case 'addUser':
 				actionAddUser();
 			break;
+			
+			case 'addCourse':
+				actionAddCourse();
+			break;
 		}
 	}
 

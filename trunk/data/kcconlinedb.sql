@@ -57,21 +57,21 @@ create table if not exists `user`
 `first_name` varchar(75) not null,
 `middle_name` varchar(75) default null,
 `last_name` varchar(75) not null,
-`dob` date,
+`dob` date default null,
 `email_address` varchar(252) not null,
 `password` varchar(32) not null,
-`phone1` varchar(20),
-`phone2` varchar(20),
-`street` varchar(100),
-`parish` varchar(48),
-`gender` varchar(2),
-`country_code` varchar(2),
+`phone1` varchar(20) default null,
+`phone2` varchar(20) default null,
+`street` varchar(100) default null,
+`parish` varchar(48) default null,
+`gender` varchar(2) default null,
+`country_code` varchar(2) default null,
 `active` tinyint(1) default 0,
 `deleted` tinyint(1) default 0,
 `datetime_created` datetime not null,
-`last_action` datetime,
-`last_modified` datetime,
-`image_url` varchar(255),
+`last_action` datetime default null,
+`last_modified` datetime default null,
+`image_url` varchar(255) default null,
 constraint pk_user primary key(uid),
 constraint unq_user_id unique(user_id),
 constraint unq_user_username unique(username),
@@ -89,7 +89,7 @@ create table if not exists `role`
 (
 `uid` bigint not null AUTO_INCREMENT,
 `name` varchar(100) not null,
-`description` varchar(255),
+`description` varchar(255) default null,
 constraint pk_role primary key(uid),
 constraint unq_role unique(name)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
@@ -107,7 +107,7 @@ create table if not exists `privilege`
 (
 `uid` bigint not null AUTO_INCREMENT,
 `name` varchar(100) not null,
-`description` varchar(255),
+`description` varchar(255) default null,
 constraint pk_privilege primary key(uid),
 constraint unq_privilege unique(name)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
@@ -134,8 +134,8 @@ constraint pk_role_privilege_action primary key(`privilege_id`,`role_id`,`action
 create table if not exists `enrollment`
 (
 `uid` bigint not null AUTO_INCREMENT,
-`enroll_startdatetime` datetime,
-`enroll_enddatetime` datetime,
+`enroll_startdatetime` datetime default now(),
+`enroll_enddatetime` datetime default now(),
 constraint pk_enrollment primary key(`uid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
@@ -154,11 +154,11 @@ create table if not exists `course`
 `course_code` varchar(16) not null,
 `name` varchar(100) not null,
 `category_id` bigint default null,
-`description` varchar(255),
+`description` varchar(255) default null,
 `datetime_created` datetime not null,
-`last_modified` datetime,
+`last_modified` datetime default null,
 `key_required` tinyint(1) default 0,
-`enrollment_key` varchar(128),
+`enrollment_key` varchar(128) default null,
 constraint pk_course primary key(course_code)	
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
@@ -175,7 +175,7 @@ create table if not exists `category`
 (
 `uid` bigint not null AUTO_INCREMENT,
 `name` varchar(100) not null,
-`description` varchar(255), 
+`description` varchar(255) default null, 
 constraint pk_category primary key(`uid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
@@ -196,8 +196,8 @@ create table if not exists `message`
 `uid` bigint not null AUTO_INCREMENT,
 `sender_id` bigint not null,
 `receiver_id` bigint not null,
-`subject` varchar(255),
-`body` TEXT,
+`subject` varchar(255) default null,
+`body` TEXT default null,
 `sent_datetime` datetime not null,
 constraint pk_message primary key(`uid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
@@ -206,8 +206,8 @@ constraint pk_message primary key(`uid`)
 create table if not exists `group`
 (
 `uid` bigint not null AUTO_INCREMENT,
-`name` varchar(100),
-`description` varchar(255),
+`name` varchar(100) default null,
+`description` varchar(255) default null,
 constraint pk_group primary key(`uid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
@@ -225,7 +225,7 @@ create table if not exists `comment`
 (
 `uid` bigint not null AUTO_INCREMENT,
 `comment_text` TEXT not null,
-`replied_to` bigint,
+`replied_to` bigint default null,
 constraint pk_comment primary key(`uid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
@@ -293,7 +293,7 @@ create table if not exists `graded_work_comment`
 (
 `graded_work_id` bigint not null,
 `comment_id` bigint not null,
-`posted_datetime` datetime,
+`posted_datetime` datetime default now(),
 constraint pk_graded_work_comment primary key(`comment_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
@@ -304,8 +304,8 @@ create table if not exists `quiz`
 `open_datetime` datetime not null,
 `close_datetime` datetime not null,
 `passkey` varchar(128) not null,
-`overview` TEXT,
-`duration` int,
+`overview` TEXT default null,
+`duration` int default null,
 constraint pk_quiz primary key(`graded_work_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
@@ -317,9 +317,9 @@ create table if not exists `quiz_attempt`
 `user_id` bigint not null,
 `attempt` int default 1,
 `attempt_datetime` datetime not null,
-`grade` decimal(10,5),
+`grade` decimal(10,5) default null,
 `start_time` datetime not null,
-`end_time` datetime,
+`end_time` datetime default null,
 constraint pk_quiz_attempt primary key(`uid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
@@ -365,7 +365,7 @@ constraint pk_choice_answer primary key(`question_id`,`attempt_id`)
 create table if not exists `short_question_response`
 (
 `question_id` bigint not null,
-`response_answer` TEXT,
+`response_answer` TEXT  default null,
 `awarded_score` decimal(10,5) default 0,
 constraint pk_short_question primary key(`question_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
@@ -390,10 +390,10 @@ constraint pk_question_choice primary key(`question_id`)
 create table if not exists `letter_grade`
 (
 `uid` bigint not null,
-`letter` varchar(2),
+`letter` varchar(2) not null,
 `upper_grade` decimal(10,5),
 `lower_grade` decimal(10,5),
-`description` varchar(255),
+`description` varchar(255) default null,
 constraint pk_letter_grade primary key(`uid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
@@ -562,6 +562,13 @@ ALTER TABLE `assignment_submission`
 ALTER TABLE `submission_resource`
 	ADD CONSTRAINT `fk_submission_resource_res` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
 	ADD CONSTRAINT `fk_submission_resourse_sub` FOREIGN KEY (`submission_id`) REFERENCES `assignment_submission` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
+	
+	
+insert into `role`(`name`,`description`) values('Student','A student that is able to enroll in courses and participate in graded work and assignment.');
+insert into `role`(`name`,`description`) values('Administrator','A User who has Administrator Role is able to manage Courses, Roles, and Users.');
+insert into `role`(`name`,`description`) values('Teacher','A User who has Teacher Role that is able to enroll Students in their instructed Courses.');
+insert into `role`(`name`,`description`) values('Authenticated User','An Authenticated User has the least privileges.');
+
 	
 	
 INSERT INTO `country` VALUES ('AF', 'Afghanistan');

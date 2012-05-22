@@ -16,6 +16,7 @@
 		public static $layout = "/views/layout/";
 		public static $sections = "/views/sections/";
 		public static $userSections = "/views/sections/user/";
+		public static $courseSections = "/views/sections/course/";
 		public static $module = "/views/module/";
 		public static $controller = "/controller/";
 		public static $siteController = "/controller/SiteController.php";

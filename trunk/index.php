@@ -2,6 +2,7 @@
 session_start(); 
 
 include "global.php";
+$currentUser = new User;
 
 if(isset($_REQUEST['r']))
 {	
@@ -9,15 +10,43 @@ if(isset($_REQUEST['r']))
 	echo $pagePath;
 	if(file_exists($pagePath))
 	{
-		echo "page found";
-		if(isset($_REQUEST['action']))
+		if($currentUser->isLoggedIn())
 		{
-			
-			include_once Application::$siteController;
+			$currentUser->emailAddress = $_SESSION['emailAddress'];
+			$currentUser->getUser();
+			switch($_REQUEST['r'])
+			{
+				case 'login':
+				break;
+				
+				default: 
+					if(isset($_REQUEST['action']))
+					{
+						
+						include_once Application::$siteController;
+					}
+					else
+					{
+						include Application::$pages.$_REQUEST['r'].'.php';
+					}
+			}
 		}
 		else
 		{
-			include Application::$pages.$_REQUEST['r'].'.php';
+			switch($_REQUEST['r'])
+			{
+				case 'login':
+				case 'home':
+					if(isset($_REQUEST['action']))
+					{	
+						include_once Application::$siteController;
+					}
+					else
+					{
+						include Application::$pages.$_REQUEST['r'].'.php';
+					}
+				break;
+			}
 		}
 	}
 	else

@@ -35,9 +35,13 @@
 		
 		public function authenticate()
 		{
-			$resultPointer = mysqli_query(Application::$dbLink,"select * from `User` where email_address = '".mysqli_real_escape_string(Application::$dbLink,$email_address)."' and password = '".md5($this->password)."')");
+			$queryString = "select * from `user` where email_address = '".mysqli_real_escape_string(Application::$dbLink,$this->emailAddress)."' and password = '".md5($this->password)."'";
+			$resultPointer = mysqli_query(Application::$dbLink,$queryString);
+			echo $queryString;
+
 			if($resultPointer)
 			{
+				
 				if(mysqli_num_rows($resultPointer)==1)
 				{
 					$_SESSION['emailAddress'] = $this->emailAddress;
@@ -54,7 +58,10 @@
 		
 		public function getUser()
 		{
-			$resultPointer = mysqli_query(Application::$dbLink,"select * from `User` where email_address = '".mysqli_real_escape_string(Application::$dbLink,$email_address)."')");
+			$queryString = "select * from `user` where email_address = '".mysqli_real_escape_string(Application::$dbLink,$this->emailAddress)."'"; 
+			$resultPointer = mysqli_query(Application::$dbLink,$queryString);
+			
+	
 			if($resultPointer)
 			{
 				if(mysqli_num_rows($resultPointer)==1)
@@ -65,6 +72,7 @@
 						$this->firstName = $resultRow['first_name'];
 						$this->middleName=$resultRow['middle_name'];
 						$this->lastName=$resultRow['last_name'];
+						$this->imageUrl=$resultRow['image_url'];
 					}
 					
 					return true;
@@ -143,7 +151,7 @@
 		{
 			if(isset($_SESSION['isLoggedIn']))
 			{	
-				if($_SESSION['']===true)
+				if($_SESSION['isLoggedIn']===true)
 				{
 					return true;
 				}

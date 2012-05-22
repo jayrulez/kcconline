@@ -6,9 +6,21 @@
 	<div id="left-nav-profile-photo" class="profile-photo">
     	   	
         <div id="profile">
-            <img  src = "../../images/exm.png" width = "150" height="150">
+			<?php
+				$imageUrl = "";
+				if(empty($currentUser->imageUrl))
+				{
+					$imageUrl = "blank_profile.jpg";
+				}
+				else
+				{
+					$imageUrl = $currentUser->imageUrl;
+				}
+				echo Application::$profileImages.$imageUrl;
+			?>
+            <img  src = "<?php echo Application::$profileImages.$imageUrl;?>" width = "150" height="150"/>
         </div>
-        <div  id="userName">Audley Gordon</div>
+        <div  id="userName"><?php echo $currentUser->firstName." ".$currentUser->lastName; ?></div>
        <a href="url">Edit Profile</a>
        
     	<div id="message">
