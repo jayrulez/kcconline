@@ -190,6 +190,7 @@
 			$this->active =$addUserForm->active = $addUserForm->active;
 			$this->imageUrl = $addUserForm->imageUrl;
 			$this->gender = $addUserForm->gender;
+			$this->role = $addUserForm->role;
 		}
 		
 		public function save()
@@ -212,6 +213,7 @@
 				$queryString .= "'".Application::$dbConnection->real_escape_string($this->lastName)."'".",";
 				$queryString .= "'".Application::$dbConnection->real_escape_string($this->dob)."'".",";
 				$queryString .= "'".Application::$dbConnection->real_escape_string($this->emailAddress)."'".",";
+
 				
 				$queryString .= "'".$this->password."'".",";
 				
@@ -235,29 +237,39 @@
 				else				
 					$queryString .= "'".Application::$dbConnection->real_escape_string($this->parish)."'".",";
 				
+				
 				$queryString .= "'".Application::$dbConnection->real_escape_string($this->gender)."'".",";
 				$queryString .= "'".Application::$dbConnection->real_escape_string($this->country)."'".",";
 				
-				$queryString .= "".$this->active."".",". 
-				$queryString .= "".$this->deleted."".",". 
+				$queryString .= "".$this->active."".",";
+				$queryString .= "".$this->deleted."".","; 
 				$queryString .= ""."NOW()"."".",";
 				$queryString .= ""."default"."".",";
 				$queryString .= ""."default"."".",";
 				
 				if(empty($this->imageUrl))
-					$queryString .= ""."default"."".",";
+					$queryString .= ""."default".""."";
 				else
-				$queryString .= "'".$this->imageUrl."'";		
-				")";
-				echo $queryString;
+					$queryString .= "'".$this->imageUrl."'";		
+				$queryString .= ")";
+
 				try
 				{
 					Application::$dbConnection->query($queryString);
+					
 				
 					if(!empty($this->role))
 					{
 						$queryString = "insert into `user_role`(role_id,user_id) values(".$this->role.",".$this->uid.")";
-						Application::$dbConnection->query($queryString);
+						
+						if(Application::$dbConnection->query($queryString))
+						{
+							Application::$dbConnection->commit();
+						}
+						else
+						{
+							Application::$dbConnection->rollback();
+						}
 					}
 					Application::$dbConnection->commit();
 					return true;

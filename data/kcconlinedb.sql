@@ -467,7 +467,7 @@ ALTER TABLE `user`
 
 ALTER TABLE `user_role`
 	ADD CONSTRAINT `fk_user_role_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
-	ADD CONSTRAINT `fk_user_role_role` FOREIGN KEY (`role_id`) REFERENCES `role` (`uid`) ON UPDATE CASCADE  ON DELETE ACTION;
+	ADD CONSTRAINT `fk_user_role_role` FOREIGN KEY (`role_id`) REFERENCES `role` (`uid`) ON UPDATE CASCADE  ON DELETE CASCADE;
 	
 ALTER TABLE `course`
 	ADD CONSTRAINT `fk_course_category` FOREIGN KEY (`category_id`) REFERENCES `category` (`uid`) ON UPDATE CASCADE  ON DELETE SET NULL;
