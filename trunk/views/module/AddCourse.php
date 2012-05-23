@@ -1,4 +1,9 @@
 <?php
+	if(isset($getModuleTitle)):
+		Application::$moduleTitle = "Add Course";
+	else:
+?>
+<?php
 	$addCourseForm = new CourseForm;
 	if(isset($_SESSION['addCourseForm']))
 	{
@@ -80,4 +85,8 @@
 	{
 		unset($_SESSION['addCourseFormValidator']);
 	}
+?>
+
+<?php
+	endif;
 ?>

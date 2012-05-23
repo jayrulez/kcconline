@@ -55,7 +55,7 @@
 			return false;
 		}
 		
-		public function getUser()
+		public function get()
 		{
 			$queryString = "select * from `user` where email_address = '".Application::$dbConnection->real_escape_string($this->emailAddress)."'"; 
 			$resultPointer = Application::$dbConnection->query($queryString);
@@ -79,6 +79,26 @@
 			return false;
 		}
 		
+		public function getAll()
+		{
+			$queryString = "select * from `user`"; 
+			$resultPointer = Application::$dbConnection->query($queryString);
+			$result = array();
+			if($resultPointer)
+			{
+				if($resultPointer->num_rows==1)
+				{
+					while($resultRow = $resultPointer->fetch_assoc())
+					{
+						array_push($result,$resultRow);
+					}
+					
+					return $result;
+				}
+			}
+			return $result;
+		}
+		
 		public function exists()
 		{
 			$resultPointer = Application::$dbConnection->query("select * from `User` where email_address = '".Application::$dbConnection->real_escape_string($email_address)."')");
@@ -92,12 +112,46 @@
 			return false;			
 		}
 		
-		public function getUserRole()
-		{
-		}
-		
 		public function getRole()
 		{
+			$queryString = "select `role`.* from `user` inner join inner user_role on user_role.user_id=`user`.uid inner join `role` on `role`.uid = `user_role`.role_id where `user`.uid = '".Application::$dbConnection->real_escape_string($this->uid)."'"; 
+			$resultPointer = Application::$dbConnection->query($queryString);
+			
+			$this->$role = new Role;
+			
+			if($resultPointer)
+			{
+				if($resultPointer->num_rows==1)
+				{
+					while($resultRow = $resultPointer->fetch_assoc())
+					{
+						$this->role->uid = $resultRow['uid'];
+						$this->role->name = $resultRow['name'];
+						$this->role->description=$resultRow['description'];
+					}
+					
+					return $this->role;
+				}
+			}
+			return $this->role;
+		}
+
+		public function hasRole($roleName)
+		{
+			$queryString = "select `role`.* from `user` inner join inner user_role on user_role.user_id=`user`.uid inner join `role` on `role`.uid = `user_role`.role_id where `user`.`name` = '".Application::$dbConnection->real_escape_string($roleName)."'"; 
+			
+			$resultPointer = Application::$dbConnection->query($queryString);
+			
+			$this->$role = new Role;
+			
+			if($resultPointer)
+			{
+				if($resultPointer->num_rows>0)
+				{
+					return true;
+				}
+			}
+			return false;
 		}
 		
 		public function isTimedOut()
@@ -122,7 +176,7 @@
 				return true;
 			}
 		}
-		public function timeoutUser()
+		public function timeout()
 		{
 			if(isset($_SESSION['lastActiveTime']))
 			{
@@ -157,7 +211,7 @@
 			return false;
 		}
 		
-		public function logoutUser()
+		public function logout()
 		{
 			//setcookie('emailAddress',$this->emailAddress,time()*60*24);
 			if(isset($_SESSION['emailAddress']))

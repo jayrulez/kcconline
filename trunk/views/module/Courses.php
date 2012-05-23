@@ -1,4 +1,8 @@
-
+<?php
+	if(isset($getModuleTitle)):
+		Application::$moduleTitle = "Search Courses";
+	else:
+?>
 	<div id="content">
 		<div>
 			<form id="login-form" class="forms" method="get" enctype="multipart/form-data" action="index.php">
@@ -23,9 +27,9 @@
 							<option value="0" selected>Any</option>
 							<?php 
 								$categoryObj = new Category;
-								$Categories = $categoryObj->getAll();
+								$categories = $categoryObj->getAll();
 								
-								foreach($Categories as $Category)
+								foreach($categories as $category)
 								{
 									$selected = "";
 									if(isset($_REQUEST['category']))
@@ -70,3 +74,6 @@
 		</table>
 		</div>
 	</div>
+<?php
+	endif;
+?>

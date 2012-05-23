@@ -12,6 +12,7 @@
 	include_once Application::$layout.'Header.php';
 
 	include_once Application::$sections.'MainNavBar.php';
+	include_once Application::$sections.'TitleBar.php';
 ?>
 	<div id="content-container">
 		<?php include_once Application::$layout.'LeftPanel.php'; ?>

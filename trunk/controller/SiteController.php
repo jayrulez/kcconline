@@ -25,6 +25,13 @@
 			case 'searchCourse':
 				actionSearchCourse();
 			break;
+			
+			case 'searchCategory':
+				actionSearchCatgeory();
+			break;
+			case 'searchUser':
+				actionSearchUser();
+			break;
 		}
 	}
 
