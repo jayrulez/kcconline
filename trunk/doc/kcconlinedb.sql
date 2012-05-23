@@ -65,7 +65,7 @@ create table if not exists `user`
 `street` varchar(100) default null,
 `parish` varchar(48) default null,
 `gender` varchar(2) default null,
-`country_code` varchar(2) default null,
+`country_code` varchar(2) not null,
 `active` tinyint(1) default 0,
 `deleted` tinyint(1) default 0,
 `datetime_created` datetime not null,
