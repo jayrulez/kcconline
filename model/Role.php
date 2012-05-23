@@ -69,6 +69,15 @@
 			return $result;
 		}
 		
+		public function isRole($name)
+		{
+			if(strcasecmp($this->name,$name)==0)
+			{
+				return true;
+			}
+			return false;
+		}
+		
 		public function setRoleForm($roleForm)
 		{
 			$this->name = $roleForm->name;

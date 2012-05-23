@@ -55,7 +55,7 @@
 			{
 				if($resultPointer->num_rows>0)
 				{
-					while($resultRow->fetch_assoc())
+					while($resultRow = $resultPointer->fetch_assoc())
 					{
 						array_push($result,$resultRow);
 						/*

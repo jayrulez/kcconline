@@ -1,4 +1,9 @@
 <?php
+	if(isset($getModuleTitle)):
+		Application::$moduleTitle = "Add User";
+	else:
+?>
+<?php
 	$addUserForm = new UserForm;
 	if(isset($_SESSION['addUserForm']))
 	{
@@ -21,10 +26,7 @@
 	<table align ="center">
 		<tr>
 			<td>First Name: </td>
-			<td align="center"><input type="text" name="firstName" value="<?php echo $addUserForm->firstName; ?>"/></td>
-		</tr>
-		   <tr>
-			<td>Middle Name: </td>
+			<td align="center"><input type="text" name="firstName" value="<?php echo $addUserForm->firstName; ?>"/></td>z
 			<td align="center"><input type="text" name="middleName" value="<?php echo $addUserForm->middleName; ?>"/></td>
 		</tr>
 		<tr>
@@ -157,4 +159,7 @@
 	{
 		unset($_SESSION['addUserFormValidator']);
 	}
+?>
+<?php
+	endif;
 ?>

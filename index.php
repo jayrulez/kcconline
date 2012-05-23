@@ -13,7 +13,7 @@ if(isset($_REQUEST['r']))
 		if($currentUser->isLoggedIn())
 		{
 			$currentUser->emailAddress = $_SESSION['emailAddress'];
-			$currentUser->getUser();
+			$currentUser->get();
 			switch($_REQUEST['r'])
 			{
 				case 'login':
@@ -23,7 +23,7 @@ if(isset($_REQUEST['r']))
 					include Application::$pages.$_REQUEST['r'].'.php';
 					if(isset($_REQUEST['module']))
 					{
-						include Application::$pages.$_REQUEST['r'].'.php';
+						//include Application::$pages.$_REQUEST['r'].'.php';
 					}
 					if(isset($_REQUEST['action']))
 					{					
@@ -40,7 +40,7 @@ if(isset($_REQUEST['r']))
 					include Application::$pages.$_REQUEST['r'].'.php';
 					if(isset($_REQUEST['module']))
 					{
-						include Application::$pages.$_REQUEST['r'].'.php';
+						//include Application::$pages.$_REQUEST['r'].'.php';
 					}
 					if(isset($_REQUEST['action']))
 					{					

@@ -1,4 +1,9 @@
 <?php
+	if(isset($getModuleTitle)):
+		Application::$moduleTitle = "Add Category";
+	else:
+?>
+<?php
 	$addCategoryForm = new CategoryForm;
 	if(isset($_SESSION['addCategoryForm']))
 	{
@@ -46,4 +51,8 @@
 	{
 		unset($_SESSION['addCategoryFormValidator']);
 	}
+?>
+
+<?php
+	endif;
 ?>

@@ -284,5 +284,15 @@
 		//header('Location: index.php?r=course&module=Courses');	
 	}
 	
+	function actionSearchCategory()
+	{
+		
+		//header('Location: index.php?r=course&module=Courses');	
+	}
 	
+	function actionSearchUser()
+	{
+		
+		//header('Location: index.php?r=course&module=Courses');	
+	}
 ?>

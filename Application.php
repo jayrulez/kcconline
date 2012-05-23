@@ -6,8 +6,14 @@
 		public static $appRootName = "kcconline";
 		public static $appName = "KCC Online";
 		public static $pageTitle = "KCCOnline";
+		public static $moduleTitle = "";
 		public static $sectionTitle = "";
 		public static $description = "";
+		
+		/*Pages Url*/
+		public static $previousUrl = "";
+		public static $currentUrl = "";
+		public static $homeUrl = "index.php?r=home";
 		
 		/*application resource paths*/
 		public static $model = "/model/";
@@ -95,6 +101,35 @@
 			}
 			return false;
 		}
+			
+		public static function hasModule()
+		{
+			if(isset($_REQUEST['module']))
+			{
+				Application::$sectionTitle = $_REQUEST['module'];
+				$modulePath = Application::getApplicationRootPath().Application::$module.$_REQUEST['module'].'.php';
+				
+				if(file_exists($modulePath))
+				{
+					return true;
+				}
+			}
+			return false;
+		}		
+		public static function getModuleTitle()
+		{
+			if(Application::hasModule())
+			{	
+				$getModuleTitle = true;
+				$modulePath = Application::$module.$_REQUEST['module'].'.php';
+				include $modulePath;
+				if(isset($moduleTitle))
+				{
+					return Application::$moduleTitle;
+				}
+			}
+			return "";
+		}	
 	}
 
 ?>

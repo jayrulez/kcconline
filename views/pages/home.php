@@ -11,7 +11,7 @@
 	
 	include_once Application::$layout.'BodyStart.php';
 	include_once Application::$layout.'Header.php';
-
+	include_once Application::$sections.'TitleBar.php';
 	include_once Application::$sections.'MainNavBar.php';
 ?>
 	<div id="content-container">
