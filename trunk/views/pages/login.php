@@ -1,4 +1,5 @@
 <?php
+	Application::divertLoggedInUser();
 	Application::$pageTitle = "Login";
 
 	include_once Application::$layout.'PageStart.php';

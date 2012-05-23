@@ -1,6 +1,7 @@
 <?php
-	Application::$pageTitle = "Courses";
-
+	Application::divertLoggedInUser();
+	Application::$pageTitle = "Course";
+	
 	include_once Application::$layout.'PageStart.php';
 
 	echo Application::linkJScript("main");
@@ -15,13 +16,24 @@
 	include_once Application::$sections.'TitleBar.php';
 ?>
 	<div id="content-container">
-		<?php include_once Application::$layout.'LeftPanel.php'; ?>
+		<?php 
+			if(Application::$currentUser->isLoggedIn())
+			{
+				include_once Application::$layout.'LeftPanel.php'; 
+			}
+		?>
 		<div id="content">
 		<?php
-			include_once Application::$courseSections.'MenuTab.php'; 
-			if(Application::hasModuleRequest())
+			if(Application::$currentUser->isLoggedIn())
 			{
-				Application::loadModule();
+				include_once Application::$courseSections.'MenuTab.php'; 
+				if(Application::hasModuleRequest())
+				{
+					if(!Application::loadModule())
+					{
+						echo "<p>The requested module does not exists</p>";
+					}
+				}
 			}
 		?>
 		</div>

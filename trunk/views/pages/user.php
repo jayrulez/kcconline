@@ -15,13 +15,24 @@
 	include_once Application::$sections.'TitleBar.php';
 ?>
 	<div id="content-container">
-		<?php include_once Application::$layout.'LeftPanel.php'; ?>
+		<?php 
+			if(Application::$currentUser->isLoggedIn())
+			{
+				include_once Application::$layout.'LeftPanel.php'; 
+			}
+		?>
 		<div id="content">
 		<?php
-			include_once Application::$userSections.'MenuTab.php'; 
-			if(Application::hasModuleRequest())
+			if(Application::$currentUser->isLoggedIn())
 			{
-				Application::loadModule();
+				include_once Application::$userSections.'MenuTab.php'; 
+				if(Application::hasModuleRequest())
+				{
+					if(!Application::loadModule())
+					{
+						echo "<p>The requested module does not exists</p>";
+					}
+				}
 			}
 		?>
 		</div>

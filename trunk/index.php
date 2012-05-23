@@ -1,61 +1,37 @@
 <?php
-session_start(); 
+	session_start(); 
 
-include "global.php";
-$currentUser = new User;
+	include "global.php";
+	Application::$currentUser = new User;
+	Application::$currentUser->refreshSession();
+	Application::$currentUser->get();
 
-if(isset($_REQUEST['r']))
-{	
-	$pagePath = Application::getApplicationRootPath().Application::$pages.$_REQUEST['r'].'.php';
-	echo $pagePath;
-	if(file_exists($pagePath))
-	{
-		if($currentUser->isLoggedIn())
+	if(Application::hasPageRequest())
+	{	
+		if(Application::hasPage())
 		{
-			$currentUser->emailAddress = $_SESSION['emailAddress'];
-			$currentUser->get();
-			switch($_REQUEST['r'])
-			{
-				case 'login':
-				break;
-				
-				default:
-					include Application::$pages.$_REQUEST['r'].'.php';
-					if(isset($_REQUEST['module']))
-					{
-						//include Application::$pages.$_REQUEST['r'].'.php';
-					}
-					if(isset($_REQUEST['action']))
-					{					
-						include_once Application::$siteController;
-					}
-			}
+			include Application::$pages.$_REQUEST['page'].'.php';
 		}
 		else
 		{
-			switch($_REQUEST['r'])
-			{
-				case 'login':
-				case 'home':
-					include Application::$pages.$_REQUEST['r'].'.php';
-					if(isset($_REQUEST['module']))
-					{
-						//include Application::$pages.$_REQUEST['r'].'.php';
-					}
-					if(isset($_REQUEST['action']))
-					{					
-						include_once Application::$siteController;
-					}
-				break;
-			}
+			include Application::$pages.'home.php';
 		}
 	}
 	else
 	{
-		include Application::$pages.$_REQUEST['r'].'.php';
+		header('Location: '.Application::$previousUrl);	
 	}
-}
-else
-{
-	include Application::$pages.'home'.'.php';
-}
+
+	if(isset($_REQUEST['action']))
+	{	
+		if(isset($_REQUEST['page']))
+		{
+			include Application::$controller.$_REQUEST['action']."/"."controller.php";
+		}
+		else
+		{
+			include Application::$controller."controller.php";
+		}
+	}
+
+?>

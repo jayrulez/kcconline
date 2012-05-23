@@ -25,7 +25,6 @@
 		public static $courseSections = "/views/sections/course/";
 		public static $module = "/views/module/";
 		public static $controller = "/controller/";
-		public static $siteController = "/controller/SiteController.php";
 		public static $resources = "/resources/";
 		public static $images = "/images/";
 		public static $profileImages = "/images/profile/";
@@ -37,6 +36,8 @@
 		public static $dbPassword = "";
 		public static $dbName = "kcconline";
 		public static $dbConnection;
+		
+		public static $currentUser;
 		
 		public static function linkJScript($filePath)
 		{
@@ -76,6 +77,29 @@
 		{
 			return $_SERVER['DOCUMENT_ROOT'].'/'.Application::$appRootName;
 		}
+		public static function hasPageRequest()
+		{
+			if(isset($_REQUEST['page']))
+			{
+				return true;
+			}
+			return false;
+		}
+		
+		public static function hasPage()
+		{
+			if(isset($_REQUEST['page']))
+			{
+				Application::$sectionTitle = $_REQUEST['page'];
+				$pagePath = Application::getApplicationRootPath().Application::$pages.$_REQUEST['page'].'.php';
+				
+				if(file_exists($pagePath))
+				{
+					return true;
+				}
+			}
+			return false;
+		}
 		
 		public static function hasModuleRequest()
 		{
@@ -86,19 +110,25 @@
 			return false;
 		}
 		
+		
+		
 		public static function loadModule()
 		{
-			if(isset($_REQUEST['module']))
+			if(isset($_REQUEST['page']))
 			{
-				Application::$sectionTitle = $_REQUEST['module'];
-				$modulePath = Application::getApplicationRootPath().Application::$module.$_REQUEST['module'].'.php';
-				
-				if(file_exists($modulePath))
+				if(isset($_REQUEST['module']))
 				{
-					include $modulePath;
-					return true;
+					Application::$sectionTitle = $_REQUEST['module'];
+					$modulePath = Application::getApplicationRootPath().Application::$module.$_REQUEST['page'].'/'.$_REQUEST['module'].'.php';
+					
+					if(file_exists($modulePath))
+					{
+						include $modulePath;
+						return true;
+					}
 				}
 			}
+			
 			return false;
 		}
 			
@@ -107,7 +137,7 @@
 			if(isset($_REQUEST['module']))
 			{
 				Application::$sectionTitle = $_REQUEST['module'];
-				$modulePath = Application::getApplicationRootPath().Application::$module.$_REQUEST['module'].'.php';
+				$modulePath = Application::getApplicationRootPath().Application::$module.$_REQUEST['page'].'/'.$_REQUEST['module'].'.php';
 				
 				if(file_exists($modulePath))
 				{
@@ -121,7 +151,7 @@
 			if(Application::hasModule())
 			{	
 				$getModuleTitle = true;
-				$modulePath = Application::$module.$_REQUEST['module'].'.php';
+				$modulePath = Application::$module.$_REQUEST['page'].'/'.$_REQUEST['module'].'.php';
 				include $modulePath;
 				if(isset($moduleTitle))
 				{
@@ -130,6 +160,13 @@
 			}
 			return "";
 		}	
+	
+		public static function divertLoggedInUser()
+		{
+			if(Application::$currentUser->isLoggedIn())
+			{
+				header('Location: '.Application::$currentUrl);
+			}
+		}
 	}
-
 ?>

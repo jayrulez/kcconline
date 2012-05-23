@@ -55,6 +55,14 @@
 			return false;
 		}
 		
+		public function refreshSession()
+		{
+			if(isset($_SESSION['emailAddress']))
+			{
+				$this->emailAddress = $_SESSION['emailAddress'];
+			}
+		}
+		
 		public function get()
 		{
 			$queryString = "select * from `user` where email_address = '".Application::$dbConnection->real_escape_string($this->emailAddress)."'"; 
