@@ -18,6 +18,10 @@
 				actionAddCourse();
 			break;
 			
+			case 'addCategory':
+				actionAddCategory();
+			break;
+			
 			case 'searchCourse':
 				actionSearchCourse();
 			break;

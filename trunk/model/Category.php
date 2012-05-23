@@ -12,15 +12,15 @@
 		
 		public function get()
 		{
-			$queryString = "select * from `category` where uid = ".mysqli_real_escape_string(Application::$dbLink,$this->uid).""; 
-			$resultPointer = mysqli_query(Application::$dbLink,$queryString);
+			$queryString = "select * from `category` where uid = ".Application::$dbConnection->real_escape_string($this->uid).""; 
+			$resultPointer = Application::$dbConnection->query($queryString);
 			
 	
 			if($resultPointer)
 			{
-				if(mysqli_num_rows($resultPointer)==1)
+				if($resultPointer->num_rows==1)
 				{
-					while($resultRow = mysqli_fetch_array($resultPointer))
+					while($resultRow = $resultPointer->fetch_assoc())
 					{
 						$this->uid = $resultRow['uid'];
 						$this->name = $resultRow['name'];

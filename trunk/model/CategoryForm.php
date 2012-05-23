@@ -1,5 +1,5 @@
 <?php
-class CatgeoryForm
+class CategoryForm
 {
 	public $name = null;
 	public $description = null;
