@@ -19,7 +19,8 @@ if(isset($_REQUEST['r']))
 				case 'login':
 				break;
 				
-				default: 
+				default:
+					include Application::$pages.$_REQUEST['r'].'.php';
 					if(isset($_REQUEST['module']))
 					{
 						include Application::$pages.$_REQUEST['r'].'.php';
@@ -36,6 +37,7 @@ if(isset($_REQUEST['r']))
 			{
 				case 'login':
 				case 'home':
+					include Application::$pages.$_REQUEST['r'].'.php';
 					if(isset($_REQUEST['module']))
 					{
 						include Application::$pages.$_REQUEST['r'].'.php';

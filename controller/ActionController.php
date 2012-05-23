@@ -169,7 +169,7 @@
 	{
 		if(isset($_POST['addCourse']))
 		{
-			$addCourseForm = new AddUserForm;
+			$addCourseForm = new CourseForm;
 
 			$addCourseForm ->courseCode = trim($_POST['courseCode']);
 			$addCourseForm ->courseCode = (empty($addCourseForm ->courseCode)) ? null : $addCourseForm ->courseCode;
@@ -225,6 +225,57 @@
 				}
 			}
 			header('Location: index.php?r=course&module=AddCourse');			
+		}
+	}
+	function actionAddCategory()
+	{
+		if(isset($_POST['addCategory']))
+		{
+			$addCategoryForm = new CategoryForm;
+			
+			$addCategoryForm ->name = trim($_POST['name']);
+			$addCategoryForm ->name = (empty($addCategoryForm ->name)) ? null : $addCategoryForm ->name;
+			
+			$addCategoryForm ->description = trim($_POST['description']);
+			$addCategoryForm ->description = (empty($addCategoryForm ->description)) ? null : $addCategoryForm ->description;
+			
+			$addCategoryFormValidator = new FormValidator(); 
+			
+			$addCategoryFormValidator->setRule('name','Category Name','required|max_lenght[100]');
+			$addCategoryFormValidator->setRule('description','Description','max_lenght[255]');
+			
+			
+			$addCategoryFormValidator->runValidation();
+			
+			if(isset($_SESSION['addCategoryFormValidator']))
+			{
+				unset($_SESSION['addCategoryFormValidator']);
+			}
+			if(isset($_SESSION['addCategoryForm']))
+			{
+				unset($_SESSION['addCategoryForm']);
+			}
+			if(!$addCategoryFormValidator->formSuccess())
+			{
+				$_SESSION['addCategoryFormValidator'] = serialize($addCategoryFormValidator);
+				$_SESSION['addCategoryForm'] = serialize($addCategoryForm);
+				
+			}
+			else
+			{
+				$categoryObj = new Category;
+				$categoryObj->setCategoryForm($addCategoryForm);
+				
+				if($categoryObj->save())
+				{
+					header('Location: index.php?r=home');
+				}
+				else
+				{
+					
+				}
+			}
+			header('Location: index.php?r=course&module=AddCategory');			
 		}
 	}
 	function actionSearchCourse()
