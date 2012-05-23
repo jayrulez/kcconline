@@ -8,19 +8,19 @@
         <div id="profile">
 			<?php
 				$imageUrl = "";
-				if(empty($currentUser->imageUrl))
+				if(empty(Application::$currentUser->imageUrl))
 				{
 					$imageUrl = "blank_profile.jpg";
 				}
 				else
 				{
-					$imageUrl = $currentUser->imageUrl;
+					$imageUrl = Application::$currentUser->imageUrl;
 				}
 				echo Application::$profileImages.$imageUrl;
 			?>
             <img  src = "<?php echo Application::$profileImages.$imageUrl;?>" width = "150" height="150"/>
         </div>
-        <div  id="userName"><?php echo $currentUser->firstName." ".$currentUser->lastName; ?></div>
+        <div  id="userName"><?php echo Application::$currentUser->firstName." ".Application::$currentUser->lastName; ?></div>
        <a href="url">Edit Profile</a>
        
     	<div id="message">

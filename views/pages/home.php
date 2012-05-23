@@ -11,12 +11,13 @@
 	
 	include_once Application::$layout.'BodyStart.php';
 	include_once Application::$layout.'Header.php';
-	include_once Application::$sections.'TitleBar.php';
+	
 	include_once Application::$sections.'MainNavBar.php';
+	include_once Application::$sections.'TitleBar.php';
 ?>
 	<div id="content-container">
 		<?php 
-			if($currentUser->isLoggedIn())
+			if(Application::$currentUser->isLoggedIn())
 			{
 				include_once Application::$layout.'LeftPanel.php'; 
 			}
