@@ -508,3 +508,125 @@ Stack trace:
 #22 {main}
 REQUEST_URI=/KCCOnline/index.php?r=site/addCourse
 ---
+2012/05/23 18:04:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "ssssssas".' in C:\wamp\www\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\lib\yii\framework\web\CController.php(271): CController->missingAction('ssssssas')
+#1 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(276): CController->run('ssssssas')
+#2 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('site/ssssssas')
+#3 C:\wamp\www\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\KCCOnline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/KCCOnline/index.php?r=site/ssssssas
+---
+2012/05/23 20:37:25 [error] [php] include(Country.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\lib\yii\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\KCCOnline\protected\modules\admin\views\user\_form.php(55): spl_autoload_call()
+#1 C:\wamp\www\lib\yii\framework\web\CBaseController.php(127): require()
+#2 C:\wamp\www\lib\yii\framework\web\CBaseController.php(96): UserController->renderInternal()
+#3 C:\wamp\www\lib\yii\framework\web\CController.php(870): UserController->renderFile()
+#4 C:\wamp\www\KCCOnline\protected\modules\admin\views\user\create.php(7): UserController->renderPartial()
+#5 C:\wamp\www\lib\yii\framework\web\CBaseController.php(127): require()
+#6 C:\wamp\www\lib\yii\framework\web\CBaseController.php(96): UserController->renderInternal()
+#7 C:\wamp\www\lib\yii\framework\web\CController.php(870): UserController->renderFile()
+#8 C:\wamp\www\lib\yii\framework\web\CController.php(783): UserController->renderPartial()
+#9 C:\wamp\www\KCCOnline\protected\modules\admin\controllers\UserController.php(39): UserController->render()
+#10 C:\wamp\www\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionCreate()
+#11 C:\wamp\www\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#12 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#13 C:\wamp\www\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#14 C:\wamp\www\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#15 C:\wamp\www\lib\yii\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#16 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#17 C:\wamp\www\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#18 C:\wamp\www\lib\yii\framework\web\CController.php(266): UserController->runActionWithFilters()
+#19 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(276): UserController->run()
+#20 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#21 C:\wamp\www\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#22 C:\wamp\www\KCCOnline\index.php(7): CWebApplication->run()
+REQUEST_URI=/kcconline/index.php?r=admin/user/create
+in C:\wamp\www\KCCOnline\protected\modules\admin\views\user\_form.php (55)
+in C:\wamp\www\KCCOnline\protected\modules\admin\views\user\create.php (7)
+in C:\wamp\www\KCCOnline\protected\modules\admin\controllers\UserController.php (39)
+2012/05/23 21:07:19 [error] [exception.CException] exception 'CException' with message 'Property "Category.course_code" is not defined.' in C:\wamp\www\lib\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\lib\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('course_code')
+#1 C:\wamp\www\lib\yii\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('course_code')
+#2 C:\wamp\www\lib\yii\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(Category), 'course_code')
+#3 C:\wamp\www\lib\yii\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(Category), 'course_code', Array)
+#4 C:\wamp\www\lib\yii\framework\zii\widgets\grid\CDataColumn.php(105): CHtml::activeTextField(Object(Category), 'course_code', Array)
+#5 C:\wamp\www\lib\yii\framework\zii\widgets\grid\CGridColumn.php(106): CDataColumn->renderFilterCellContent()
+#6 C:\wamp\www\lib\yii\framework\zii\widgets\grid\CGridView.php(450): CGridColumn->renderFilterCell()
+#7 C:\wamp\www\lib\yii\framework\zii\widgets\grid\CGridView.php(428): CGridView->renderFilter()
+#8 C:\wamp\www\lib\yii\framework\zii\widgets\grid\CGridView.php(398): CGridView->renderTableHeader()
+#9 C:\wamp\www\lib\yii\framework\zii\widgets\CBaseListView.php(158): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 C:\wamp\www\lib\yii\framework\zii\widgets\CBaseListView.php(141): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#12 C:\wamp\www\lib\yii\framework\zii\widgets\CBaseListView.php(126): CBaseListView->renderContent()
+#13 C:\wamp\www\lib\yii\framework\web\CBaseController.php(174): CBaseListView->run()
+#14 C:\wamp\www\KCCOnline\protected\modules\admin\views\course\index.php(34): CBaseController->widget('zii.widgets.gri...', Array)
+#15 C:\wamp\www\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\KCC...')
+#16 C:\wamp\www\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\KCC...', Array, true)
+#17 C:\wamp\www\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\KCC...', Array, true)
+#18 C:\wamp\www\lib\yii\framework\web\CController.php(783): CController->renderPartial('index', Array, true)
+#19 C:\wamp\www\KCCOnline\protected\modules\admin\controllers\CourseController.php(127): CController->render('index', Array)
+#20 C:\wamp\www\lib\yii\framework\web\actions\CInlineAction.php(50): CourseController->actionCategories()
+#21 C:\wamp\www\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#22 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#23 C:\wamp\www\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#24 C:\wamp\www\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#25 C:\wamp\www\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#26 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#27 C:\wamp\www\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#28 C:\wamp\www\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#29 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(276): CController->run('categories')
+#30 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/ca...')
+#31 C:\wamp\www\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#32 C:\wamp\www\KCCOnline\index.php(7): CApplication->run()
+#33 {main}
+REQUEST_URI=/kcconline/index.php?r=admin/course/categories
+HTTP_REFERER=http://localhost/kcconline/index.php?r=admin/course/createCategory
+---
+2012/05/23 21:10:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\wamp\www\KCCOnline\protected\modules\admin\controllers\CourseController.php:139
+Stack trace:
+#0 C:\wamp\www\KCCOnline\protected\modules\admin\controllers\CourseController.php(17): CourseController->loadModel('1')
+#1 [internal function]: CourseController->actionView('1')
+#2 C:\wamp\www\lib\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(CourseController), Array)
+#3 C:\wamp\www\lib\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(CourseController), Object(ReflectionMethod), Array)
+#4 C:\wamp\www\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(276): CController->run('view')
+#13 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/vi...')
+#14 C:\wamp\www\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\KCCOnline\index.php(7): CApplication->run()
+#16 {main}
+REQUEST_URI=/kcconline/index.php?r=admin/course/view&id=1
+HTTP_REFERER=http://localhost/kcconline/index.php?r=admin/course/categories
+---
+2012/05/23 21:10:17 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested page does not exist.' in C:\wamp\www\KCCOnline\protected\modules\admin\controllers\CourseController.php:139
+Stack trace:
+#0 C:\wamp\www\KCCOnline\protected\modules\admin\controllers\CourseController.php(17): CourseController->loadModel('1')
+#1 [internal function]: CourseController->actionView('1')
+#2 C:\wamp\www\lib\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(CourseController), Array)
+#3 C:\wamp\www\lib\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(CourseController), Object(ReflectionMethod), Array)
+#4 C:\wamp\www\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(276): CController->run('view')
+#13 C:\wamp\www\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/vi...')
+#14 C:\wamp\www\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\KCCOnline\index.php(7): CApplication->run()
+#16 {main}
+REQUEST_URI=/kcconline/index.php?r=admin/course/view&id=1
+HTTP_REFERER=http://localhost/kcconline/index.php?r=admin/course/categories
+---

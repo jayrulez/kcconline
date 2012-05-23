@@ -51,6 +51,10 @@
 						</div>
 						<?php endif; ?>
 						<div class="row clearfix">
+							<?php echo CHtml::activeLabel($model,'country_code'); ?>
+							<?php echo CHtml::activeDropDownList($model,'country_code', CHtml::listData(Country::model()->findAll(), 'code', 'country')); ?>
+						</div>
+						<div class="row clearfix">
 							<?php echo CHtml::activeLabel($model,'phone1'); ?>
 							<?php echo CHtml::activeTextField($model,'phone1'); ?>
 						</div>

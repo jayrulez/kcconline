@@ -38,6 +38,22 @@ class CourseController extends AdminController
 			'model'=>$model,
 		));
 	}
+	
+	public function actionCreateCategory()
+	{
+		$model=new Category;
+
+		if(isset($_POST['Category']))
+		{
+			$model->attributes=$_POST['Category'];
+			if($model->save())
+				$this->redirect(array('index'));
+		}
+
+		$this->render('createCategory',array(
+			'model'=>$model,
+		));
+	}
 
 	/**
 	 * Updates a particular model.
@@ -95,6 +111,18 @@ class CourseController extends AdminController
 			$model->attributes=$_GET['Course'];
 
 		$this->render('index',array(
+			'model'=>$model,
+		));
+	}
+	
+	public function actionCategories()
+	{
+		$model=new Category('search');
+		$model->unsetAttributes();  // clear any default values
+		if(isset($_GET['Category']))
+			$model->attributes=$_GET['Category'];
+
+		$this->render('categories',array(
 			'model'=>$model,
 		));
 	}

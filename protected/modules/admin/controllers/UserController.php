@@ -25,6 +25,7 @@ class UserController extends AdminController
 	public function actionCreate()
 	{
 		$model=new User;
+		$model->country_code = 'JM';
 		$model->scenario = 'create';
 
 		if(isset($_POST['User']))

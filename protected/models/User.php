@@ -61,6 +61,7 @@ class User extends CActiveRecord
 			array('phone1, phone2', 'length', 'max'=>20),
 			array('image_url', 'length', 'max'=>255),
 			array('dob, last_action, last_modified', 'safe'),
+			array('country_code', 'length', 'max'=>2),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('uid, user_id, first_name, middle_name, last_name, dob, email_address, password, phone1, phone2, active, deleted, datetime_created, last_action, last_modified, image_url', 'safe', 'on'=>'search'),
@@ -155,7 +156,8 @@ class User extends CActiveRecord
 		$criteria->compare('last_action',$this->last_action,true);
 		$criteria->compare('last_modified',$this->last_modified,true);
 		$criteria->compare('image_url',$this->image_url,true);
-
+		$criteria->compare('country_code',$this->country_code,true);
+		
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
