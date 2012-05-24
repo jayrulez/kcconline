@@ -9,6 +9,10 @@ class CourseController extends AdminController
 			'id'=>'course_menu',
 			'content'=>$this->renderPartial('_admin_course', array(), true),
 		));
+		Layout::addBlock('sidebar.left', array(
+				'id'=>'profile_sidebar',
+				'content'=>$this->widget('ProfileWidget', array('userModel'=>Yii::app()->getUser()->getModel()), true),
+		));
 	}
 	
 	public function actionView($id)
@@ -126,7 +130,6 @@ class CourseController extends AdminController
 			'model'=>$model,
 		));
 	}
-
 	/**
 	 * Returns the data model based on the primary key given in the GET variable.
 	 * If the data model is not found, an HTTP exception will be raised.

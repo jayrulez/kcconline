@@ -100,7 +100,7 @@ class User extends CActiveRecord
 			'datetime_created' => 'Datetime Created',
 			'last_action' => 'Last Action',
 			'last_modified' => 'Last Modified',
-			'image_url' => 'Image Url',
+			'image_url' => 'Profile Photo',
 		);
 	}
 

@@ -37,7 +37,7 @@ return array(
 			'assignmentTable'=>'authassignment',
 		),
 		// uncomment the following to enable URLs in path-format
-		/*
+		
 		'urlManager'=>array(
 			'urlFormat'=>'path',
 			'rules'=>array(
@@ -46,7 +46,7 @@ return array(
 				'<controller:\w+>/<action:\w+>'=>'<controller>/<action>',
 			),
 		),
-		*/
+		
 		'db'=>ENV_DEV ? require_once(dirname(__FILE__).'/dbconfig.dev.php') : require_once(dirname(__FILE__).'/dbconfig.php'),
 
 		'errorHandler'=>array(

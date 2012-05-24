@@ -18,6 +18,11 @@ $('.search-form form').submit(function(){
 <div class="action" id="admin-course-index">
 	<div class="section">
 		<div class="section-content">
+			<div class="header">
+				<div class="title">
+					<?php echo Yii::t('application','Courses');?>
+				</div>
+			</div>
 			<?php $this->widget('zii.widgets.grid.CGridView', array(
 				'id'=>'course-grid',
 				'dataProvider'=>$model->search(),

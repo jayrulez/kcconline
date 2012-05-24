@@ -46,4 +46,14 @@ class WebUser extends CWebUser
 	{
 		return $this->getModel() === null;
 	}
+	
+	public function hasRole($role)
+	{
+		if(($model = $this->_model) !== null)
+		{
+			$roles = Yii::app()->authManager->getRoles($model->id);
+			return count($roles) && array_key_exists($role, $roles);
+		}	
+		return false;
+	}
 }

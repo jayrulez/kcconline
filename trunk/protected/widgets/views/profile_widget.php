@@ -1,5 +1,5 @@
 <div class="photo">
-	<?php echo CHtml::image(Yii::app()->baseUrl.'/images/blank_profile.jpg','*', array(
+	<?php echo CHtml::image(Yii::app()->baseUrl.'/images/profile/'.$model->image_url,'*', array(
 		'width'=>'180px',
 		'height'=>'180px',
 	)); ?>
