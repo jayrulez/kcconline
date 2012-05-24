@@ -9,6 +9,10 @@ class UserController extends AdminController
 			'id'=>'admin_user',
 			'content'=>$this->renderPartial('_admin_user', array(), true),
 		));
+		Layout::addBlock('sidebar.left', array(
+				'id'=>'profile_sidebar',
+				'content'=>$this->widget('ProfileWidget', array('userModel'=>Yii::app()->getUser()->getModel()), true),
+		));
 	}
 	
 	public function actionView($id)
@@ -27,12 +31,22 @@ class UserController extends AdminController
 		$model=new User;
 		$model->country_code = 'JM';
 		$model->scenario = 'create';
+		$model->image_url = 'blank_profile.jpg';
 
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
+			$image=CUploadedFile::getInstance($model,'image_url');
+			if(!$image->getHasError())
+			{
+				$model->image_url = $model->user_id.'.'.$image->extensionName;
+			}
 			if($model->save())
+			{
+				$image->saveAs('C:/wamp/www'.Yii::app()->baseUrl.'/images/profile/'.$model->image_url);
 				$this->redirect(array('index'));
+			}
+				
 		}
 
 		$this->render('create',array(
@@ -56,8 +70,16 @@ class UserController extends AdminController
 		if(isset($_POST['User']))
 		{			
 			$model->attributes=$_POST['User'];
+			$image=CUploadedFile::getInstance($model,'image_url');
+			if(!$image->getHasError())
+			{
+				$model->image_url = $model->user_id.'.'.$image->extensionName;
+			}
 			if($model->save())
+			{
+				$image->saveAs('C:/wamp/www'.Yii::app()->baseUrl.'/images/profile/'.$model->image_url);
 				$this->redirect(array('view','id'=>$model->uid));
+			}
 		}
 
 		$this->render('update',array(

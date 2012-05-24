@@ -1,5 +1,5 @@
 			<div class="form-container">	
-				<?php echo CHtml::beginForm('','post',array('class'=>'wf')); ?>
+				<?php echo CHtml::beginForm('','post',array('class'=>'wf','enctype'=>'multipart/form-data')); ?>
 					<!--<div class="header">
 						<div class="title">
 						</div>
@@ -63,8 +63,12 @@
 							<?php echo CHtml::activeTextField($model,'phone2'); ?>
 						</div>
 						<div class="row clearfix">
+							
+						</div>
+						<div class="row clearfix">
 							<?php echo CHtml::activeLabel($model,'image_url'); ?>
-							<?php echo CHtml::activeTextField($model,'image_url'); ?>
+							<?php echo CHtml::image(Yii::app()->baseUrl.'/images/profile/'.$model->image_url,'*',array('height'=>'120px','width'=>'120px')); ?>
+							<?php echo CHtml::activeFileField($model, 'image_url'); ?>
 						</div>
 						<div class="row inline bottom clearfix">
 							<?php echo CHtml::activeCheckBox($model,'active'); ?>

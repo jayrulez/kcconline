@@ -24,6 +24,29 @@
 							<div class="global-nav">
 								<ul>
 									<?php //echo ;exit; ?>
+									<?php if(array_key_exists('teacher', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))): ?>
+									<li><?php echo CHtml::link(Yii::t('application', 'Activity'), array('/activity')); ?></li>
+									<?php endif; ?>
+						
+									<?php if(array_key_exists('teacher', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))): ?>
+									<li><?php echo CHtml::link(Yii::t('application', 'Courses'), array('/course')); ?></li>
+									<?php endif; ?>
+						
+									<?php if(array_key_exists('teacher', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))): ?>
+									<li><?php echo CHtml::link(Yii::t('application', 'Enrollment'), array('/enrollment')); ?></li>
+									<?php endif; ?>
+									<li>	
+
+									<?php if(array_key_exists('teacher', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))): ?>
+									<li><?php echo CHtml::link(Yii::t('application', 'Graded Work'), array('/gradedwork')); ?></li>
+									<?php endif; ?>
+									<li>
+									
+									<?php if(array_key_exists('teacher', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))): ?>
+									<li><?php echo CHtml::link(Yii::t('application', 'Reports'), array('/reports')); ?></li>
+									<?php endif; ?>
+									<li>
+									
 									<?php if(array_key_exists('admin', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))): ?>
 									<li><?php echo CHtml::link(Yii::t('application', 'Admin'), array('/admin')); ?></li>
 									<?php endif; ?>

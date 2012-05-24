@@ -39,23 +39,6 @@ class SiteController extends Controller
 			'form'=>$loginForm,
 		));
 	}
-	
-	public function actionAddCourse()
-	{
-		$addCourseForm = new AddCourseForm;
-		
-		if(($post = Yii::app()->getRequest()->getPost('AddCourse'))!==null)
-		{
-			$addCourse->attributes = $post;
-			
-			if($addCourse->process())
-			{
-				
-			}
-		}
-		$this->render('addCourse',array('form'=>$addCourseForm));
-	}
-	
 	public function actionLogout()
 	{
 		Yii::app()->user->logout();

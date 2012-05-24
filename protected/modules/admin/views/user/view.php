@@ -20,7 +20,7 @@ $this->pageTitle=Yii::t('application', 'View User');
 					'datetime_created',
 					'last_action',
 					'last_modified',
-					'image_url',
+					array('label'=>'Profile Photo','type'=>'raw','value'=>html_entity_decode(CHtml::image(Yii::app()->baseUrl.'/images/profile/'.$model->image_url,'*',array('height'=>'120px','width'=>'120px')))),
 				),
 			)); ?>
 		</div>
