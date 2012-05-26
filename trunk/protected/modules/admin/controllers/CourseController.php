@@ -43,6 +43,37 @@ class CourseController extends AdminController
 		));
 	}
 	
+	public function actionAssignInstructor()
+	{
+		$model = new CourseInstructor;
+		if(isset($_REQUEST['id']))
+		{
+			$model->course_code = trim($_REQUEST['id']);
+			if(Course::model()->exists("course_code=:code_code", array('course_code'=>trim($_REQUEST['id']))))
+			{
+				if($model->save())
+				{
+					
+				}
+				else 
+				{
+					$this->render('assignInstructor',array('model'=>$model));
+				}
+			}
+			else
+			{
+				
+			}
+			
+		}
+		$this->render('assignInstructor',array());
+	}
+	
+	public function actionInstructors()
+	{
+		$this->render('instructors',array());
+	}
+	
 	public function actionCreateCategory()
 	{
 		$model=new Category;

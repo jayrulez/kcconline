@@ -1147,3 +1147,1024 @@ Stack trace:
 REQUEST_URI=/kcconline/index.php/reports
 HTTP_REFERER=http://localhost/kcconline/index.php/activity
 ---
+2012/05/25 08:51:46 [error] [php] Undefined variable: model (C:\wamp\www\kcconline\protected\views\enrollment\enroll.php:28)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): EnrollmentController->renderFile()
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): EnrollmentController->renderPartial()
+#2 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(43): EnrollmentController->render()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionEnroll()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): EnrollmentController->runAction()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): EnrollmentController->filterAccessControl()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): EnrollmentController->runActionWithFilters()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): EnrollmentController->run()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/KCCOnline/index.php/enrollment/enroll
+in C:\wamp\www\kcconline\protected\views\enrollment\enroll.php (28)
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (43)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/25 19:25:31 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'qwqqwqwwqwqw' in 'where clause'. The SQL statement executed was: SELECT 1 FROM `course` `t` WHERE course_code=qwqqwqwwqwqw LIMIT 1.
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (38)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/25 19:25:32 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[42S22]: Column not found: 1054 Unknown column 'qwqqwqwwqwqw' in 'where clause'. The SQL statement executed was: SELECT 1 FROM `course` `t` WHERE course_code=qwqqwqwwqwqw LIMIT 1' in C:\wamp\www\kcconline\lib\yii\framework\db\CDbCommand.php:528
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\CDbCommand.php(408): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(1603): CDbCommand->queryRow()
+#2 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(38): CActiveRecord->exists('course_code=qwq...')
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionEnroll()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('enroll')
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment/enro...')
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#16 {main}
+REQUEST_URI=/KCCOnline/index.php/enrollment/enroll
+HTTP_REFERER=http://localhost/KCCOnline/index.php/enrollment/enroll
+---
+2012/05/25 20:28:03 [error] [exception.CException] exception 'CException' with message 'Property "CExistValidator.0" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\validators\CValidator.php(174): CComponent->__set('0', 'exist')
+#1 C:\wamp\www\kcconline\lib\yii\framework\base\CModel.php(285): CValidator::createValidator('exist', Object(UserCourseEnrollment), 'course_code', Array)
+#2 C:\wamp\www\kcconline\lib\yii\framework\base\CModel.php(259): CModel->createValidators()
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CModel.php(544): CModel->getValidators()
+#4 C:\wamp\www\kcconline\lib\yii\framework\base\CModel.php(466): CModel->getSafeAttributeNames()
+#5 C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php(153): CModel->setAttributes(Array)
+#6 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(160): CComponent->__set('attributes', Array)
+#7 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(33): CActiveRecord->__set('attributes', Array)
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionEnroll()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('enroll')
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment/enro...')
+#19 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#21 {main}
+REQUEST_URI=/KCCOnline/index.php/enrollment/enroll
+HTTP_REFERER=http://localhost/KCCOnline/index.php/enrollment/enroll
+---
+2012/05/25 20:34:31 [error] [php] Undefined variable: userCourseEnrollment (C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php:46)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): EnrollmentController->runAction()
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): EnrollmentController->filterAccessControl()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): EnrollmentController->runActionWithFilters()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): EnrollmentController->run()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#9 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/KCCOnline/index.php/enrollment/enroll
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (46)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/25 21:59:48 [error] [exception.CException] exception 'CException' with message 'Property "User.user_id" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('user_id')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('user_id')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(User), 'user_id')
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(User), 'user_id', Array)
+#4 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CDataColumn.php(105): CHtml::activeTextField(Object(User), 'user_id', Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridColumn.php(106): CDataColumn->renderFilterCellContent()
+#6 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(450): CGridColumn->renderFilterCell()
+#7 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(428): CGridView->renderFilter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(398): CGridView->renderTableHeader()
+#9 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(158): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(141): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#12 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(126): CBaseListView->renderContent()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(174): CBaseListView->run()
+#14 C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php(47): CBaseController->widget('zii.widgets.gri...', Array)
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('index', Array, true)
+#19 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(122): CController->render('index', Array)
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#21 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#22 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#23 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#24 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#25 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#26 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#27 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#28 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#29 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('index')
+#30 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/inde...')
+#31 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#32 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#33 {main}
+REQUEST_URI=/KCCOnline/index.php/admin/user/index
+HTTP_REFERER=http://localhost/KCCOnline/index.php/admin
+---
+2012/05/25 22:04:40 [error] [exception.CException] exception 'CException' with message 'Property "User.user_id" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('user_id')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('user_id')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(User), 'user_id')
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(User), 'user_id', Array)
+#4 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CDataColumn.php(105): CHtml::activeTextField(Object(User), 'user_id', Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridColumn.php(106): CDataColumn->renderFilterCellContent()
+#6 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(450): CGridColumn->renderFilterCell()
+#7 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(428): CGridView->renderFilter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(398): CGridView->renderTableHeader()
+#9 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(158): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(141): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#12 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(126): CBaseListView->renderContent()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(174): CBaseListView->run()
+#14 C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php(47): CBaseController->widget('zii.widgets.gri...', Array)
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('index', Array, true)
+#19 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(122): CController->render('index', Array)
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#21 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#22 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#23 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#24 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#25 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#26 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#27 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#28 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#29 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('index')
+#30 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/inde...')
+#31 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#32 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#33 {main}
+REQUEST_URI=/KCCOnline/index.php/admin/user/index
+---
+2012/05/25 22:06:14 [error] [exception.CException] exception 'CException' with message 'Property "User.user_id" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('user_id')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('user_id')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(User), 'user_id')
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(User), 'user_id', Array)
+#4 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CDataColumn.php(105): CHtml::activeTextField(Object(User), 'user_id', Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridColumn.php(106): CDataColumn->renderFilterCellContent()
+#6 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(450): CGridColumn->renderFilterCell()
+#7 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(428): CGridView->renderFilter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(398): CGridView->renderTableHeader()
+#9 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(158): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(141): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#12 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(126): CBaseListView->renderContent()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(174): CBaseListView->run()
+#14 C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php(47): CBaseController->widget('zii.widgets.gri...', Array)
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('index', Array, true)
+#19 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(122): CController->render('index', Array)
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#21 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#22 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#23 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#24 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#25 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#26 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#27 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#28 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#29 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('index')
+#30 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/inde...')
+#31 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#32 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#33 {main}
+REQUEST_URI=/KCCOnline/index.php/admin/user/index
+HTTP_REFERER=http://localhost/KCCOnline/index.php/admin
+---
+2012/05/25 22:06:22 [error] [exception.CException] exception 'CException' with message 'Property "User.user_id" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('user_id')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('user_id')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(User), 'user_id')
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(User), 'user_id', Array)
+#4 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CDataColumn.php(105): CHtml::activeTextField(Object(User), 'user_id', Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridColumn.php(106): CDataColumn->renderFilterCellContent()
+#6 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(450): CGridColumn->renderFilterCell()
+#7 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(428): CGridView->renderFilter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(398): CGridView->renderTableHeader()
+#9 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(158): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(141): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#12 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(126): CBaseListView->renderContent()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(174): CBaseListView->run()
+#14 C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php(47): CBaseController->widget('zii.widgets.gri...', Array)
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('index', Array, true)
+#19 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(122): CController->render('index', Array)
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#21 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#22 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#23 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#24 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#25 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#26 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#27 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#28 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#29 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('index')
+#30 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/inde...')
+#31 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#32 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#33 {main}
+REQUEST_URI=/KCCOnline/index.php/admin/user/index
+HTTP_REFERER=http://localhost/KCCOnline/index.php/admin/course
+---
+2012/05/25 22:06:54 [error] [exception.CException] exception 'CException' with message 'Property "User.user_id" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('user_id')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('user_id')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(User), 'user_id')
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(User), 'user_id', Array)
+#4 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CDataColumn.php(105): CHtml::activeTextField(Object(User), 'user_id', Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridColumn.php(106): CDataColumn->renderFilterCellContent()
+#6 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(450): CGridColumn->renderFilterCell()
+#7 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(428): CGridView->renderFilter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(398): CGridView->renderTableHeader()
+#9 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(158): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(141): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#12 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(126): CBaseListView->renderContent()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(174): CBaseListView->run()
+#14 C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php(47): CBaseController->widget('zii.widgets.gri...', Array)
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('index', Array, true)
+#19 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(122): CController->render('index', Array)
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#21 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#22 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#23 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#24 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#25 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#26 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#27 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#28 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#29 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('index')
+#30 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/inde...')
+#31 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#32 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#33 {main}
+REQUEST_URI=/KCCOnline/index.php/admin/user/index
+---
+2012/05/25 22:07:00 [error] [exception.CException] exception 'CException' with message 'Property "User.user_id" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('user_id')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(2044): CActiveRecord->__get('user_id')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(1774): CHtml::resolveValue(Object(User), 'user_id')
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(1205): CHtml::activeInputField('text', Object(User), 'user_id', Array)
+#4 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CDataColumn.php(105): CHtml::activeTextField(Object(User), 'user_id', Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridColumn.php(106): CDataColumn->renderFilterCellContent()
+#6 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(450): CGridColumn->renderFilterCell()
+#7 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(428): CGridView->renderFilter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(398): CGridView->renderTableHeader()
+#9 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(158): CGridView->renderItems()
+#10 [internal function]: CBaseListView->renderSection(Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(141): preg_replace_callback('/{(\w+)}/', Array, '{summary}?{item...')
+#12 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CBaseListView.php(126): CBaseListView->renderContent()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(174): CBaseListView->run()
+#14 C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php(47): CBaseController->widget('zii.widgets.gri...', Array)
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('index', Array, true)
+#19 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(122): CController->render('index', Array)
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#21 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#22 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#23 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#24 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#25 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#26 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#27 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#28 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#29 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('index')
+#30 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/inde...')
+#31 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#32 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#33 {main}
+REQUEST_URI=/KCCOnline/index.php/admin/user/index
+---
+2012/05/25 23:06:11 [error] [php] include(C:\wamp\www\kcconline\protected\extensions\yiiext\zii\widgets\grid\imageColumn\EImageColumn.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\kcconline\lib\yii\framework\YiiBase.php:397)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\YiiBase.php(198): import()
+#1 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(313): createComponent()
+#2 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(284): CGridView->initColumns()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(148): CGridView->init()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(173): UserController->createWidget()
+#5 C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php(48): UserController->widget()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): UserController->renderInternal()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): UserController->renderFile()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): UserController->renderPartial()
+#10 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(122): UserController->render()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): UserController->runActionWithFilters()
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): UserController->run()
+#21 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/KCCOnline/index.php/admin/user/index
+in C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php (48)
+in C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php (122)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/25 23:08:20 [error] [php] include(EImageColumn.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\kcconline\lib\yii\framework\YiiBase.php:418)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\YiiBase.php(198): import()
+#1 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(313): createComponent()
+#2 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(284): CGridView->initColumns()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(148): CGridView->init()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(173): UserController->createWidget()
+#5 C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php(48): UserController->widget()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): UserController->renderInternal()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): UserController->renderFile()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): UserController->renderPartial()
+#10 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(122): UserController->render()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): UserController->runActionWithFilters()
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): UserController->run()
+#21 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/KCCOnline/index.php/admin/user/index
+in C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php (48)
+in C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php (122)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/25 23:08:34 [error] [php] include(C:\wamp\www\kcconline\protected\extensions\yiiext\zii\widgets\grid\imageColumn\EImageColumn.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (C:\wamp\www\kcconline\lib\yii\framework\YiiBase.php:397)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\YiiBase.php(198): import()
+#1 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(313): createComponent()
+#2 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(284): CGridView->initColumns()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(148): CGridView->init()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(173): UserController->createWidget()
+#5 C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php(48): UserController->widget()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): UserController->renderInternal()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): UserController->renderFile()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): UserController->renderPartial()
+#10 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(122): UserController->render()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): UserController->runActionWithFilters()
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): UserController->run()
+#21 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#22 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/KCCOnline/index.php/admin/user/index
+in C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php (48)
+in C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php (122)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/25 23:56:12 [error] [exception.CException] exception 'CException' with message 'Property "EImageColumn.0" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\YiiBase.php(222): CComponent->__set('0', '/images/profile...')
+#1 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(313): YiiBase::createComponent(Array, Object(CGridView))
+#2 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(284): CGridView->initColumns()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(148): CGridView->init()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(173): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php(49): CBaseController->widget('zii.widgets.gri...', Array)
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('index', Array, true)
+#10 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(122): CController->render('index', Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('index')
+#21 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/inde...')
+#22 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#24 {main}
+REQUEST_URI=/KCCOnline/index.php/admin/user/index
+---
+2012/05/26 00:08:09 [error] [exception.CException] exception 'CException' with message 'Property "CDataColumn.imagePathExpression" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\YiiBase.php(222): CComponent->__set('imagePathExpres...', '<img height="64...')
+#1 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(313): YiiBase::createComponent(Array, Object(CGridView))
+#2 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\grid\CGridView.php(284): CGridView->initColumns()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(148): CGridView->init()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(173): CBaseController->createWidget('zii.widgets.gri...', Array)
+#5 C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php(48): CBaseController->widget('zii.widgets.gri...', Array)
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('index', Array, true)
+#10 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(122): CController->render('index', Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('index')
+#21 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/inde...')
+#22 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#24 {main}
+REQUEST_URI=/KCCOnline/index.php/admin/user/index
+---
+2012/05/26 00:30:12 [error] [php] Undefined variable: data (C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php:26)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): UserController->renderFile()
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): UserController->renderPartial()
+#2 C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php(122): UserController->render()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): UserController->actionIndex()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): UserController->runAction()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): UserController->filterAccessControl()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): UserController->runActionWithFilters()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): UserController->run()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/kcconline/index.php/admin/user/index
+in C:\wamp\www\kcconline\protected\modules\admin\views\user\index.php (26)
+in C:\wamp\www\kcconline\protected\modules\admin\controllers\UserController.php (122)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 00:32:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<img height="64px" width="64px" src="".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(271): CController->missingAction('<img height="64...')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('<img height="64...')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/<img...')
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php/admin/user/%3Cimg%20height=%2264px%22%20width=%2264px%22%20src=%22/kcconline/images/profile/0701334.jpg%22%20alt=%22image%20unavailable%22%20/%3E
+HTTP_REFERER=http://localhost/kcconline/index.php/admin/user/index
+---
+2012/05/26 00:32:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<img height="64px" width="64px" src="".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(271): CController->missingAction('<img height="64...')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('<img height="64...')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/<img...')
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php/admin/user/%3Cimg%20height=%2264px%22%20width=%2264px%22%20src=%22/kcconline/images/profile/0801042.jpg%22%20alt=%22image%20unavailable%22%20/%3E
+HTTP_REFERER=http://localhost/kcconline/index.php/admin/user/index
+---
+2012/05/26 00:32:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "<img height="64px" width="64px" src="".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(271): CController->missingAction('<img height="64...')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('<img height="64...')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/user/<img...')
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php/admin/user/%3Cimg%20height=%2264px%22%20width=%2264px%22%20src=%22/kcconline/images/profile/0802218.jpg%22%20alt=%22image%20unavailable%22%20/%3E
+HTTP_REFERER=http://localhost/kcconline/index.php/admin/user/index
+---
+2012/05/26 00:37:47 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kcconline`.`user_course_enrollment`, CONSTRAINT `fk_user_course_en_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `user_course_enrollment` (`user_id`, `course_code`, `enrollment_id`) VALUES (:yp0, :yp1, :yp2).
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (46)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 01:32:15 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kcconline`.`user_course_enrollment`, CONSTRAINT `fk_user_course_en_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `user_course_enrollment` (`user_id`, `course_code`, `enrollment_id`) VALUES (:yp0, :yp1, :yp2).
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (46)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 01:32:19 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kcconline`.`user_course_enrollment`, CONSTRAINT `fk_user_course_en_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `user_course_enrollment` (`user_id`, `course_code`, `enrollment_id`) VALUES (:yp0, :yp1, :yp2).
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (46)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 01:32:29 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kcconline`.`user_course_enrollment`, CONSTRAINT `fk_user_course_en_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `user_course_enrollment` (`user_id`, `course_code`, `enrollment_id`) VALUES (:yp0, :yp1, :yp2).
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (46)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 01:46:55 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`kcconline`.`user_course_enrollment`, CONSTRAINT `fk_user_course_en_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `user_course_enrollment` (`user_id`, `course_code`, `enrollment_id`) VALUES (:yp0, :yp1, :yp2).
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (46)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 05:02:12 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-cit4030' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `user_course_enrollment` (`user_id`, `course_code`, `enrollment_id`) VALUES (:yp0, :yp1, :yp2).
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (47)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 05:18:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbTransaction is inactive and cannot perform commit or roll back operations.' in C:\wamp\www\kcconline\lib\yii\framework\db\CDbTransaction.php:85
+Stack trace:
+#0 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(68): CDbTransaction->rollback()
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionEnroll()
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('enroll')
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment/enro...')
+#12 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#14 {main}
+REQUEST_URI=/kcconline/index.php/enrollment/enroll
+HTTP_REFERER=http://localhost/kcconline/index.php/enrollment/enroll
+---
+2012/05/26 05:21:47 [error] [exception.CDbException] exception 'CDbException' with message 'CDbTransaction is inactive and cannot perform commit or roll back operations.' in C:\wamp\www\kcconline\lib\yii\framework\db\CDbTransaction.php:85
+Stack trace:
+#0 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(75): CDbTransaction->rollback()
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionEnroll()
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('enroll')
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment/enro...')
+#12 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#14 {main}
+REQUEST_URI=/kcconline/index.php/enrollment/enroll
+HTTP_REFERER=http://localhost/kcconline/index.php/enrollment/enroll
+---
+2012/05/26 05:22:36 [error] [exception.CDbException] exception 'CDbException' with message 'CDbTransaction is inactive and cannot perform commit or roll back operations.' in C:\wamp\www\kcconline\lib\yii\framework\db\CDbTransaction.php:85
+Stack trace:
+#0 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(75): CDbTransaction->rollback()
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionEnroll()
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('enroll')
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment/enro...')
+#12 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#14 {main}
+REQUEST_URI=/kcconline/index.php/enrollment/enroll
+HTTP_REFERER=http://localhost/kcconline/index.php/enrollment/enroll
+---
+2012/05/26 05:24:21 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-cit4030' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `user_course_enrollment` (`user_id`, `course_code`, `enrollment_id`) VALUES (:yp0, :yp1, :yp2).
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (51)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 05:28:59 [error] [exception.CException] exception 'CException' with message 'EnrollmentController cannot find the requested view "_after_action_status".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:879
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('_after_action_s...', Array, true)
+#1 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(73): CController->render('_after_action_s...', Array)
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionEnroll()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('enroll')
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment/enro...')
+#13 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#15 {main}
+REQUEST_URI=/kcconline/index.php/enrollment/enroll
+---
+2012/05/26 05:30:26 [error] [exception.CException] exception 'CException' with message 'Property "Enrollment.enrollment_id" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('enrollment_id')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\helpers\CHtml.php(1696): CActiveRecord->__get('enrollment_id')
+#2 C:\wamp\www\kcconline\lib\yii\framework\zii\widgets\CDetailView.php(210): CHtml::value(Object(Enrollment), 'enrollment_id')
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(174): CDetailView->run()
+#4 C:\wamp\www\kcconline\protected\views\enrollment\_after_action_status.php(7): CBaseController->widget('zii.widgets.CDe...', Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('_after_action_s...', Array, true)
+#9 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(73): CController->render('_after_action_s...', Array)
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionEnroll()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('enroll')
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment/enro...')
+#21 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#22 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#23 {main}
+REQUEST_URI=/kcconline/index.php/enrollment/enroll
+---
+2012/05/26 07:32:06 [error] [exception.CException] exception 'CException' with message 'Property "UserCourseEnrollment.enrolledBy" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(160): CComponent->__set('enrolledBy', '1')
+#1 C:\wamp\www\kcconline\protected\models\UserCourseEnrollment.php(16): CActiveRecord->__set('enrolledBy', '1')
+#2 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(1787): UserCourseEnrollment->init()
+#3 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php(863): CActiveRecord->populateRecord(Array, false)
+#4 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php(819): CJoinElement->populateRecord(Object(CJoinQuery), Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php(452): CJoinElement->runQuery(Object(CJoinQuery))
+#6 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#7 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(1292): CActiveFinder->query(Object(CDbCriteria), true)
+#8 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(1406): CActiveRecord->query(Object(CDbCriteria), true)
+#9 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(27): CActiveRecord->findAll()
+#10 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(20): EnrollmentController->enrollmentFeed()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionIndex()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('')
+#21 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment')
+#22 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#24 {main}
+REQUEST_URI=/kcconline/index.php/enrollment
+---
+2012/05/26 07:33:32 [error] [exception.CException] exception 'CException' with message 'Property "UserCourseEnrollment.enrolle_by" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(160): CComponent->__set('enrolle_by', '1')
+#1 C:\wamp\www\kcconline\protected\models\UserCourseEnrollment.php(16): CActiveRecord->__set('enrolle_by', '1')
+#2 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(1787): UserCourseEnrollment->init()
+#3 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php(863): CActiveRecord->populateRecord(Array, false)
+#4 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php(819): CJoinElement->populateRecord(Object(CJoinQuery), Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php(452): CJoinElement->runQuery(Object(CJoinQuery))
+#6 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#7 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(1292): CActiveFinder->query(Object(CDbCriteria), true)
+#8 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(1406): CActiveRecord->query(Object(CDbCriteria), true)
+#9 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(27): CActiveRecord->findAll()
+#10 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(20): EnrollmentController->enrollmentFeed()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionIndex()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('')
+#21 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment')
+#22 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#24 {main}
+REQUEST_URI=/kcconline/index.php/enrollment
+---
+2012/05/26 07:55:56 [error] [exception.CDbException] exception 'CDbException' with message 'The relation "user" in active record class "UserCourseEnrollment" is specified with an invalid foreign key "uid". There is no such column in the table "user_course_enrollment".' in C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php:1103
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php(1074): CJoinElement->joinOneMany(Object(CJoinElement), Array, Object(CJoinElement), Object(CJoinElement))
+#1 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php(1303): CJoinElement->getJoinCondition()
+#2 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php(805): CJoinQuery->join(Object(CJoinElement))
+#3 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php(450): CJoinElement->buildQuery(Object(CJoinQuery))
+#4 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveFinder.php(70): CJoinElement->find(Object(CDbCriteria))
+#5 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(1292): CActiveFinder->query(Object(CDbCriteria), true)
+#6 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(1406): CActiveRecord->query(Object(CDbCriteria), true)
+#7 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(27): CActiveRecord->findAll()
+#8 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(20): EnrollmentController->enrollmentFeed()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionIndex()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('')
+#19 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment')
+#20 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#22 {main}
+REQUEST_URI=/kcconline/index.php/enrollment
+---
+2012/05/26 08:34:41 [error] [exception.CException] exception 'CException' with message 'Property "UserCourseEnrollment.datetime_created" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('datetime_create...')
+#1 C:\wamp\www\kcconline\protected\views\enrollment\_enrollment_feed.php(6): CActiveRecord->__get('datetime_create...')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('_enrollment_fee...', Array, true)
+#6 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(31): CController->render('_enrollment_fee...', Array, true)
+#7 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(20): EnrollmentController->enrollmentFeed()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionIndex()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('')
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment')
+#19 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#21 {main}
+REQUEST_URI=/kcconline/index.php/enrollment
+---
+2012/05/26 08:36:46 [error] [exception.CException] exception 'CException' with message 'Property "UserCourseEnrollment._related" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('_related')
+#1 C:\wamp\www\kcconline\protected\views\enrollment\_enrollment_feed.php(6): CActiveRecord->__get('_related')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('_enrollment_fee...', Array, true)
+#6 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(31): CController->render('_enrollment_fee...', Array, true)
+#7 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(20): EnrollmentController->enrollmentFeed()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionIndex()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('')
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment')
+#19 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#21 {main}
+REQUEST_URI=/kcconline/index.php/enrollment
+---
+2012/05/26 08:37:34 [error] [exception.CException] exception 'CException' with message 'Property "UserCourseEnrollment._related" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('_related')
+#1 C:\wamp\www\kcconline\protected\views\enrollment\_enrollment_feed.php(6): CActiveRecord->__get('_related')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('_enrollment_fee...', Array, true)
+#6 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(31): CController->render('_enrollment_fee...', Array, true)
+#7 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(20): EnrollmentController->enrollmentFeed()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionIndex()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('')
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment')
+#19 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#21 {main}
+REQUEST_URI=/kcconline/index.php/enrollment
+---
+2012/05/26 08:37:37 [error] [exception.CException] exception 'CException' with message 'Property "UserCourseEnrollment._related" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('_related')
+#1 C:\wamp\www\kcconline\protected\views\enrollment\_enrollment_feed.php(6): CActiveRecord->__get('_related')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(127): require('C:\wamp\www\kcc...')
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('C:\wamp\www\kcc...', Array, true)
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CBaseController->renderFile('C:\wamp\www\kcc...', Array, true)
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('_enrollment_fee...', Array, true)
+#6 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(31): CController->render('_enrollment_fee...', Array, true)
+#7 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(20): EnrollmentController->enrollmentFeed()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionIndex()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#16 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('')
+#18 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment')
+#19 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#21 {main}
+REQUEST_URI=/kcconline/index.php/enrollment
+---
+2012/05/26 08:49:37 [error] [exception.CException] exception 'CException' with message 'Property "UserCourseEnrollment._related" is not defined.' in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('_related')
+#1 C:\wamp\www\kcconline\lib\yii\framework\base\CModel.php(593): CActiveRecord->__get('_related')
+#2 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(32): CModel->offsetGet('_related')
+#3 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(20): EnrollmentController->enrollmentFeed()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionIndex()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('')
+#14 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment')
+#15 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#17 {main}
+REQUEST_URI=/kcconline/index.php/enrollment
+---
+2012/05/26 08:49:50 [error] [php] Missing argument 1 for CActiveRecord::getRelated(), called in C:\wamp\www\kcconline\lib\yii\framework\base\CComponent.php on line 112 and defined (C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php:242)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\base\CModel.php(593): UserCourseEnrollment->__get()
+#1 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(32): UserCourseEnrollment->offsetGet()
+#2 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(20): EnrollmentController->enrollmentFeed()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionIndex()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): EnrollmentController->runAction()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): EnrollmentController->filterAccessControl()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): EnrollmentController->runActionWithFilters()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): EnrollmentController->run()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/kcconline/index.php/enrollment
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (32)
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (20)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 08:56:49 [error] [php] Undefined variable: user (C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php:32)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): EnrollmentController->runAction()
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): EnrollmentController->filterAccessControl()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): EnrollmentController->runActionWithFilters()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): EnrollmentController->run()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#10 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/kcconline/index.php/enrollment
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (32)
+in C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php (20)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 09:02:45 [error] [exception.CException] exception 'CException' with message 'EnrollmentController cannot find the requested view "view".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:879
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('view', Array, true)
+#1 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(34): CController->render('view', Array, true)
+#2 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(20): EnrollmentController->enrollmentFeed()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionIndex()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('')
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment')
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#16 {main}
+REQUEST_URI=/kcconline/index.php/enrollment
+---
+2012/05/26 09:02:56 [error] [exception.CException] exception 'CException' with message 'EnrollmentController cannot find the requested view "<div>
+	<div>
+		0000-00-00 00:00:00	</div>
+	<div>
+		Robert Campbell was Enrolled in dfsgdf(cit4030) by Robert Campbell	</div>
+</div>".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:879
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('<div>???<div>??...', Array, true)
+#1 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(34): CController->render('<div>???<div>??...', Array, true)
+#2 C:\wamp\www\kcconline\protected\controllers\EnrollmentController.php(20): EnrollmentController->enrollmentFeed()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): EnrollmentController->actionIndex()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('')
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enrollment')
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#16 {main}
+REQUEST_URI=/kcconline/index.php/enrollment
+---
+2012/05/26 09:38:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "enroll".' in C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('enroll')
+#1 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#3 {main}
+REQUEST_URI=/kcconline/index.php/enroll
+---
+2012/05/26 10:01:39 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:337
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(310): CController->invalidActionParams(Object(CInlineAction))
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('view')
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/vi...')
+#10 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#12 {main}
+REQUEST_URI=/kcconline/index.php/admin/course/view
+HTTP_REFERER=http://localhost/kcconline/index.php/admin/course/view/id/cit4030
+---
+2012/05/26 10:05:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assignInstructor".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(271): CController->missingAction('assignInstructo...')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('assignInstructo...')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/as...')
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php/admin/course/assignInstructor/0/id
+HTTP_REFERER=http://localhost/kcconline/index.php/admin/course/view/id/cit4030
+---
+2012/05/26 10:07:40 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assignInstructor".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(271): CController->missingAction('assignInstructo...')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('assignInstructo...')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/as...')
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php/admin/course/assignInstructor/0/id
+HTTP_REFERER=http://localhost/kcconline/index.php/admin/course/view/id/cit4030
+---
+2012/05/26 10:07:55 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "assignInstructor".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(271): CController->missingAction('assignInstructo...')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('assignInstructo...')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/as...')
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php/admin/course/assignInstructor/id/cit4030
+HTTP_REFERER=http://localhost/kcconline/index.php/admin/course/view/id/cit4030
+---
+2012/05/26 10:20:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "instructors".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(271): CController->missingAction('instructors')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('instructors')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/in...')
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php/admin/course/instructors/id/cit4030
+HTTP_REFERER=http://localhost/kcconline/index.php/admin/course/view/id/cit4030
+---

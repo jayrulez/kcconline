@@ -1,15 +1,18 @@
+			<div class="header">
+				<div class="title">
+					<?php echo $model->isNewRecord ?'Create User':'Edit User'.' -> '.$model->getFullName();?>
+				</div>
+			</div>
 			<div class="form-container">	
 				<?php echo CHtml::beginForm('','post',array('class'=>'wf','enctype'=>'multipart/form-data')); ?>
-					<!--<div class="header">
-						<div class="title">
-						</div>
-					</div>-->
 					<?php echo CHtml::errorSummary($model); ?>
 					<fieldset class="top">
+						<?php if ($model->isNewRecord) : ?>
 						<div class="row top clearfix">
-							<?php echo CHtml::activeLabel($model,'user_id'); ?>
-							<?php echo CHtml::activeTextField($model,'user_id'); ?>
+							<?php echo CHtml::activeLabel($model,'uid'); ?>
+							<?php echo CHtml::activeTextField($model,'uid'); ?>
 						</div>
+						<?php endif;?>
 						<div class="row clearfix">
 							<?php echo CHtml::activeLabel($model,'first_name'); ?>
 							<?php echo CHtml::activeTextField($model,'first_name'); ?>

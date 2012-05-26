@@ -21,6 +21,7 @@ return array(
 		'application.components.*',
 		'application.helpers.*',
 		'application.widgets.*',
+		'ext.EImageColumn',
 	),
 
 	'modules'=>ENV_DEV ? require_once(dirname(__FILE__).'/modules.dev.php') : require_once(dirname(__FILE__).'/modules.php'),

@@ -1,13 +1,18 @@
 <?php
 $this->pageTitle=Yii::t('application', 'View User');
 ?>
+<div class="header">
+	<div class="title">
+		<?php echo "User -> ".$model->getFullName();?>
+	</div>
+</div>
 <div class="action" id="admin-user-view">
 	<div class="section">
 		<div class="section-content">
 			<?php $this->widget('zii.widgets.CDetailView', array(
 				'data'=>$model,
 				'attributes'=>array(
-					'user_id',
+					'uid',
 					'first_name',
 					'middle_name',
 					'last_name',

@@ -23,7 +23,8 @@ $('.search-form form').submit(function(){
 				'dataProvider'=>$model->search(),
 				'filter'=>$model,
 				'columns'=>array(
-					'user_id',
+					array('type'=>'html','value'=>'CHtml::image(Yii::app()->baseUrl."/images/profile/".$data->image_url,"image unavailable",array("height"=>"64px","width"=>"64px"))'),
+					'uid',
 					'first_name',
 					'middle_name',
 					'last_name',

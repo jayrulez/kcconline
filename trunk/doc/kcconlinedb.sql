@@ -52,8 +52,7 @@ delimiter ;
 --user(`uid`,user_id,first_name,middle_name,last_name,dob,email,phone1,phone2,active,deleted,datetime_created,last_action,last_modified,image_url)
 create table if not exists `user`
 (
-`uid` bigint not null AUTO_INCREMENT,
-`user_id` varchar(32) not null,
+`uid` varchar(32) not null,
 `first_name` varchar(75) not null,
 `middle_name` varchar(75) default null,
 `last_name` varchar(75) not null,
@@ -72,7 +71,7 @@ create table if not exists `user`
 `last_action` datetime default null,
 `last_modified` datetime default null,
 `image_url` varchar(255) default null,
-constraint pk_user primary key(uid),
+constraint pk_user primary key(user_id),
 constraint unq_user_id unique(user_id),
 constraint unq_user_username unique(username),
 constraint unq_user_email unique(email_address)
@@ -98,7 +97,7 @@ constraint unq_role unique(name)
 create table if not exists `user_role`
 (
 `role_id` bigint not null,
-`user_id` bigint not null,
+`user_id` varchar(32)  not null,
 constraint pk_user_role primary key(`role_id`,`user_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
@@ -134,18 +133,20 @@ constraint pk_role_privilege_action primary key(`privilege_id`,`role_id`,`action
 create table if not exists `enrollment`
 (
 `uid` bigint not null AUTO_INCREMENT,
-`enroll_startdatetime` datetime default now(),
-`enroll_enddatetime` datetime default now(),
+`enroll_startdatetime` datetime default null,
+`enroll_enddatetime` datetime default null,
+`initiated_date` datetime not null,
 constraint pk_enrollment primary key(`uid`)
-)ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+)ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1001;
 
 -- user_course_enrollment(course_code,user_id_enrollment_id)
 create table if not exists `user_course_enrollment`
 (
 `enrollment_id` bigint not null,
-`user_id` bigint not null,
+`user_id` varchar(32) not null,
 `course_code` varchar(16) not null,
-constraint pk_user_course_en primary key(`user_id`,`course_id`)
+`enrolled_by` varchar(32) not null,
+constraint pk_user_course_en primary key(`user_id`,`course_code`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- course(course_code,name,category_id,description,datetime_created,last_modified,key_required,enrollment_key)
@@ -162,12 +163,13 @@ create table if not exists `course`
 constraint pk_course primary key(course_code)	
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
--- course_instructor(course_code,user_id)
+-- course_instructor(course_code,user_id,datetime_assigned)
 create table if not exists `course_instructor`
 (
 `course_code` bigint not null,
-`user_id` bigint not null,
-constraint pk_course_instructor primary key(`user_id`,`course_id`)
+`user_id` varchar(32)  not null,
+`datetime_assigned` datetime not null,
+constraint pk_course_instructor primary key(`user_id`,`course_code`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- category(uid,name,description)
@@ -214,7 +216,7 @@ constraint pk_group primary key(`uid`)
 -- user_group(user_id,group_id,datetime_joined)
 create table if not exists `user_group`
 (
-`user_id` bigint not null,
+`user_id` varchar(32)  not null,
 `group_id` bigint not null,
 `datetime_joined` datetime not null,
 constraint pk_user_group primary key(`user_id`,`group_id`)
@@ -233,7 +235,7 @@ constraint pk_comment primary key(`uid`)
 create table if not exists `user_comment`
 (
 `comment_id bigint not null,
-`user_id` bigint not null,
+`user_id` varchar(32)  not null,
 `datetime_created` datetime not null,
 constraint pk_user_comment primary key(`comment_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
@@ -314,7 +316,7 @@ create table if not exists `quiz_attempt`
 (
 `uid` bigint not null,
 `quiz_id` bigint not null,
-`user_id` bigint not null,
+`user_id` varchar(32)  not null,
 `attempt` int default 1,
 `attempt_datetime` datetime not null,
 `grade` decimal(10,5) default null,
@@ -426,7 +428,7 @@ create table if not exists `assignment_submission`
 (
 `uid` bigint not null,
 `assignment_id` bigint not null,
-`user_id` bigint not null,
+`user_id` varchar(32)  not null,
 `datetime_submitted` datetime not null,
 `submission` int default 1,
 `overview` TEXT,
@@ -481,7 +483,8 @@ ALTER TABLE `role_privilege_action`
 	ADD CONSTRAINT `fk_role_privilege_role` FOREIGN KEY (`role_id`) REFERENCES `role` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 
 ALTER TABLE `user_course_enrollment`
-	ADD CONSTRAINT `fk_user_course_en_user` FOREIGN KEY (`privilege_id`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
+	ADD CONSTRAINT `fk_user_course_en_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
+	ADD CONSTRAINT `fk_user_course_en_by` FOREIGN KEY (`enrolled_by`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
 	ADD CONSTRAINT `fk_user_course_en_en` FOREIGN KEY (`enrollment_id`) REFERENCES `enrollment` (`uid`) ON UPDATE CASCADE ON DELETE CASCADE,
 	ADD CONSTRAINT `fk_user_course_en_course` FOREIGN KEY (`course_code`) REFERENCES `course` (`course_code`) ON UPDATE CASCADE ON DELETE CASCADE;
 	
