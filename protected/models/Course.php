@@ -36,6 +36,12 @@ class Course extends CActiveRecord
 		return 'course';
 	}
 
+	public function primaryKey()
+	{
+		return 'course_code';
+		// For composite primary key, return an array like the following
+		// return array('pk1', 'pk2');
+	}
 	/**
 	 * @return array validation rules for model attributes.
 	 */

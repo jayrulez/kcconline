@@ -73,7 +73,7 @@ class UserController extends AdminController
 			$image=CUploadedFile::getInstance($model,'image_url');
 			if(!$image->getHasError())
 			{
-				$model->image_url = $model->user_id.'.'.$image->extensionName;
+				$model->image_url = $model->uid.'.'.$image->extensionName;
 			}
 			if($model->save())
 			{

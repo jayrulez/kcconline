@@ -1,6 +1,11 @@
 <?php
 $this->pageTitle=Yii::t('application', 'View Course');
 ?>
+<div class="header">
+	<div class="title">
+		<?php echo 'Course -> '.strtoupper($model->course_code);?>
+	</div>
+</div>
 <div class="action" id="admin-course-view">
 	<div class="section">
 		<div class="section-content">
@@ -14,5 +19,9 @@ $this->pageTitle=Yii::t('application', 'View Course');
 				),
 			)); ?>
 		</div>
+		<div>
+			<?php echo CHtml::link('Assign Instructor',array('assignInstructor','id'=>$model->course_code))?>|<?php echo CHtml::link('View Instructors',array('instructors','id'=>$model->course_code))?>
+		</div>
 	</div>
 </div>
+	

@@ -1,10 +1,10 @@
+			<div class="header">
+				<div class="title">
+					<?php echo $model->isNewRecord ?'Create Course':'Edit Course -> '.strtoupper($model->course_code);?>
+				</div>
+			</div>
 			<div class="form-container">	
 				<?php echo CHtml::beginForm('','post',array('class'=>'wf')); ?>
-					<div class="header">
-						<div class="title">
-							<?php echo Yii::t('application','Create Course');?>
-						</div>
-					</div>
 					<?php echo CHtml::errorSummary($model); ?>
 					<fieldset class="top">
 						<div class="row top clearfix">

@@ -5,7 +5,6 @@
  *
  * The followings are the available columns in table 'user':
  * @property string $uid
- * @property string $user_id
  * @property string $first_name
  * @property string $middle_name
  * @property string $last_name
@@ -50,13 +49,13 @@ class User extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('user_id, first_name, last_name, email_address', 'required'),
+			array('uid, first_name, last_name, email_address', 'required'),
 			array('password', 'required', 'on'=>'create'),
 			array('active, deleted', 'numerical', 'integerOnly'=>true),
-			array('user_id, password', 'length', 'max'=>32),
+			array('uid, password', 'length', 'max'=>32),
 			array('first_name, middle_name, last_name', 'length', 'max'=>75),
 			array('email_address', 'length', 'max'=>252),
-			array('user_id','unique'),
+			array('uid','unique','on'=>'create','message'=>'A User with ID Number "'.$this->uid.'" '.'already exist.'),
 			array('email_address','unique'),
 			array('phone1, phone2', 'length', 'max'=>20),
 			array('image_url', 'length', 'max'=>255),
@@ -64,7 +63,7 @@ class User extends CActiveRecord
 			array('country_code', 'length', 'max'=>2),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('uid, user_id, first_name, middle_name, last_name, dob, email_address, password, phone1, phone2, active, deleted, datetime_created, last_action, last_modified, image_url', 'safe', 'on'=>'search'),
+			array('uid,first_name, middle_name, last_name, dob, email_address, password, phone1, phone2, active, deleted, datetime_created, last_action, last_modified, image_url', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -85,8 +84,7 @@ class User extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'uid' => 'Uid',
-			'user_id' => 'User Id',
+			'uid' => 'ID Number',
 			'first_name' => 'First Name',
 			'middle_name' => 'Middle Name',
 			'last_name' => 'Last Name',
@@ -124,6 +122,10 @@ class User extends CActiveRecord
 		return false;
 	}
 
+	public function primaryKey()
+	{
+		return array('uid');
+	}
 	public function afterSave()
 	{
 		parent::afterSave();
@@ -141,7 +143,6 @@ class User extends CActiveRecord
 		$criteria=new CDbCriteria;
 
 		$criteria->compare('uid',$this->uid,true);
-		$criteria->compare('user_id',$this->user_id,true);
 		$criteria->compare('first_name',$this->first_name,true);
 		$criteria->compare('middle_name',$this->middle_name,true);
 		$criteria->compare('last_name',$this->last_name,true);
@@ -169,6 +170,7 @@ class User extends CActiveRecord
 		parent::afterFind();
 		$this->id = $this->uid;
 	}
+	
 	public function getFullname()
 	{
 		$ret = $this->first_name;
