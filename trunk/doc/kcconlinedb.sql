@@ -166,7 +166,7 @@ constraint pk_course primary key(course_code)
 -- course_instructor(course_code,user_id,datetime_assigned)
 create table if not exists `course_instructor`
 (
-`course_code` bigint not null,
+`course_code` varchar(16) not null,
 `user_id` varchar(32)  not null,
 `datetime_assigned` datetime not null,
 constraint pk_course_instructor primary key(`user_id`,`course_code`)
@@ -263,23 +263,43 @@ create table if not exists `graded_work`
 (
 `uid` bigint not null AUTO_INCREMENT,
 `title` varchar(100) not null,
-`type` tinyint not null,
-`type_name` varchar(75) not null,
+`type` tinyint default null,
 `datetime_created` datetime not null,
-`created_by bigint not null,
+`created_by` varchar(32) not null,
 `description` varchar(255),
 `maximum_grade` decimal(10,5),
 `minimum_grade` decimal(10,5),
-`percent_grade` decimal(10,5),
 constraint pk_graded_work primary key(`uid`)
-)ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
+)ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1001;
+
+create table if not exists `graded_work_type`
+(
+`uid` bigint not null AUTO_INCREMENT,
+`name` varchar(100) not null,
+`description` varchar(255),
+constraint pk_graded_work_type primary key(`uid`)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1001;
+
+create table if not exists `user_graded_work`
+(
+`uid` bigint not null AUTO_INCREMENT,
+`graded_work_id` bigint not null,
+`user_id` varchar(32) not null,
+constraint unq_user_graded_work unique(`graded_work_id`,`user_id`),
+constraint pk_graded_work_type primary key(`uid`)
+)ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1001;
 
 -- graded_work_grade_letter(letter_grade_id,graded_work_id)
-create table if not exists `graded_work_grade_letter`
+create table if not exists `user_graded_work_grade`
 (
+`user_graded_work_id` bigint not null,
 `letter_grade_id` int not null,
-`graded_work_id` bigint not null,
-constraint pk_category primary key(`graded_work_id)
+`raw_grade` decimal(10,5),
+`percent_grade` decimal(10,5),
+`graded_by` varchar(32),
+`datetime_entered` datetime,
+`datetime_graded` datetime,
+constraint pk_category primary key(`user_graded_work_id`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 -- course_graded_work(course_id,graded_work_id)
@@ -406,7 +426,6 @@ create table if not exists `assignment`
 `type` tinyint not null,
 `overview` TEXT,
 `due_datetime` datetime,
-`grade` decimal(10,5),
 `posted_date` datetime not null,
 `last_modified` datetime,
 `submission_type` tinyint,
@@ -489,7 +508,7 @@ ALTER TABLE `user_course_enrollment`
 	ADD CONSTRAINT `fk_user_course_en_course` FOREIGN KEY (`course_code`) REFERENCES `course` (`course_code`) ON UPDATE CASCADE ON DELETE CASCADE;
 	
 ALTER TABLE `course_instructor`
-	ADD CONSTRAINT `fk_course_instructor_course` FOREIGN KEY (`course_id`) REFERENCES `course` (`couse_code`) ON UPDATE CASCADE  ON DELETE CASCADE,
+	ADD CONSTRAINT `fk_course_instructor_course` FOREIGN KEY (`course_code`) REFERENCES `course` (`course_code`) ON UPDATE CASCADE  ON DELETE CASCADE,
 	ADD CONSTRAINT `fk_course_instructor_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 	
 ALTER TABLE `message`

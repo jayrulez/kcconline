@@ -128,7 +128,7 @@ class Course extends CActiveRecord
 			}else{
 				$this->last_modified = new CDbExpression('now()');
 			}
-
+			$this->course_code = strtoupper($this->course_code);
 			return true;
 		}
 		return false;

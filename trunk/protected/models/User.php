@@ -173,6 +173,7 @@ class User extends CActiveRecord
 	
 	public function getFullname()
 	{
+		// == User.fullname
 		$ret = $this->first_name;
 		
 		if(!empty($this->middle_name))

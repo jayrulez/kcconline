@@ -2168,3 +2168,220 @@ Stack trace:
 REQUEST_URI=/kcconline/index.php/admin/course/instructors/id/cit4030
 HTTP_REFERER=http://localhost/kcconline/index.php/admin/course/view/id/cit4030
 ---
+2012/05/26 12:50:56 [error] [system.db.CDbCommand] CDbCommand::fetch() failed: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT 1 FROM `course` `t` WHERE course_code=:code_code LIMIT 1.
+in C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php (52)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 12:50:56 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[HY093]: Invalid parameter number: parameter was not defined. The SQL statement executed was: SELECT 1 FROM `course` `t` WHERE course_code=:code_code LIMIT 1' in C:\wamp\www\kcconline\lib\yii\framework\db\CDbCommand.php:528
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\CDbCommand.php(408): CDbCommand->queryInternal('fetch', Array, Array)
+#1 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(1603): CDbCommand->queryRow()
+#2 C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php(52): CActiveRecord->exists('course_code=:co...', Array)
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): CourseController->actionAssignInstructor()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('assignInstructo...')
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/as...')
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#16 {main}
+REQUEST_URI=/kcconline/index.php/admin/course/assignInstructor/id/cit4030
+---
+2012/05/26 12:51:59 [error] [php] Use of undefined constant course_code - assumed 'course_code' (C:\wamp\www\kcconline\protected\modules\admin\views\course\assignInstructor.php:5)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CourseController->renderFile()
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CourseController->renderPartial()
+#2 C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php(60): CourseController->render()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): CourseController->actionAssignInstructor()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CourseController->runAction()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CourseController->filterAccessControl()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CourseController->runActionWithFilters()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CourseController->run()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/kcconline/index.php/admin/course/assignInstructor/id/cit4030
+in C:\wamp\www\kcconline\protected\modules\admin\views\course\assignInstructor.php (5)
+in C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php (60)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 12:57:37 [error] [php] Undefined variable: model (C:\wamp\www\kcconline\protected\modules\admin\views\course\assignInstructor.php:5)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CourseController->renderFile()
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CourseController->renderPartial()
+#2 C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php(69): CourseController->render()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): CourseController->actionAssignInstructor()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CourseController->runAction()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CourseController->filterAccessControl()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CourseController->runActionWithFilters()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CourseController->run()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/kcconline/index.php/admin/course/assignInstructor/id/cit4030
+in C:\wamp\www\kcconline\protected\modules\admin\views\course\assignInstructor.php (5)
+in C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php (69)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 13:00:50 [error] [php] Undefined variable: model (C:\wamp\www\kcconline\protected\modules\admin\views\course\assignInstructor.php:5)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CourseController->renderFile()
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CourseController->renderPartial()
+#2 C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php(67): CourseController->render()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): CourseController->actionAssignInstructor()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CourseController->runAction()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CourseController->filterAccessControl()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CourseController->runActionWithFilters()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CourseController->run()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/kcconline/index.php/admin/course/assignInstructor/id/cit4030
+in C:\wamp\www\kcconline\protected\modules\admin\views\course\assignInstructor.php (5)
+in C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php (67)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 13:01:11 [error] [php] Undefined variable: model (C:\wamp\www\kcconline\protected\modules\admin\views\course\assignInstructor.php:5)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): CourseController->renderFile()
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CourseController->renderPartial()
+#2 C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php(67): CourseController->render()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): CourseController->actionAssignInstructor()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CourseController->runAction()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CourseController->filterAccessControl()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CourseController->runActionWithFilters()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CourseController->run()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/kcconline/index.php/admin/course/assignInstructor/id/cit4030
+in C:\wamp\www\kcconline\protected\modules\admin\views\course\assignInstructor.php (5)
+in C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php (67)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 19:06:47 [error] [exception.CException] exception 'CException' with message 'CourseController cannot find the requested view "error".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:879
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('error', Array, true)
+#1 C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php(73): CController->render('error', Array)
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): CourseController->actionAssignInstructor()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('assignInstructo...')
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/as...')
+#13 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#15 {main}
+REQUEST_URI=/kcconline/index.php/admin/course/assignInstructor/id/cit4031
+---
+2012/05/26 19:09:48 [error] [exception.CException] exception 'CException' with message 'CourseController cannot find the requested view "/error".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:879
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('/error', Array, true)
+#1 C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php(73): CController->render('/error', Array)
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): CourseController->actionAssignInstructor()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('assignInstructo...')
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/as...')
+#13 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#15 {main}
+REQUEST_URI=/kcconline/index.php/admin/course/assignInstructor/id/cit4031
+---
+2012/05/26 19:10:03 [error] [exception.CException] exception 'CException' with message 'CourseController cannot find the requested view "error/".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:879
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('error/', Array, true)
+#1 C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php(73): CController->render('error/', Array)
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): CourseController->actionAssignInstructor()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('assignInstructo...')
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/as...')
+#13 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#15 {main}
+REQUEST_URI=/kcconline/index.php/admin/course/assignInstructor/id/cit4031
+---
+2012/05/26 19:10:13 [error] [exception.CException] exception 'CException' with message 'CourseController cannot find the requested view "error/index".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:879
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): CController->renderPartial('error/index', Array, true)
+#1 C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php(73): CController->render('error/index', Array)
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): CourseController->actionAssignInstructor()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('assignInstructo...')
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/as...')
+#13 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#15 {main}
+REQUEST_URI=/kcconline/index.php/admin/course/assignInstructor/id/cit4031
+---
+2012/05/26 21:32:20 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-cit4030' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `course_instructor` (`course_code`, `user_id`, `datetime_assigned`) VALUES (:yp0, :yp1, now()).
+in C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php (60)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/26 21:32:20 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '1-cit4030' for key 'PRIMARY'. The SQL statement executed was: INSERT INTO `course_instructor` (`course_code`, `user_id`, `datetime_assigned`) VALUES (:yp0, :yp1, now())' in C:\wamp\www\kcconline\lib\yii\framework\db\CDbCommand.php:354
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(1014): CDbCommand->execute()
+#1 C:\wamp\www\kcconline\lib\yii\framework\db\ar\CActiveRecord.php(787): CActiveRecord->insert(NULL)
+#2 C:\wamp\www\kcconline\protected\modules\admin\controllers\CourseController.php(60): CActiveRecord->save()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): CourseController->actionAssignInstructor()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('assignInstructo...')
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('admin/course/as...')
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#16 {main}
+REQUEST_URI=/kcconline/index.php/admin/course/assignInstructor/id/cit4030
+HTTP_REFERER=http://localhost/kcconline/index.php/admin/course/assignInstructor/id/cit4030
+---
