@@ -263,7 +263,7 @@ create table if not exists `graded_work`
 (
 `uid` bigint not null AUTO_INCREMENT,
 `title` varchar(100) not null,
-`type` tinyint default null,
+`type` int default null,
 `datetime_created` datetime not null,
 `created_by` varchar(32) not null,
 `description` varchar(255),
@@ -274,7 +274,7 @@ constraint pk_graded_work primary key(`uid`)
 
 create table if not exists `graded_work_type`
 (
-`uid` bigint not null AUTO_INCREMENT,
+`uid` int not null AUTO_INCREMENT,
 `name` varchar(100) not null,
 `description` varchar(255),
 constraint pk_graded_work_type primary key(`uid`)
@@ -293,7 +293,7 @@ constraint pk_graded_work_type primary key(`uid`)
 create table if not exists `user_graded_work_grade`
 (
 `user_graded_work_id` bigint not null,
-`letter_grade_id` int not null,
+`letter_grade_id` int default null,
 `raw_grade` decimal(10,5),
 `percent_grade` decimal(10,5),
 `graded_by` varchar(32),
@@ -411,12 +411,13 @@ constraint pk_question_choice primary key(`question_id`)
 -- grade_letter(uid,letter,upper_grade,lower_grade,description)
 create table if not exists `letter_grade`
 (
-`uid` bigint not null,
+`uid` int not null auto_increment,
 `letter` varchar(2) not null,
 `upper_grade` decimal(10,5),
 `lower_grade` decimal(10,5),
 `description` varchar(255) default null,
-constraint pk_letter_grade primary key(`uid`)
+constraint pk_letter_grade primary key(`uid`),
+constraint unq_letter_grade unique(`letter`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1;
 
 --assignment(uid,type,name,overview,due_datetime,grade,grade_letter,posted_date,last_modified,submission_type,submissions_allow,allow_late)
@@ -532,13 +533,22 @@ ALTER TABLE `course_activity`
 	ADD CONSTRAINT `fk_course_act_course` FOREIGN KEY (`course_code`) REFERENCES `course` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
 	ADD CONSTRAINT `fk_course_act_act` FOREIGN KEY (`activity_id`) REFERENCES `activity` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 	
+ALTER TABLE `graded_work`
+	ADD CONSTRAINT `fk_grade_work_type` FOREIGN KEY (`type`) REFERENCES `graded_work_type` (`uid`) ON UPDATE CASCADE  ON DELETE SET NULL,
+	ADD CONSTRAINT `fk_grade_work_creator` FOREIGN KEY (`created_by`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
+
+ALTER TABLE `user_graded_work_grade`
+	ADD CONSTRAINT `fk_graded_work_grade_grader` FOREIGN KEY (`graded_by`) REFERENCES `user` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
+	ADD CONSTRAINT `fk_user_graded_work_grade` FOREIGN KEY (`user_graded_work_id`) REFERENCES `user_graded_work` (`uid`) ON UPDATE CASCADE  ON DELETE CASCADE,
+	ADD CONSTRAINT `fk_graded_work_grade_letter` FOREIGN KEY (`letter_grade_id`) REFERENCES `letter_grade` (`uid`) ON UPDATE CASCADE  ON DELETE SET NULL;
+	
 ALTER TABLE `grade_work_letter_grade`
 	ADD CONSTRAINT `fk_grade_work_letter_grade_grade` FOREIGN KEY (`letter_grade_id`) REFERENCES `grade_letter` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
 	ADD CONSTRAINT `fk_grade_work_letter_grade_work` FOREIGN KEY (`graded_work_id`) REFERENCES `graded_work` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION;
 	
 ALTER TABLE `course_graded_work`
-	ADD CONSTRAINT `fk_course_graded_work_work` FOREIGN KEY (`graded_work_id`) REFERENCES `comment` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
-	ADD CONSTRAINT `fk_course_graded_work_course` FOREIGN KEY (`course_code`) REFERENCES `course` (`course_code`) ON UPDATE CASCADE  ON DELETE NO ACTION;
+	ADD CONSTRAINT `fk_course_graded_work_work` FOREIGN KEY (`graded_work_id`) REFERENCES `graded_work` (`uid`) ON UPDATE CASCADE  ON DELETE  CASCADE,
+	ADD CONSTRAINT `fk_course_graded_work_course` FOREIGN KEY (`course_code`) REFERENCES `course` (`course_code`) ON UPDATE CASCADE  ON DELETE CASCADE;
 	
 ALTER TABLE `grade_work_comment`
 	ADD CONSTRAINT `fk_grade_work_comment_comment` FOREIGN KEY (`comment_id`) REFERENCES `comment` (`uid`) ON UPDATE CASCADE  ON DELETE NO ACTION,
