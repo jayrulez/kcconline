@@ -49,24 +49,33 @@ class CourseController extends AdminController
 		if(isset($_REQUEST['id']))
 		{
 			$model->course_code = trim($_REQUEST['id']);
-			if(Course::model()->exists("course_code=:code_code", array('course_code'=>trim($_REQUEST['id']))))
+			
+			if(Course::model()->exists("course_code=:course_code", array('course_code'=>trim($_REQUEST['id']))))
 			{
-				if($model->save())
+				if(isset($_POST['CourseInstructor']))
 				{
 					
-				}
-				else 
-				{
-					$this->render('assignInstructor',array('model'=>$model));
+					$model->attributes = $_POST['CourseInstructor'];
+					
+					if($model->save())
+					{
+						$model->refresh();
+						Yii::app()->user->setFlash('success', 'The Instructor was assigned successfully.');
+						$this->render('//site/_after_action_status',
+								array('model'=>$model,
+										'attributes'=>array('course_code','user_id','datetime_assigned')
+						));	
+						
+						Yii::app()->end();
+									
+					}
+					
 				}
 			}
-			else
-			{
-				
-			}
-			
+			$this->render('assignInstructor', array(
+					'model'=>$model,
+			));
 		}
-		$this->render('assignInstructor',array());
 	}
 	
 	public function actionInstructors()

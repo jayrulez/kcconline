@@ -57,6 +57,7 @@
 					$tagClass = '';
 				}
 				?>
+				<?php $this->widget('FlashMessengerWidget', array('categories'=>array('success','error','warning'))); ?>
 				<div id="canvas"<?php echo $tagClass; ?>>
 					<!--if(Layout::hasRegion('sidebar.left'))--><?php if(Layout::hasRegion('sidebar.left')): ?><!--/if-->
 					<div id="sidebar-left">
