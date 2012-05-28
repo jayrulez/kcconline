@@ -3661,3 +3661,126 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/kcconline/index.php/profile.php
 ---
+2012/05/28 12:16:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "profile.php".' in C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('profile.php')
+#1 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#3 {main}
+REQUEST_URI=/kcconline/index.php/profile.php
+---
+2012/05/28 12:16:30 [error] [php] Undefined variable: roleName (C:\wamp\www\kcconline\protected\views\profile\_view.php:6)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): ProfileController->renderFile()
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): ProfileController->renderPartial()
+#2 C:\wamp\www\kcconline\protected\controllers\ProfileController.php(78): ProfileController->render()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): ProfileController->actionIndex()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): ProfileController->runAction()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): ProfileController->filterAccessControl()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): ProfileController->runActionWithFilters()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): ProfileController->run()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/kcconline/index.php/profile
+in C:\wamp\www\kcconline\protected\views\profile\_view.php (6)
+in C:\wamp\www\kcconline\protected\controllers\ProfileController.php (78)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/28 12:18:13 [error] [php] Undefined variable: datetime_created (C:\wamp\www\kcconline\protected\views\profile\_view.php:24)
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(870): ProfileController->renderFile()
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(783): ProfileController->renderPartial()
+#2 C:\wamp\www\kcconline\protected\controllers\ProfileController.php(78): ProfileController->render()
+#3 C:\wamp\www\kcconline\lib\yii\framework\web\actions\CInlineAction.php(50): ProfileController->actionIndex()
+#4 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(134): ProfileController->runAction()
+#6 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#8 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CInlineFilter.php(59): ProfileController->filterAccessControl()
+#9 C:\wamp\www\kcconline\lib\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#10 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(266): ProfileController->runActionWithFilters()
+#12 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): ProfileController->run()
+#13 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController()
+#14 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 C:\wamp\www\kcconline\index.php(7): CWebApplication->run()
+REQUEST_URI=/kcconline/index.php/profile
+in C:\wamp\www\kcconline\protected\views\profile\_view.php (24)
+in C:\wamp\www\kcconline\protected\controllers\ProfileController.php (78)
+in C:\wamp\www\kcconline\index.php (7)
+2012/05/28 12:32:58 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "id".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(271): CController->missingAction('id')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('id')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('profile/id')
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php/profile/id/2
+---
+2012/05/28 12:33:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "id".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(271): CController->missingAction('id')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('id')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('profile/id')
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php/profile/id/1
+---
+2012/05/28 12:33:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "id".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(271): CController->missingAction('id')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('id')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('profile/id')
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php/profile/id/4
+---
+2012/05/28 14:22:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "kcconline/profile/id/1".' in C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php:280
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('kcconline/profi...')
+#1 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#3 {main}
+REQUEST_URI=/kcconline/index.php/kcconline/profile/id/1
+HTTP_REFERER=http://localhost/kcconline/index.php
+---
+2012/05/28 14:22:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "id".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(271): CController->missingAction('id')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('id')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('profile/id')
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php/profile/id/1
+HTTP_REFERER=http://localhost/kcconline/index.php
+---
+2012/05/28 14:22:36 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "id".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(271): CController->missingAction('id')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('id')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('profile/id')
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php/profile/id/1
+---
+2012/05/28 14:23:45 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "id".' in C:\wamp\www\kcconline\lib\yii\framework\web\CController.php:484
+Stack trace:
+#0 C:\wamp\www\kcconline\lib\yii\framework\web\CController.php(271): CController->missingAction('id')
+#1 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(276): CController->run('id')
+#2 C:\wamp\www\kcconline\lib\yii\framework\web\CWebApplication.php(135): CWebApplication->runController('profile/id')
+#3 C:\wamp\www\kcconline\lib\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#4 C:\wamp\www\kcconline\index.php(7): CApplication->run()
+#5 {main}
+REQUEST_URI=/kcconline/index.php/profile/id?=1
+HTTP_REFERER=http://localhost/kcconline/index.php
+---

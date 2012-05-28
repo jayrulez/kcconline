@@ -1,11 +1,18 @@
 <div class="photo">
-	<?php echo CHtml::image(Yii::app()->baseUrl.'/images/profile/'.$model->image_url,'*', array(
-		'width'=>'120px',
-		'height'=>'120px',
-	)); ?>
+	<?php
+		$profileImage = CHtml::image(Yii::app()->baseUrl.'/images/profile/'.$model->image_url,'*', array(
+			'width'=>'120px',
+			'height'=>'120px',
+		));
+		
+		$profileUrl = '/profile?id={id}';
+		$profileUrl = strtr($profileUrl,array('{id}'=>Yii::app()->getUser()->getId()));
+		
+		echo CHtml::link($profileImage, array($profileUrl)); 
+	?>
 </div>
 <div class="name">
-	<span><?php echo $model->fullname; ?></span>
+	<span id="left-profile-name"><?php echo $model->fullname; ?></span>
 	<?php if(Yii::app()->getUser()->getId() == $model->uid): ?>
 	<div><?php echo CHtml::link('Edit Profile', array()); ?></div>
 	<?php endif; ?>
