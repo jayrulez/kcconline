@@ -3,7 +3,7 @@ $this->pageTitle=Yii::t('application', 'Profile');
 ?>
 <div class="header">
 	<div class="title">
-		<?php echo '<span id="profile-title">'.$model->getFullName().'</span>'.' <span id="profile-role-title">'.(strcasecmp($model->uid,Yii::app()->getUser()->getId())==0)?'':'('.$roleName.')'; echo '</span>';?>
+		<?php echo '<span id="profile-title">'.$model->getFullName().'</span>'; echo '<span id="profile-role-title">'; echo(strcasecmp($model->uid,Yii::app()->getUser()->getId())==0)?'':'('.$roleName.')'; echo '</span>';?>
 	</div>
 </div>
 <div class="action" id="admin-user-view">

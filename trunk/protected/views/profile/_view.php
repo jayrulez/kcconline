@@ -3,21 +3,27 @@ $this->pageTitle=Yii::t('application', 'View User');
 ?>
 <div class="header">
 	<div class="title">
-		<?php echo '<span id="profile-title">'.$model->getFullName().'</span>'.' <span id="profile-role-title">('.$roleName.')</span>';?>
+		<?php echo '<span id="profile-title">'.$model->getFullName().'</span>'; echo '<span id="profile-role-title">'; echo(strcasecmp($model->uid,Yii::app()->getUser()->getId())==0)?'':'('.$roleName.')'; echo '</span>';?>
 	</div>
 </div>
 <div class="action" id="admin-user-view">
 	<div class="section">
 		<div class="section-content">
-			<?php $this->widget('zii.widgets.CDetailView', array(
+			<?php
+				$dob = new DateTime($model->dob);
+				$datetime_created = new DateTime($model->datetime_created);
+				$last_action  = new DateTime($model->last_action);
+				$last_modified  = new DateTime($model->last_modified);	
+							 
+				$this->widget('zii.widgets.CDetailView', array(
 				'data'=>$model,
 				'attributes'=>array(
-					array('label'=>'Profile Photo','type'=>'raw','value'=>html_entity_decode(CHtml::image(Yii::app()->baseUrl.'/images/profile/'.$model->image_url,'*',array('height'=>'180px','width'=>'180px')))),
+					array('type'=>'raw','value'=>html_entity_decode(CHtml::image(Yii::app()->baseUrl.'/images/profile/'.$model->image_url,'*',array('height'=>'180px','width'=>'180px')))),
 					'uid',
 					'first_name',
 					'middle_name',
 					'last_name',
-					'dob',
+					array('label'=>'Date of Birth','value'=>$dob->format('d M Y')),
 					'email_address',
 					'phone1',
 					'phone2',

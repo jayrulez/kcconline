@@ -41,6 +41,14 @@ class ProfileController extends AuthenticatedController
 					{
 						$roleName = "Student";
 					}
+					else
+					{
+						$this->render('//site/_unavailable',array(
+								'messageTitle'=>'Profile Not Found',
+								'message'=>'Sorry, the profile you requested could not be found. Please try again later.'
+						));		
+						Yii::app()->end();
+					}
 					$this->render('_student_view',array('roleName'=>$roleName,
 							'model'=>$user,
 					));
@@ -60,11 +68,18 @@ class ProfileController extends AuthenticatedController
 					{
 						$roleName = "Student";
 					}
+					else
+					{
+						$this->render('//site/_unavailable',array(
+								'messageTitle'=>'Profile Not Found',
+								'message'=>'Sorry, the profile you requested could not be found. Please try again later.'
+						));
+						Yii::app()->end();
+					}
 					$this->render('_teacher_view',array('roleName'=>$roleName,
 							'model'=>$user,
 					));
-					Yii::app()->end();
-				
+					Yii::app()->end();	
 				}	
 			}
 		}
@@ -74,7 +89,7 @@ class ProfileController extends AuthenticatedController
 			if($user)
 			{
 				$this->render('_view',array(
-					'model'=>$user,
+					'model'=>$user,'roleName'=>$roleName
 				));
 				Yii::app()->end();
 			}
