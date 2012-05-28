@@ -267,8 +267,6 @@ create table if not exists `graded_work`
 `datetime_created` datetime not null,
 `created_by` varchar(32) not null,
 `description` varchar(255),
-`maximum_grade` decimal(10,5),
-`minimum_grade` decimal(10,5),
 constraint pk_graded_work primary key(`uid`)
 )ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1001;
 
@@ -601,7 +599,8 @@ insert into `role`(`name`,`description`) values('Administrator','A User who has 
 insert into `role`(`name`,`description`) values('Teacher','A User who has Teacher Role that is able to enroll Students in their instructed Courses.');
 insert into `role`(`name`,`description`) values('Authenticated User','An Authenticated User has the least privileges.');
 
-	
+insert into `graded_work_type`(`uid`,`name`,`description`) values(default,'Mid Term Exam','An Examination that students take during the middle of a school term.'),(default,'Final Exam','An Examination that falls at the end of the semester'),(default,'Project',''),(default,'Assignment',''),values(default,'Quiz','');
+
 	
 INSERT INTO `country` VALUES ('AF', 'Afghanistan');
 INSERT INTO `country` VALUES ('AX', 'Åland Islands');

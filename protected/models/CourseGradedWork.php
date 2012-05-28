@@ -42,6 +42,8 @@ class CourseGradedWork extends CActiveRecord
 			array('course_code, graded_work_id', 'required'),
 			array('course_code', 'length', 'max'=>16),
 			array('graded_work_id', 'length', 'max'=>20),
+			array('graded_work_id', 'exist', 'attributeName'=>'uid','className'=>'GradedWork','message'=>'The Graded Work with ID "{value}" does not exist.'),
+			array('course_code','exist','attributeName'=>'course_code','className'=>'Course','message'=>'The Course "{value}" does not exist.'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('course_code, graded_work_id', 'safe', 'on'=>'search'),
@@ -57,7 +59,7 @@ class CourseGradedWork extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'gradedWork' => array(self::BELONGS_TO, 'GradedWork', 'graded_work_id'),
-			'courseCode' => array(self::BELONGS_TO, 'Course', 'course_code'),
+			'course' => array(self::BELONGS_TO, 'Course', 'course_code'),
 		);
 	}
 

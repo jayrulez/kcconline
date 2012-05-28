@@ -109,6 +109,12 @@
 			<div id="footer-container">
 				<div id="footer">
 					<div id="footer-content">
+						<div id="contentRule"></div>
+						<div class="navigation">
+							<a href="" title="About Knox Community College Online">About</a> &middot; 
+							<a href="" title="Visit the help center">Help</a> &middot;
+							<a href="" title="Visit Knox's Website">Knox Community College</a>
+						</div>
 					</div>
 				</div>
 			</div>

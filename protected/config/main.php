@@ -22,6 +22,7 @@ return array(
 		'application.helpers.*',
 		'application.widgets.*',
 		'ext.EImageColumn',
+		'ext.EActiveRecordRelationBehavior',
 	),
 
 	'modules'=>ENV_DEV ? require_once(dirname(__FILE__).'/modules.dev.php') : require_once(dirname(__FILE__).'/modules.php'),

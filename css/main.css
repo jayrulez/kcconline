@@ -527,3 +527,96 @@ form.wf .footer
 {
 
 }
+
+div.feed-container
+{
+	border-top-style:solid;
+	border-right-style:solid;
+	border-bottom-style:solid;
+	border-left-style:solid;
+	border-width:1px;	
+	border-color:#6D7B8D;
+	margin-bottom:2px;
+	margin-top:2px;
+	border-radius: 4px;
+	-moz-border-radius: 4px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+	padding-left:3px;
+	padding-right:5px;
+}
+div.feed-user-image
+{
+	border-radius: 4px;
+	-moz-border-radius: 4px;	
+}
+div.feed-body
+{
+	margin-left: 52px;
+	margin-top: 10px;	
+}
+span.feed-username-spn
+{
+	font-weight:bold;
+	font-size: 15px;
+}
+span.feed-text-spn
+{
+	font-size: 14px;
+}
+
+.error_page #error 
+{
+	margin: 0;
+}
+.UIMessageBoxError 
+{
+	background-color: #FFEBE8;
+	border-color: #DD3C10;
+}
+.UIMessageBox 
+{
+	padding: 10px;
+	border-width: 1px;
+	border-style: solid;
+}
+
+.UIMessageBox .sub_message 
+{
+	margin: 4px 0 0;
+}
+
+#contentRule
+{
+	background-color: white;
+	border-bottom: 1px solid #CCC;
+	height: 8px;
+	font-size: 1px;
+}
+
+#footer-content .navigation 
+{
+	text-align: right;
+}
+
+#footer-content a 
+{
+	text-decoration: none;
+	white-space: nowrap;
+	color: #3B5998;
+	font-size: 11px;
+}
+
+#profile-title
+{
+	font-size: 24px;
+	font-weight: bold;
+	color: #466580;	
+}
+
+#profile-role-title
+{
+	font-size: 16px;
+	font-weight: bold;
+	color: #466580;	
+}

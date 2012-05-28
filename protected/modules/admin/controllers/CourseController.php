@@ -50,7 +50,7 @@ class CourseController extends AdminController
 		{
 			$model->course_code = trim($_REQUEST['id']);
 			
-			if(Course::model()->exists("course_code=:course_code", array('course_code'=>trim($_REQUEST['id']))))
+			if(Course::model()->exists("course_code=:course_code", array(':course_code'=>trim($_REQUEST['id']))))
 			{
 				if(isset($_POST['CourseInstructor']))
 				{
@@ -60,7 +60,9 @@ class CourseController extends AdminController
 					if($model->save())
 					{
 						$model->refresh();
+						
 						Yii::app()->user->setFlash('success', 'The Instructor was assigned successfully.');
+						
 						$this->render('//site/_after_action_status',
 								array('model'=>$model,
 										'attributes'=>array('course_code','user_id','datetime_assigned')
@@ -71,6 +73,13 @@ class CourseController extends AdminController
 					}
 					
 				}
+			}
+			else
+			{
+				$this->render('//error/', array('code'=>404,
+						'message'=>'The requested page does not exist.',
+				));				
+				Yii::app()->end();
 			}
 			$this->render('assignInstructor', array(
 					'model'=>$model,

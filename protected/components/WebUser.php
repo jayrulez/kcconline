@@ -13,7 +13,7 @@ class WebUser extends CWebUser
 		parent::init();
 	}
 	
-	public function getIdentityInstance($email = null, $password = null)
+	public function getIdentityInstance($userId = null, $password = null)
 	{
 		if(empty($this->identityClass))
 		{
@@ -22,7 +22,7 @@ class WebUser extends CWebUser
 		
 		$className = Yii::import($this->identityClass);
 		
-		return new $className($email, $password);
+		return new $className($userId, $password);
 	}
 	
 	public function getModel()
@@ -55,5 +55,14 @@ class WebUser extends CWebUser
 			return count($roles) && array_key_exists($role, $roles);
 		}	
 		return false;
+	}
+	public function userHasRole($userId,$role)
+	{
+		if(($model = $this->_model) !== null)
+		{
+			$roles = Yii::app()->authManager->getRoles($userId);
+			return count($roles) && array_key_exists($role, $roles);
+		}	
+		return false;	
 	}
 }
