@@ -24,7 +24,7 @@ class EnrollmentController extends AuthenticatedController
 	public function enrollmentFeed()
 	{
 		
-		$enrollmentFeeds = UserCourseEnrollment::model()->with('course','user','enrollment')->findAll();
+		$enrollmentFeeds = UserCourseEnrollment::model()->with('course','user','enrollment','enrolledBy')->findAll();
 		$view = '';
 		foreach($enrollmentFeeds as $enrollmentFeed)
 		{
@@ -62,16 +62,21 @@ class EnrollmentController extends AuthenticatedController
 				if($enrollmentModel->save())
 				{
 					$userCourseEnrollmentModel->enrollment_id = $enrollmentModel->uid;
+					$userCourseEnrollmentModel->enrolled_by = Yii::app()->getUser()->getId();
 					
 					if($userCourseEnrollmentModel->save())
 					{
 						$transaction->commit();
+						$userCourseEnrollmentModel->refresh();
+						$courseModel->refresh();
+						
+						Yii::app()->user->setFlash('success', strtr('The Student was Enrolled in {course_code} assigned successfully.',array('{course_code}'=>$courseModel->course_code)));
 						
 						$this->render('//site/_after_action_status',
 								array('model'=>$enrollmentModel,
 										'attributes'=>array('uid','enroll_startdatetime','enroll_enddatetime'),
 										'message'=>'The Student was enrolled successfully.'));
-						return;
+						Yii::app()->end();
 					}
 					else
 					{

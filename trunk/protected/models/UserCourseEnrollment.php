@@ -13,7 +13,6 @@ class UserCourseEnrollment extends CActiveRecord
 	public function init()
 	{
 		parent::init();
-		$this->enrolled_by = Yii::app()->getUser()->getId();
 	}
 	/**
 	 * Returns the static model of the specified AR class.
@@ -65,7 +64,9 @@ class UserCourseEnrollment extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array('enrollment'=>array(self::BELONGS_TO,'Enrollment','enrollment_id'),
-		'course'=>array(self::BELONGS_TO,'Course','course_code'),'user'=>array(self::BELONGS_TO,'User','user_id')
+				'course'=>array(self::BELONGS_TO,'Course','course_code'),
+				'user'=>array(self::BELONGS_TO,'User','user_id'),
+				'enrolledBy'=>array(self::BELONGS_TO,'User','enrolled_by')
 		);
 	}
 

@@ -73,6 +73,7 @@ class Course extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
+			'courseGradedWorks' => array(self::HAS_MANY, 'CourseGradedWork', 'course_code'),
 		);
 	}
 

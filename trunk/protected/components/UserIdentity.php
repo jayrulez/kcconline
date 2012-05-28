@@ -9,17 +9,15 @@ class UserIdentity extends CUserIdentity
 {
 	private $_id;
 	
-	const ERROR_EMAIL_INVALID = 4;
+	const ERROR_ID_NUMBER_INVALID = 4;
 	
 	public function authenticate()
 	{
-		$user = User::model()->findByAttributes(array(
-			"email_address" => $this->username,
-		));
+		$user = User::model()->findByPk($this->username);
 		
 		if($user === null)
 		{
-			$this->errorCode = self::ERROR_EMAIL_INVALID;
+			$this->errorCode = self::ERROR_ID_NUMBER_INVALID;
 		}else{
 			if($user->password !== UserHelper::encryptPassword($this->password))
 			{
