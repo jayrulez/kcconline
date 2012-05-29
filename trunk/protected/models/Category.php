@@ -57,6 +57,7 @@ class Category extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'courses' => array(self::HAS_MANY, 'Course', 'category_id'),
+			'courseCount'=>array(self::STAT,'CourseCategory','course_code')
 		);
 	}
 
@@ -66,7 +67,7 @@ class Category extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'uid' => 'Uid',
+			'uid' => 'Category ID',
 			'name' => 'Name',
 			'description' => 'Description',
 		);
