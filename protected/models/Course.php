@@ -74,6 +74,7 @@ class Course extends CActiveRecord
 		return array(
 			'category' => array(self::BELONGS_TO, 'Category', 'category_id'),
 			'courseGradedWorks' => array(self::HAS_MANY, 'CourseGradedWork', 'course_code'),
+			'gradedWorkCount'=>array(self::STAT,'Category','category_id')
 		);
 	}
 

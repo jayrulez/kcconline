@@ -627,3 +627,86 @@ span.feed-text-spn
 	font-size: 15px;
 	color: #466580;		
 }
+
+/*BEGIN course catgory search result view style*/
+.detailedsearch_result 
+{
+	padding-bottom: 5px;
+	border-bottom: 1px solid 
+	#E9E9E9;
+}
+#pagelet_search_results_area .mbm 
+{
+	margin-bottom: 10px;
+}
+
+#pagelet_search_results_area .clearfix 
+{
+	zoom: 1;
+}
+	
+#pagelet_search_results_area .clearfix::after
+{
+	clear: both;
+	content: ".";
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+#pagelet_search_results_area .lfloat 
+{
+	float: left;
+}
+.uiImageBlockSmallImage 
+{
+	margin-right: 5px;
+}
+.uiImageBlockImage, .uiImageBlockImage .img 
+{
+	display: block;
+}
+#pagelet_search_results_area .a 
+{
+	cursor: pointer;
+	color: 
+	#3B5998;
+	text-decoration: none;
+}
+
+#pagelet_search_results_area .uiImageBlockSmallContent 
+{
+	padding-top: 1px;
+}
+#pagelet_search_results_area .uiImageBlockContent 
+{
+	overflow: hidden;
+}
+
+#pagelet_search_results_area .rfloat 
+{
+	float: right;
+}
+
+#pagelet_search_results_area .pls 
+{	
+	padding-left: 5px;
+}
+
+#pagelet_search_results_area .fcb 
+{
+	color: 
+	#333;
+}
+#pagelet_search_results_area .fwb 
+{
+	font-weight: bold;
+}
+#pagelet_search_results_area .fsl 
+{
+	font-size: 13px;
+}
+
+/*END course catgory search result view style*/

@@ -18,6 +18,16 @@ class CourseController extends Controller
 		$this->render('index');
 	}
 
+	
+	public function actionCategories()
+	{
+		$categories = Category::model()->with('courseCount')->findAll();
+		if($categories)
+		{
+			$this->render('_category_view',array('categories'=>$categories));
+		}
+	}
+	
 	// Uncomment the following methods and override them if needed
 	/*
 	public function filters()
