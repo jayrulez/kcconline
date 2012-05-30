@@ -14,7 +14,7 @@
 <div class="name">
 	<span id="left-profile-name"><?php echo $model->fullname; ?></span>
 	<?php if(Yii::app()->getUser()->getId() == $model->uid): ?>
-	<div><?php echo CHtml::link('Edit Profile', array()); ?></div>
+	<div><?php echo CHtml::link('Edit Profile', array($profileUrl)); ?></div>
 	<?php endif; ?>
 </div>
 <?php if(Yii::app()->getUser()->getId() == $model->uid): ?>
