@@ -47,7 +47,6 @@ class UserController extends AdminController
 				$image->saveAs('C:/wamp/www'.Yii::app()->baseUrl.'/images/profile/'.$model->image_url);
 				$this->redirect(array('index'));
 			}
-				
 		}
 
 		$this->render('create',array(

@@ -229,12 +229,11 @@ class GradedWorkController extends AuthenticatedController
 						$studentGradedWorks = UserGradedWork::model()->with('student')->findByAttributes(array('user_id'=>$student->uid));		
 					}
 					else
-					{
-						
+					{	
 						$studentGradedWorks = UserGradedWork::model()->with('student','gradedWork')->findAllByAttributes(array('user_id'=>$student->uid)); 
 	
 						$sectionTitle = CHtml::link($student->first_name.'\'s',array(strtr('/profile?id={id}',array('{id}'=>$student->uid)))).' Graded Work';
-						//var_dump($studentGradedWorks);die();
+						
 						$this->render('_student_graded_work_view',array('studentGradedWorks'=>$studentGradedWorks,'sectionTitle'=>$sectionTitle));
 						Yii::app()->end();
 					}
@@ -249,7 +248,19 @@ class GradedWorkController extends AuthenticatedController
 		}
 		else
 		{
-			$studentGradedWorks = UserGradedWork::model()->with('student','gradedWork','gradedBy')->findByAttributes(array('user_id'=>Yii::app()->getUser()->getId()));
+			if(Yii::app()->getUser()->hasRole('student'))
+			{
+				$studentGradedWorks = UserGradedWork::model()->with('student','gradedWork','gradedBy')->findAllByAttributes(array('user_id'=>Yii::app()->getUser()->getId()));
+				$sectionTitle = CHtml::link($studentGradedWorks->student->first_name.'\'s',array(strtr('/profile?id={id}',array('{id}'=>Yii::app()->getUser()->getId())))).' Graded Works';
+				
+				$this->render('_student_graded_work_view',array('studentGradedWorks'=>$studentGradedWorks,'sectionTitle'=>$sectionTitle));
+				Yii::app()->end();
+			}
+			else if(Yii::app()->getUser()->hasRole('teacher'))
+			{
+				$this->render('_student_graded_work_view',array('studentGradedWorks'=>$studentGradedWorks,'sectionTitle'=>$sectionTitle));
+				Yii::app()->end();
+			}			
 		}
 	}
 	
