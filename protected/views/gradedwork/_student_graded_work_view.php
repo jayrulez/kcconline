@@ -10,9 +10,7 @@ $this->pageTitle=Yii::t('application', 'Graded Work');
 					<?php
 						foreach($studentGradedWorks as $studentGradedWork)
 						{
-				
-							$this->renderPartial('_student_graded_work_result', array('gradedWork'=>$studentGradedWork));
-							
+							$this->renderPartial('_student_graded_work_result', array('gradedWork'=>$studentGradedWork));	
 						} 
 					?>
 				</div>
