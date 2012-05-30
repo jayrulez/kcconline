@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 30, 2012 at 01:32 PM
+-- Generation Time: May 30, 2012 at 06:37 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -587,8 +587,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`uid`, `first_name`, `middle_name`, `last_name`, `dob`, `email_address`, `password`, `phone1`, `phone2`, `active`, `deleted`, `datetime_created`, `last_action`, `last_modified`, `image_url`, `country_code`) VALUES
-('1', 'Dyonne', 'S', 'Duberry', '1989-06-28 00:00:00', 'deonsbedroom@gmail.com', '25d55ad283aa400af464c76d713c07ad', '8767904494', '', 1, 0, '2012-05-13 16:18:07', '2012-05-30 07:28:36', '2012-05-26 06:00:38', '1.jpg', 'JM'),
-('2', 'Dale', '', 'McFarlane', '1989-05-15 00:00:00', 'sync.mcfarlene@gmail.com', '25d55ad283aa400af464c76d713c07ad', '', '', 1, 0, '2012-05-13 22:29:59', '2012-05-30 08:25:46', '2012-05-24 06:50:30', '0801042.jpg', 'JM'),
+('1', 'Dyonne', 'S', 'Duberry', '1989-06-28 00:00:00', 'deonsbedroom@gmail.com', '25d55ad283aa400af464c76d713c07ad', '8767904494', '', 1, 0, '2012-05-13 16:18:07', '2012-05-30 13:30:07', '2012-05-26 06:00:38', '1.jpg', 'JM'),
+('2', 'Dale', '', 'McFarlane', '1989-05-15 00:00:00', 'sync.mcfarlene@gmail.com', '25d55ad283aa400af464c76d713c07ad', '', '', 1, 0, '2012-05-13 22:29:59', '2012-05-30 08:41:09', '2012-05-24 06:50:30', '0801042.jpg', 'JM'),
 ('4', 'Audley', 'A', 'Gordon', '1989-05-10 00:00:00', 'audleyagordon', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', 1, 0, '2012-05-24 06:49:28', NULL, NULL, '0802218.jpg', 'JM');
 
 -- --------------------------------------------------------
@@ -642,7 +642,7 @@ CREATE TABLE IF NOT EXISTS `user_graded_work` (
 --
 
 INSERT INTO `user_graded_work` (`graded_work_id`, `user_id`, `letter_grade_id`, `raw_grade`, `percent_grade`, `graded_by`, `datetime_entered`, `datetime_graded`, `graded_status`) VALUES
-(1039, '4', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending');
+(1039, '4', NULL, '65.00000', NULL, '1', '2012-05-30 12:50:18', '2012-05-08 00:00:00', 'Graded');
 
 --
 -- Constraints for dumped tables
