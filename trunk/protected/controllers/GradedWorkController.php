@@ -226,8 +226,7 @@ class GradedWorkController extends AuthenticatedController
 				{
 					if(isset($_REQUEST['course']))
 					{
-						$studentGradedWorks = UserGradedWork::model()->with('student')->findByAttributes(array('user_id'=>$student->uid));
-				
+						$studentGradedWorks = UserGradedWork::model()->with('student')->findByAttributes(array('user_id'=>$student->uid));		
 					}
 					else
 					{
@@ -250,7 +249,7 @@ class GradedWorkController extends AuthenticatedController
 		}
 		else
 		{
-			
+			$studentGradedWorks = UserGradedWork::model()->with('student','gradedWork','gradedBy')->findByAttributes(array('user_id'=>Yii::app()->getUser()->getId()));
 		}
 	}
 	
