@@ -21,6 +21,56 @@ class GradedWorkController extends AuthenticatedController
 		));
 	}
 	
+	public function actionGrade()
+	{	
+		if(isset($_REQUEST['work']) && isset($_REQUEST['student']))
+		{
+			if($model = UserGradedWork::model()->with('student','gradedBy','gradedWork','letterGrade')->findByAttributes(array('user_id'=>trim($_REQUEST['student']),'graded_work_id'=>trim($_REQUEST['work']))))
+			{
+				$userGradedWork = new UserGradedWork;
+				
+				if(isset($_POST['UserGradedWork']))
+				{
+					$model->attributes = $model->attributes;
+					$model->raw_grade = $_POST['UserGradedWork']['raw_grade'];
+					$model->datetime_graded = $_POST['UserGradedWork']['datetime_graded'];
+					$model->datetime_entered = new CDbExpression('now()');
+					$model->graded_by = Yii::app()->getUser()->getId();
+					
+					$tempStatus = $model->graded_status;
+					$model->graded_status = 'Graded';
+					
+					if($model->save())
+					{
+						Yii::app()->user->setFlash('success', 'The Graded Work was graded and saved successfully.');
+						$model->refresh();
+						
+						$this->render('studentview', array('model'=>$model,));
+						Yii::app()->end();
+					}
+					else
+					{
+						$model->graded_status = $tempStatus;
+					}					
+				}
+				
+				$this->render('_grade_form', array('model'=>$model));
+				Yii::app()->end();
+			}
+			else
+			{
+				$this->render('//misc/unavailable', array('messageTitle'=>'Page Not Found',
+						'message'=>'The requested page does not exist.',
+				));
+				Yii::app()->end();
+			}
+		}
+		$this->render('//misc/unavailable', array('messageTitle'=>'Page Not Found',
+				'message'=>'The requested page does not exist.',
+		));
+		Yii::app()->end();		
+	}
+	
 	public function actionIndex()
 	{	
 		
@@ -198,6 +248,10 @@ class GradedWorkController extends AuthenticatedController
 		{
 			
 		}
+		else
+		{
+			
+		}
 	}
 	
 	public function actionUpdate()
@@ -285,7 +339,7 @@ class GradedWorkController extends AuthenticatedController
 	{
 		if(isset($_REQUEST['id']))
 		{		
-			if($model = UserGradedWork::model()->with('student','gradedBy','gradedWork')->findByAttributes(array('user_id'=>trim($_REQUEST['id']))))
+			if($model = UserGradedWork::model()->with('student','gradedBy','gradedWork','letterGrade')->findByAttributes(array('user_id'=>trim($_REQUEST['id']))))
 			{
 				
 				$this->render('studentview', array('model'=>$model,));

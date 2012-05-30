@@ -32,7 +32,10 @@ class LetterGrade extends CActiveRecord
 	{
 		return 'letter_grade';
 	}
-
+	public function primaryKey()
+	{
+		return array('uid');
+	}
 	/**
 	 * @return array validation rules for model attributes.
 	 */

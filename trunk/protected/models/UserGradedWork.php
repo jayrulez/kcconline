@@ -15,6 +15,7 @@
  */
 class UserGradedWork extends CActiveRecord
 {
+	public $graded_stat;
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -63,7 +64,8 @@ class UserGradedWork extends CActiveRecord
 		return array(
 				'gradedWork'=>array(self::BELONGS_TO,'GradedWork','graded_work_id'),
 				'student'=>array(self::BELONGS_TO,'User','user_id'),
-				'gradedBy'=>array(self::BELONGS_TO,'User','graded_by')
+				'gradedBy'=>array(self::BELONGS_TO,'User','graded_by'),
+				'letterGrade'=>array(self::BELONGS_TO,'LetterGrade','letter_grade_id')
 				
 		);
 	}
