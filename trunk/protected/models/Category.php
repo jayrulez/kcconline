@@ -57,7 +57,7 @@ class Category extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'courses' => array(self::HAS_MANY, 'Course', 'category_id'),
-			'courseCount'=>array(self::STAT,'CourseCategory','course_code')
+			'courseCount'=>array(self::STAT,'Course','category_id')
 		);
 	}
 

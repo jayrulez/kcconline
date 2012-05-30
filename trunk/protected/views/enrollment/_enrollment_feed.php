@@ -8,8 +8,8 @@
 ?>
 <div class="feed-container">
 	<div class="feed-user-image">	
-		<?php echo CHtml::link($profileImage, array($profileUrl));?>
-		<?php echo '<span class="feed-username-spn">'.CHtml::link($feedData['enrolledBy']->first_name.' '.$feedData['enrolledBy']->last_name,array(strtr($profileUrl,array('{id}'=>$feedData['enrolledBy']->uid)))).'</span>';?>
+		<?php echo CHtml::link($profileImage, array(strtr('/profile?id={id}',array('{id}'=>$feedData['enrolledBy']->uid))));?>
+		<?php echo '<span class="feed-username-spn">'.CHtml::link($feedData['enrolledBy']->first_name.' '.$feedData['enrolledBy']->last_name,array(strtr('/profile?id={id}',array('{id}'=>$feedData['enrolledBy']->uid)))).'</span>';?>
 		<?php
 			$date = new DateTime($feedData['enrollment']->datetime_created); 
 			echo '&nbsp&nbsp&nbsp&nbsp'.$date->format('d M Y  g:i a');

@@ -26,6 +26,10 @@
 							<?php echo CHtml::activeLabel($model,'description'); ?>
 							<?php echo CHtml::activeTextArea($model,'description', array('rows'=>5,'cols'=>40)); ?>
 						</div>
+						<div class="row clearfix">
+							<?php echo CHtml::activeLabel($model,'coursePublished'); ?>
+							<?php echo CHtml::activeCheckBox($model,'coursePublished', array('')); ?>
+						</div>
 					</fieldset>
 					<fieldset class="buttons bottom">
 						<?php echo CHtml::submitButton((strcasecmp($model->scenario,'create')==0) ? 'Create' : 'Save'); ?>

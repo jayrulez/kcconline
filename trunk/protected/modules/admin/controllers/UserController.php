@@ -36,6 +36,7 @@ class UserController extends AdminController
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
+			var_dump($model->active);die();
 			$image=CUploadedFile::getInstance($model,'image_url');
 			if(!$image->getHasError())
 			{

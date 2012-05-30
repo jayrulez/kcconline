@@ -76,7 +76,11 @@ class CourseInstructor extends CActiveRecord
 	{
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
-		return array('course'=>array(self::BELONGS_TO,'Course','course_code'),'user'=>array(self::BELONGS_TO,'User','user_id'));
+		return array(
+				'course'=>array(self::BELONGS_TO,'Course','course_code'),
+				'user'=>array(self::BELONGS_TO,'User','user_id'
+				)
+		);
 		
 	}
 

@@ -54,6 +54,11 @@ form .header
 {
 
 }
+div .header .title
+{
+	font-weight: bold;
+	margin: 5px 0;
+}
 
 form .header .title
 {
@@ -710,3 +715,258 @@ span.feed-text-spn
 }
 
 /*END course catgory search result view style*/
+
+
+/*START page action section header*/
+#headerArea 
+{
+	float: left;
+	margin: 0 20px 0;
+	width: 730px;
+}
+#headerArea 
+{
+	margin-bottom: 5px;
+	padding: 2px 0 12px;
+}
+
+#headerArea .uiHeaderPage 
+{
+	padding: 6px 0 16px;
+}
+#headerArea .uiHeaderBottomBorder 
+{
+	border-bottom: 1px solid #AAA;
+	padding-bottom: .5em;
+}
+
+
+#headerArea .uiHeaderWithImage .uiHeaderTop 
+{
+	position: relative;
+}
+#headerArea .clearfix 
+{
+	zoom: 1;
+}
+#headerArea .clearfix::after 
+{
+	clear: both;
+	content: ".";
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.uiHeaderPage .uiHeaderActions 
+{
+	margin-top: -1px;
+}
+#headerArea .rfloat 
+{
+	float: right;
+}
+
+.hasLeftCol #headerArea 
+{
+	float: left;
+	margin: 0 20px 0;
+	width: 759px;
+}
+.uiHeaderPage .uiHeaderTitle 
+{
+	line-height: 20px;
+	min-height: 20px;
+	padding-bottom: 2px;
+	vertical-align: bottom;
+}
+.uiHeaderWithImage .uiHeaderTitle 
+{
+	padding-left: 22px;
+}
+.uiHeader .uiHeaderTitle 
+{
+	outline: none;
+}
+.uiHeader h2 
+{
+	color: rgb(70, 101, 130);	
+	font-size: 16px;
+}
+
+.uiHeaderBottomBorder 
+{
+	border-bottom: 1px solid 
+	#AAA;
+	padding-bottom: .5em;
+}
+/*END page action section header*/
+
+
+/*BEGIN graded work feed*/
+.storyContent 
+{	
+	margin: -2px 0 2px;
+}
+
+.storyContent .clearfix 
+{
+	zoom: 1;
+}
+
+.storyContent .clearfix::after 
+{
+	clear: both;
+	content: ".";
+	display: block;
+	font-size: 0;
+	height: 0;
+	line-height: 0;
+	visibility: hidden;
+}
+
+.storyContent .homeWiderContent .uiStreamStory .actorPhoto 
+{
+	margin-left: 0;
+}
+.storyContent .uiStreamStory .actorPhoto 
+{
+	margin-bottom: 14px;
+	margin-top: 14px;
+}
+.storyContent .UIImageBlock_MED_Image, .UIImageBlock_ENT_Image 
+{
+	margin-right: 10px;
+}
+.storyContent .UIImageBlock_Image 
+{
+	float: left;
+	margin-right: 5px;
+}
+.storyContent a 
+{
+	cursor: pointer;
+	color: 
+	#3B5998;
+	text-decoration: none;
+}
+
+.storyContent .UIImageBlock_Image .img, img.UIImageBlock_Image, i.UIImageBlock_Image 
+{
+	display: block;
+}
+
+.storyContent .uiProfilePhotoLarge 
+{
+	width: 50px;
+	height: 50px;
+}
+
+.storyContent img 
+{
+	border: 0;
+}
+
+.storyContent .UIImageBlock_Content 
+{
+	display: table-cell;
+	vertical-align: top;
+	width: 730px;
+}
+
+.storyContent .uiStreamStory .mainWrapper 
+{
+	margin: 0 35px 14px 0;
+	padding-top: 14px;
+}
+
+.uiStream .uiStreamHeadline 
+{
+	margin-bottom: 0;
+}
+.uiStream .uiStreamMessage 
+{
+	color: black;
+	font-size: 16px;
+	font-weight: normal;
+	margin: 0 0 5px 0;
+}
+.uiStreamMessage, .uiAttachmentTitle, .uiAttachmentDesc 
+{
+	word-break: break-word;
+	word-wrap: break-word;
+}
+.uiStreamMessage .actorDescription 
+{
+	margin-bottom: 3px;
+	padding-bottom: 0;
+}
+
+.uiStreamMessage .actorName, .uiStreamMessage .passiveName 
+{
+	font-weight: bold;
+}
+
+.storyContent .mvm 
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.storyContent .fcg 
+{
+	color: gray;
+}
+.storyContent .fwn 
+{
+	font-weight: normal;
+}
+.storyContent .fsm 
+{
+	font-size: 11px;
+}
+
+.uiStreamHomepage .uiStreamStory:first-child 
+{
+	margin-top: -8px;
+}
+.uiListItem:first-child 
+{
+	border-width: 0;
+}
+.homeWiderContent .uiStreamStory 
+{
+	margin-left: -18px;
+	padding-left: 18px;
+}
+.uiListLight 
+{
+	border-color: 
+	#E9E9E9;
+}
+.uiListVerticalItemBorder 
+{
+	border-width: 1px 0 0 0;
+}
+.uiListLight, .uiListMedium, .uiListDark 
+{
+	border-style: solid;
+}
+.uiListItem 
+{
+	display: block;
+}
+.uiStreamStory 
+{
+	padding: 0;
+	position: static;
+}
+.storyContent ul 
+{
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+}
+/*END graded work feed*/

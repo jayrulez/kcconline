@@ -24,11 +24,11 @@
 							<div class="global-nav">
 								<ul>
 									<?php //echo ;exit; ?>
-									<?php if(array_key_exists('teacher', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))): ?>
+									<?php if(array_key_exists('teacher', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))||Yii::app()->getUser()->hasRole('student')): ?>
 									<li><?php echo CHtml::link(Yii::t('application', 'Activity'), array('/activity')); ?></li>
 									<?php endif; ?>
 						
-									<?php if(array_key_exists('teacher', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))): ?>
+									<?php if(array_key_exists('teacher', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))||Yii::app()->getUser()->hasRole('student')): ?>
 									<li><?php echo CHtml::link(Yii::t('application', 'Courses'), array('/course')); ?></li>
 									<?php endif; ?>
 						
@@ -37,12 +37,12 @@
 									<?php endif; ?>
 									<li>	
 
-									<?php if(array_key_exists('teacher', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))): ?>
+									<?php if(array_key_exists('teacher', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))||Yii::app()->getUser()->hasRole('student')): ?>
 									<li><?php echo CHtml::link(Yii::t('application', 'Graded Work'), array('/gradedwork')); ?></li>
 									<?php endif; ?>
 									<li>
 									
-									<?php if(array_key_exists('teacher', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))): ?>
+									<?php if(array_key_exists('teacher', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))||Yii::app()->getUser()->hasRole('student')): ?>
 									<li><?php echo CHtml::link(Yii::t('application', 'Reports'), array('/reports')); ?></li>
 									<?php endif; ?>
 									<li>
@@ -50,6 +50,7 @@
 									<?php if(array_key_exists('admin', Yii::app()->authManager->getRoles(Yii::app()->getUser()->getId()))): ?>
 									<li><?php echo CHtml::link(Yii::t('application', 'Admin'), array('/admin')); ?></li>
 									<?php endif; ?>
+									<?php if(!Yii::app()->getUser()->getIsGuest()):?>
 									<li>
 										<a><?php echo Yii::t('application', 'Account'); ?></a>
 										<ul>
@@ -57,6 +58,7 @@
 											<li><?php echo CHtml::link(Yii::t('application', 'Logout'), Yii::app()->getUser()->logoutUrl); ?></li>
 										</ul>
 									</li>
+									<?php endif;?>
 								</ul>
 							</div>
 							<?php else: ?>

@@ -20,11 +20,13 @@
  */
 class GradedWork extends CActiveRecord
 {
+	public $coursePublished = '0';
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
 	 * @return GradedWork the static model class
 	 */
+	
 	public static function model($className=__CLASS__)
 	{
 		return parent::model($className);
@@ -51,9 +53,10 @@ class GradedWork extends CActiveRecord
 			array('title', 'length', 'max'=>100),
 			array('created_by', 'length', 'max'=>32),
 			array('description', 'length', 'max'=>255),
+			array('max_raw_grade', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('uid, title, type, datetime_created, created_by, description', 'safe', 'on'=>'search'),
+			array('uid, title, type, datetime_created, created_by, description, coursePublished', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -68,6 +71,7 @@ class GradedWork extends CActiveRecord
 			'courseGradedWork' => array(self::HAS_ONE, 'CourseGradedWork', 'graded_work_id'),
 			'workType' => array(self::BELONGS_TO, 'GradedWorkType', 'type'),
 			'createdBy' => array(self::BELONGS_TO, 'User', 'created_by'),
+			'usersGrade' => array(self::HAS_MANY,'UserGradedWork','graded_work_id')
 		);
 	}
 /*
@@ -91,6 +95,8 @@ class GradedWork extends CActiveRecord
 			'datetime_created' => 'Date Created',
 			'created_by' => 'Created By',
 			'description' => 'Description',
+			'max_raw_grade' => 'Max Grade',
+			'coursePublished' => 'Publish to all enrolled Students',
 		);
 	}
 
@@ -111,7 +117,7 @@ class GradedWork extends CActiveRecord
 		$criteria->compare('datetime_created',$this->datetime_created,true);
 		$criteria->compare('created_by',$this->created_by,true);
 		$criteria->compare('description',$this->description,true);
-
+		$criteria->compare('max_raw_grade',$this->max_raw_grade,true);
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
