@@ -3,7 +3,7 @@ $this->pageTitle=Yii::t('application', 'Graded Work');
 ?>
 <div class="action" id="site-index">
 	<div class="section">
-		<?php $this->renderPartial('//misc/section_header',array('headerTitle'=>'Graded Worked','headerImage'=> CHtml::image(Yii::app()->baseUrl.'/images/gradedwork/default_small.png','*',array('height'=>'24px','width'=>'24px'))))?>
+		<?php $this->renderPartial('//misc/section_header',array('headerTitle'=>'Graded Work','headerImage'=> CHtml::image(Yii::app()->baseUrl.'/images/gradedwork/default_small.png','*',array('height'=>'24px','width'=>'24px'))))?>
 		<div class="section-content">
 			<div id="pagelet_search_results_area">
 				<div>
