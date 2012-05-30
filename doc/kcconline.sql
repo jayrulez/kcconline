@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: localhost
--- Generation Time: May 28, 2012 at 02:50 PM
+-- Generation Time: May 30, 2012 at 01:32 PM
 -- Server version: 5.5.16
 -- PHP Version: 5.3.8
 
@@ -41,6 +41,7 @@ CREATE TABLE IF NOT EXISTS `authassignment` (
 INSERT INTO `authassignment` (`itemname`, `userid`, `bizrule`, `data`) VALUES
 ('admin', '1', NULL, 'N;'),
 ('RBAC Manager', '1', NULL, 'N;'),
+('student', '2', NULL, 'N;'),
 ('student', '4', NULL, 'N;'),
 ('teacher', '1', NULL, 'N;');
 
@@ -402,7 +403,7 @@ CREATE TABLE IF NOT EXISTS `course` (
 --
 
 INSERT INTO `course` (`course_code`, `name`, `category_id`, `description`, `datetime_created`, `last_modified`, `key_required`, `enrollment_key`) VALUES
-('cit4030', 'Introduction to Information Technology', 1, '', '2012-05-14 00:11:23', '2012-05-26 04:23:36', 0, ''),
+('CIT4030', 'Introduction to Information Technology', 1, '', '2012-05-14 00:11:23', '2012-05-26 04:23:36', 0, ''),
 ('MAT1001', 'College Mathematics', 1, '', '2012-05-26 04:28:26', NULL, 0, '');
 
 -- --------------------------------------------------------
@@ -423,8 +424,9 @@ CREATE TABLE IF NOT EXISTS `course_graded_work` (
 --
 
 INSERT INTO `course_graded_work` (`course_code`, `graded_work_id`) VALUES
-('cit4030', 1022),
-('cit4030', 1023),
+('CIT4030', 1022),
+('CIT4030', 1023),
+('CIT4030', 1039),
 ('MAT1001', 1024);
 
 -- --------------------------------------------------------
@@ -483,19 +485,21 @@ CREATE TABLE IF NOT EXISTS `graded_work` (
   `datetime_created` datetime NOT NULL,
   `created_by` varchar(32) NOT NULL,
   `description` varchar(255) DEFAULT NULL,
+  `max_raw_grade` decimal(10,5) DEFAULT NULL,
   PRIMARY KEY (`uid`),
   KEY `fk_grade_work_type` (`type`),
   KEY `fk_grade_work_creator` (`created_by`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1025 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1040 ;
 
 --
 -- Dumping data for table `graded_work`
 --
 
-INSERT INTO `graded_work` (`uid`, `title`, `type`, `datetime_created`, `created_by`, `description`) VALUES
-(1022, 'IT Mid Term Exam', 1001, '2012-05-27 18:55:36', '1', ''),
-(1023, 'ICT In Today''s Business Enviroment', 1003, '2012-05-28 00:30:13', '1', ''),
-(1024, 'Differentiation Quiz 1', 1005, '2012-05-28 00:52:18', '1', '');
+INSERT INTO `graded_work` (`uid`, `title`, `type`, `datetime_created`, `created_by`, `description`, `max_raw_grade`) VALUES
+(1022, 'IT Mid Term Exam', 1001, '2012-05-27 18:55:36', '1', '', NULL),
+(1023, 'ICT In Today''s Business Enviroment', 1003, '2012-05-28 00:30:13', '1', '', NULL),
+(1024, 'Differentiation Quiz 1', 1005, '2012-05-28 00:52:18', '1', '', NULL),
+(1039, 'Humand and Computers', 1005, '2012-05-29 23:08:39', '1', '', NULL);
 
 -- --------------------------------------------------------
 
@@ -583,8 +587,8 @@ CREATE TABLE IF NOT EXISTS `user` (
 --
 
 INSERT INTO `user` (`uid`, `first_name`, `middle_name`, `last_name`, `dob`, `email_address`, `password`, `phone1`, `phone2`, `active`, `deleted`, `datetime_created`, `last_action`, `last_modified`, `image_url`, `country_code`) VALUES
-('1', 'Dyonne', 'S', 'Duberry', '1989-06-28 00:00:00', 'deonsbedroom@gmail.com', '25d55ad283aa400af464c76d713c07ad', '8767904494', '', 1, 0, '2012-05-13 16:18:07', '2012-05-28 09:47:27', '2012-05-26 06:00:38', '1.jpg', 'JM'),
-('2', 'Dale', '', 'McFarlane', '1989-05-15 00:00:00', 'sync.mcfarlene@gmail.com', '25d55ad283aa400af464c76d713c07ad', '', '', 1, 0, '2012-05-13 22:29:59', NULL, '2012-05-24 06:50:30', '0801042.jpg', 'JM'),
+('1', 'Dyonne', 'S', 'Duberry', '1989-06-28 00:00:00', 'deonsbedroom@gmail.com', '25d55ad283aa400af464c76d713c07ad', '8767904494', '', 1, 0, '2012-05-13 16:18:07', '2012-05-30 07:28:36', '2012-05-26 06:00:38', '1.jpg', 'JM'),
+('2', 'Dale', '', 'McFarlane', '1989-05-15 00:00:00', 'sync.mcfarlene@gmail.com', '25d55ad283aa400af464c76d713c07ad', '', '', 1, 0, '2012-05-13 22:29:59', '2012-05-30 08:25:46', '2012-05-24 06:50:30', '0801042.jpg', 'JM'),
 ('4', 'Audley', 'A', 'Gordon', '1989-05-10 00:00:00', 'audleyagordon', '5f4dcc3b5aa765d61d8327deb882cf99', '', '', 1, 0, '2012-05-24 06:49:28', NULL, NULL, '0802218.jpg', 'JM');
 
 -- --------------------------------------------------------
@@ -609,7 +613,7 @@ CREATE TABLE IF NOT EXISTS `user_course_enrollment` (
 --
 
 INSERT INTO `user_course_enrollment` (`enrollment_id`, `user_id`, `course_code`, `enrolled_by`) VALUES
-(1053, '2', 'mat1001', '1');
+(1053, '2', 'CIT4030', '1');
 
 -- --------------------------------------------------------
 
@@ -618,31 +622,27 @@ INSERT INTO `user_course_enrollment` (`enrollment_id`, `user_id`, `course_code`,
 --
 
 CREATE TABLE IF NOT EXISTS `user_graded_work` (
-  `uid` bigint(20) NOT NULL AUTO_INCREMENT,
   `graded_work_id` bigint(20) NOT NULL,
   `user_id` varchar(32) NOT NULL,
-  PRIMARY KEY (`uid`),
-  UNIQUE KEY `unq_user_graded_work` (`graded_work_id`,`user_id`)
-) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=1001 ;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_graded_work_grade`
---
-
-CREATE TABLE IF NOT EXISTS `user_graded_work_grade` (
-  `user_graded_work_id` bigint(20) NOT NULL,
   `letter_grade_id` int(11) DEFAULT NULL,
   `raw_grade` decimal(10,5) DEFAULT NULL,
   `percent_grade` decimal(10,5) DEFAULT NULL,
   `graded_by` varchar(32) DEFAULT NULL,
   `datetime_entered` datetime DEFAULT NULL,
   `datetime_graded` datetime DEFAULT NULL,
-  PRIMARY KEY (`user_graded_work_id`),
-  KEY `fk_graded_work_grade_grader` (`graded_by`),
-  KEY `fk_graded_work_grade_letter` (`letter_grade_id`)
+  `graded_status` varchar(20) DEFAULT 'Pending',
+  PRIMARY KEY (`graded_work_id`,`user_id`),
+  KEY `fk_user_graded_work_grader` (`graded_by`),
+  KEY `fk_user_graded_work_letter` (`letter_grade_id`),
+  KEY `fk_user_graded_work_student` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `user_graded_work`
+--
+
+INSERT INTO `user_graded_work` (`graded_work_id`, `user_id`, `letter_grade_id`, `raw_grade`, `percent_grade`, `graded_by`, `datetime_entered`, `datetime_graded`, `graded_status`) VALUES
+(1039, '4', NULL, NULL, NULL, NULL, NULL, NULL, 'Pending');
 
 --
 -- Constraints for dumped tables
@@ -703,12 +703,13 @@ ALTER TABLE `user_course_enrollment`
   ADD CONSTRAINT `fk_user_course_en_user` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE CASCADE;
 
 --
--- Constraints for table `user_graded_work_grade`
+-- Constraints for table `user_graded_work`
 --
-ALTER TABLE `user_graded_work_grade`
-  ADD CONSTRAINT `fk_graded_work_grade_letter` FOREIGN KEY (`letter_grade_id`) REFERENCES `letter_grade` (`uid`) ON DELETE SET NULL ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_graded_work_grade_grader` FOREIGN KEY (`graded_by`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE CASCADE,
-  ADD CONSTRAINT `fk_user_graded_work_grade` FOREIGN KEY (`user_graded_work_id`) REFERENCES `user_graded_work` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
+ALTER TABLE `user_graded_work`
+  ADD CONSTRAINT `fk_user_graded_work_grader` FOREIGN KEY (`graded_by`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_user_graded_work_letter` FOREIGN KEY (`letter_grade_id`) REFERENCES `letter_grade` (`uid`) ON DELETE SET NULL ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_user_graded_work_student` FOREIGN KEY (`user_id`) REFERENCES `user` (`uid`) ON DELETE NO ACTION ON UPDATE CASCADE,
+  ADD CONSTRAINT `fk_user_graded_work_work` FOREIGN KEY (`graded_work_id`) REFERENCES `graded_work` (`uid`) ON DELETE CASCADE ON UPDATE CASCADE;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
