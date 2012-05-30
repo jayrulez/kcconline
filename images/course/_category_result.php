@@ -1,7 +1,7 @@
 		<div class="mbm detailedsearch_result">
 			<div class="clearfix uiImageBlock">
 				<a class="uiImageBlockImage uiImageBlockSmallImage lfloat" href="">
-					<?php echo CHtml::image(Yii::app()->baseUrl.'/images/category/default.png','*');?>
+					<img class="img" src="" alt="" width="50" height="50">
 				</a>
 				<div class="clearfix uiImageBlockContent uiImageBlockSmallContent">
 					<a class="rfloat uiButton" href="#">

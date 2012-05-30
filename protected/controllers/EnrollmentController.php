@@ -68,14 +68,11 @@ class EnrollmentController extends AuthenticatedController
 					{
 						$transaction->commit();
 						$userCourseEnrollmentModel->refresh();
-						$courseModel->refresh();
 						
 						Yii::app()->user->setFlash('success', strtr('The Student was Enrolled in {course_code} assigned successfully.',array('{course_code}'=>$courseModel->course_code)));
 						
-						$this->render('//site/_after_action_status',
-								array('model'=>$enrollmentModel,
-										'attributes'=>array('uid','enroll_startdatetime','enroll_enddatetime'),
-										'message'=>'The Student was enrolled successfully.'));
+						$this->render('view',array(
+								'model'=>$userCourseEnrollmentModel));
 						Yii::app()->end();
 					}
 					else

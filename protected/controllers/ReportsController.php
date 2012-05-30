@@ -1,35 +1,36 @@
 <?php
 
-class CourseController extends Controller
+class ReportsController extends AuthenticatedController
 {
 	public function init()
 	{
 		parent::init();
-		if(!Yii::app()->getUser()->getIsGuest())
+		if(!Yii::app()->user->hasRole('teacher'))
 		{
-			Layout::addBlock('sidebar.left', array(
-					'id'=>'profile_sidebar',
-					'content'=>$this->widget('ProfileWidget', array('userModel'=>Yii::app()->getUser()->getModel()), true),
-			));
+			$this->redirect(array('/site/index'));
 		}
+
+		Layout::addBlock('sidebar.left', array(
+				'id'=>'profile_sidebar',
+				'content'=>$this->widget('ProfileWidget', array('userModel'=>Yii::app()->getUser()->getModel()), true),
+		));
 	}
 	public function actionIndex()
 	{
 
 		if(Yii::app()->getUser()->hasRole('teacher'))
 		{
-			$instructedRecords = CourseInstructor::model()->with('course')->findAllByAttributes(array('user_id'=>Yii::app()->getUser()->getId()));
-			$this->render('_teacher_instructed_view',array('instructedRecords'=>$instructedRecords));
+
 		}
 		else if(Yii::app()->getUser()->hasRole('student'))
 		{
-			$enrolledRecords = UserCourseEnrollment::model()->with('course')->findAllByAttributes(array('user_id'=>Yii::app()->getUser()->getId()));
-			$this->render('_student_enrolled_view',array('enrolledRecords'=>$enrolledRecords));
+
 		}
 		else
 		{
 			$this->render('//misc/unavailable',array('messageTitle'=>"Page Not Found",'message'=>'The page you requested could not be found.'));
 		}
+		$this->render('index');
 	}
 
 	public function actionView()

@@ -4,12 +4,14 @@
  * This is the model class for table "user_graded_work".
  *
  * The followings are the available columns in table 'user_graded_work':
- * @property string $uid
  * @property string $graded_work_id
  * @property string $user_id
- *
- * The followings are the available model relations:
- * @property UserGradedWorkGrade $userGradedWorkGrade
+ * @property integer $letter_grade_id
+ * @property string $raw_grade
+ * @property string $percent_grade
+ * @property string $graded_by
+ * @property string $datetime_entered
+ * @property string $datetime_graded
  */
 class UserGradedWork extends CActiveRecord
 {
@@ -40,11 +42,14 @@ class UserGradedWork extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('graded_work_id, user_id', 'required'),
+			array('letter_grade_id', 'numerical', 'integerOnly'=>true),
 			array('graded_work_id', 'length', 'max'=>20),
-			array('user_id', 'length', 'max'=>32),
+			array('user_id, graded_by', 'length', 'max'=>32),
+			array('raw_grade, percent_grade', 'length', 'max'=>10),
+			array('datetime_entered, datetime_graded', 'safe'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('uid, graded_work_id, user_id', 'safe', 'on'=>'search'),
+			array('graded_work_id, user_id, letter_grade_id, raw_grade, percent_grade, graded_by, datetime_entered, datetime_graded', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -56,7 +61,10 @@ class UserGradedWork extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'userGradedWorkGrade' => array(self::HAS_ONE, 'UserGradedWorkGrade', 'user_graded_work_id'),
+				'gradedWork'=>array(self::BELONGS_TO,'GradedWork','graded_work_id'),
+				'student'=>array(self::BELONGS_TO,'User','user_id'),
+				'gradedBy'=>array(self::BELONGS_TO,'User','graded_by')
+				
 		);
 	}
 
@@ -66,9 +74,14 @@ class UserGradedWork extends CActiveRecord
 	public function attributeLabels()
 	{
 		return array(
-			'uid' => 'Uid',
-			'graded_work_id' => 'Graded Work',
-			'user_id' => 'User',
+			'graded_work_id' => 'Graded Work ID',
+			'user_id' => 'Student ID',
+			'letter_grade_id' => 'Letter Grade',
+			'raw_grade' => 'Raw Grade',
+			'percent_grade' => 'Percent Grade',
+			'graded_by' => 'Graded By',
+			'datetime_entered' => 'Datetime Entered',
+			'datetime_graded' => 'Datetime Graded',
 		);
 	}
 
@@ -83,9 +96,14 @@ class UserGradedWork extends CActiveRecord
 
 		$criteria=new CDbCriteria;
 
-		$criteria->compare('uid',$this->uid,true);
 		$criteria->compare('graded_work_id',$this->graded_work_id,true);
 		$criteria->compare('user_id',$this->user_id,true);
+		$criteria->compare('letter_grade_id',$this->letter_grade_id);
+		$criteria->compare('raw_grade',$this->raw_grade,true);
+		$criteria->compare('percent_grade',$this->percent_grade,true);
+		$criteria->compare('graded_by',$this->graded_by,true);
+		$criteria->compare('datetime_entered',$this->datetime_entered,true);
+		$criteria->compare('datetime_graded',$this->datetime_graded,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

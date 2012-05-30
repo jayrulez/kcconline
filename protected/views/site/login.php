@@ -14,8 +14,8 @@ $this->pageTitle=Yii::t('application', 'Login');
 					<?php echo CHtml::errorSummary($form); ?>
 					<fieldset class="top">
 						<div class="row top clearfix">
-							<?php echo CHtml::activeLabel($form,'email_address'); ?>
-							<?php echo CHtml::activeTextField($form,'email_address'); ?>
+							<?php echo CHtml::activeLabel($form,'idNumber'); ?>
+							<?php echo CHtml::activeTextField($form,'idNumber'); ?>
 						</div>
 						<div class="row clearfix">
 							<?php echo CHtml::activeLabel($form,'password'); ?>

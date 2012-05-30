@@ -7,7 +7,7 @@
  */
 class LoginForm extends CFormModel
 {
-	public $email_address;
+	public $idNumber;
 	public $password;
 	public $rememberMe;
 
@@ -20,7 +20,7 @@ class LoginForm extends CFormModel
 	{
 		return array(
 			// username and password are required
-			array('email_address, password', 'required'),
+			array('idNumber, password', 'required'),
 			array('rememberMe', 'boolean'),
 		);
 	}
@@ -31,6 +31,7 @@ class LoginForm extends CFormModel
 	public function attributeLabels()
 	{
 		return array(
+			'idNumber'=>'ID Number',
 			'rememberMe'=>'Remember me next time',
 		);
 	}
@@ -50,18 +51,18 @@ class LoginForm extends CFormModel
 		
 		if(!$this->hasErrors())
 		{
-			$identity = Yii::app()->user->getIdentityInstance($this->email_address, $this->password);
+			$identity = Yii::app()->user->getIdentityInstance($this->idNumber, $this->password);
 			
 			if(!$identity->authenticate())
 			{
-				if($identity->errorCode === $identity::ERROR_EMAIL_INVALID)
+				if($identity->errorCode === $identity::ERROR_ID_NUMBER_INVALID)
 				{
-					$this->addError("email_address", "The email address was not found.");
+					$this->addError("idNumber", "The ID Number was not found.");
 				}else if($identity->errorCode === $identity::ERROR_PASSWORD_INVALID)
 				{
 					$this->addError("password", "Password is incorrect.");
 				}else{
-					$this->addError("email_address", "Cannot access your account at this time, please try again later or contact the site admin if the problem persists.");
+					$this->addError("idNumber", "Cannot access your account at this time, please try again later or contact the site admin if the problem persists.");
 				}
 				return false;
 			}
@@ -72,11 +73,11 @@ class LoginForm extends CFormModel
 		}
 	}
 	
-	public function quickLogin($emailAddress, $password, $rememberMe = true)
+	public function quickLogin($idNumber, $password, $rememberMe = true)
 	{
 		$form = new self;
 		
-		$form->email_address = $emailAddress;
+		$form->idNumber = $idNumber;
 		$form->password = $password;
 		$form->rememberMe = $rememberMe;
 		
