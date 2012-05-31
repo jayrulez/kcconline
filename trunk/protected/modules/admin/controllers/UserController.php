@@ -36,11 +36,11 @@ class UserController extends AdminController
 		if(isset($_POST['User']))
 		{
 			$model->attributes=$_POST['User'];
-			var_dump($model->active);die();
+			//var_dump($model->active);die();
 			$image=CUploadedFile::getInstance($model,'image_url');
 			if(!$image->getHasError())
 			{
-				$model->image_url = $model->user_id.'.'.$image->extensionName;
+				$model->image_url = $model->uid.'.'.$image->extensionName;
 			}
 			if($model->save())
 			{
